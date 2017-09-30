@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class PostsController extends Controller
 {
@@ -23,7 +25,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -34,7 +36,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -80,5 +82,12 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function storeImageAjax(Request $request){
+
+        $path = $request->file('file')->store('image');
+
+        return response()->json(["success" => true, "path" => $path]);
     }
 }

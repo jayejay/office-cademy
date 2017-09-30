@@ -19,3 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Post
+Route::get('/admin/posts/create', 'PostsController@create')->name('posts.create');
+Route::post('/admin/posts/store', 'PostsController@store')->name('posts.store');
+Route::post('/admin/posts/store_image', 'PostsController@storeImageAjax')->name('posts.store_image');
