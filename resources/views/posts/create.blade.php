@@ -26,7 +26,6 @@
                             <label class="btn btn-default btn-sm">
                                 Browse <input id="image" name="image" type="file" multiple="multiple" hidden>
                             </label>
-                            {{--<input class="form-control" type="file" id="image" name="image">--}}
                         </div>
                     </li>
                     <li>

@@ -5,14 +5,11 @@ $(document).ready(function () {
     //Add image to post body
     $(document).on('change', '#image', function () {
 
-        // var image = $('#image').prop('files');
         var formData = new FormData();
 
         for(var i=0; i < $(this).get(0).files.length; i++ ){
             formData.append('files['+ i +']', $(this).get(0).files[i]);
         }
-
-        // formData.append('file', image);
 
         $.ajax({
             headers: {
@@ -28,11 +25,11 @@ $(document).ready(function () {
             cache: false,
             timeout: 600000,
             success: function (data) {
-                for(var i=0; i<data.path.length ; i++){
+                for(var i=0; i < data.path.length ; i++){
                     var newContent = '<img src="' + data.path[i] +'" class="img-responsive">';
                     addNewContent(newContent);
-                    $('#image').val('');
                 }
+                $('#image').val('');
             }
         });
     });
