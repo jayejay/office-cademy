@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Storage;
 
 class PostsController extends Controller
 {
@@ -86,7 +87,13 @@ class PostsController extends Controller
 
     public function storeImageAjax(Request $request){
 
-        $path = $request->file('file')->store('image');
+        $files = $request->file('files');
+
+        $path = [];
+
+        foreach ($files as $file){
+            $path[] = asset($file->store('images'));
+        }
 
         return response()->json(["success" => true, "path" => $path]);
     }
