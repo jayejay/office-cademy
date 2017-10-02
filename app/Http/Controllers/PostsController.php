@@ -26,7 +26,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $post = new Post();
+        return view('posts.create', ['post' => $post]);
     }
 
     /**
@@ -57,9 +58,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        //todo: change view
+        return view('posts.create', ['post' => $post]);
+
     }
 
     /**
