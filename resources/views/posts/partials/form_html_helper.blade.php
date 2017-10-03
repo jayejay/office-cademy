@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                @include('posts.parts.form')            
+                @include('posts.partials.form')            
             </div>
             <div class="col-md-4">
                 <ul class="ul_html_tags">
