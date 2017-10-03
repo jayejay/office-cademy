@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var textarea = $('#textarea');
+    var textarea = $('#body');
     textarea.focus();
     //Add image to post body
     $(document).on('change', '#image', function () {
