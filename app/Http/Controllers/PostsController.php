@@ -60,9 +60,14 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        //todo: change view
-        return view('posts.create', ['post' => $post]);
+        $tags = $post->tags;
 
+        $post_tag_array = [];
+        //getting the related tag_ids of a certain post
+        foreach($tags as $tag){
+            $post_tag_array[] = $tag->pivot->tag_id;
+        }
+        return view('posts.edit', ['post' => $post, 'post_tag_array' => $post_tag_array]);
     }
 
     /**
@@ -72,9 +77,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        dd($request->all());
     }
 
     /**

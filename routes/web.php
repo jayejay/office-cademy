@@ -24,4 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/posts/create', 'PostsController@create')->name('posts.create');
 Route::get('/admin/posts/edit/{post}', 'PostsController@edit')->name('posts.edit');
 Route::post('/admin/posts/store', 'PostsController@store')->name('posts.store');
+Route::patch('/admin/posts/update/{post}', 'PostsController@update')->name('posts.update');
+//Route::resource('posts', 'PostsController');
+
 Route::post('/admin/posts/store_image', 'PostsController@storeImageAjax')->name('posts.store_image');
