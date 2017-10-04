@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Storage;
@@ -27,7 +28,8 @@ class PostsController extends Controller
     public function create()
     {
         $post = new Post();
-        return view('posts.create', ['post' => $post]);
+        $tags = Tag::all();
+        return view('posts.create', ['post' => $post, 'tags' => $tags]);
     }
 
     /**
@@ -60,14 +62,14 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        $tags = $post->tags;
-
-        $post_tag_array = [];
+        $postTags = $post->tags;
+        $tags = Tag::all();
+        $postTagArray = [];
         //getting the related tag_ids of a certain post
-        foreach($tags as $tag){
-            $post_tag_array[] = $tag->pivot->tag_id;
+        foreach($postTags as $tag){
+            $postTagArray[] = $tag->pivot->tag_id;
         }
-        return view('posts.edit', ['post' => $post, 'post_tag_array' => $post_tag_array]);
+        return view('posts.edit', ['post' => $post, 'tags' => $tags, 'postTagArray' => $postTagArray]);
     }
 
     /**

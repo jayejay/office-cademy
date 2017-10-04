@@ -26,8 +26,8 @@
                 <hr>
                 <h5>Tags</h5>
                 <select name="tags[]" class="selectpicker" multiple data-actions-box="true" form="post_form">
-                    @foreach(old('tags', $post->tags) as $tag)
-                        <option value="{{ $tag->id }}" @if(in_array($tag->id, $post_tag_array))selected @endif >{{ $tag->tag }}</option>
+                    @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}" @if(in_array($tag->id, isset($postTagArray) ? $postTagArray : []))selected @endif >{{ $tag->tag }}</option>
                     @endforeach
                 </select>
                 <hr>
