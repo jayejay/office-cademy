@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             'role_id' => 1
         ]);
 
-        factory(App\User::class, 5)->make();
+//        factory(App\User::class, 11)->create();
 
     }
 }

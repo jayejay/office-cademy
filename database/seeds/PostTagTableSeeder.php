@@ -11,6 +11,5 @@ class PostTagTableSeeder extends Seeder
      */
     public function run()
     {
-        //
     }
 }

@@ -17,11 +17,12 @@ $factory->define(App\Post::class, function (Faker $faker) {
 
     return [
         'title' => $faker->text(30),
-        'body' => $faker->text(250),
+        'body' => $faker->realText(250),
         'active' => $faker->boolean,
         'user_id' => function () {
             return factory(App\User::class)->create()->id;
         },
+        'published_at' => $faker->dateTime(),
         'category_id' => 1,
     ];
 });
