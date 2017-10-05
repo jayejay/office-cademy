@@ -57,19 +57,20 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Post  $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
     {
         $postTags = $post->tags;
         $tags = Tag::all();
-        $postTagArray = [];
+        $postTagsArray = [];
+
         //getting the related tag_ids of a certain post
         foreach($postTags as $tag){
-            $postTagArray[] = $tag->pivot->tag_id;
+            $postTagsArray[] = $tag->pivot->tag_id;
         }
-        return view('posts.edit', ['post' => $post, 'tags' => $tags, 'postTagArray' => $postTagArray]);
+        return view('posts.edit', ['post' => $post, 'tags' => $tags, 'postTagsArray' => $postTagsArray]);
     }
 
     /**

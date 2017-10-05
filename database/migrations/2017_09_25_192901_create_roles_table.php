@@ -16,7 +16,6 @@ class CreateRolesTable extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('role');
-            $table->timestamps();
         });
     }
 
@@ -27,6 +26,8 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('roles');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
