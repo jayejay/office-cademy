@@ -42,7 +42,7 @@ $(document).ready(function () {
 
     //Preview
     $(document).on('click', '#preview_button', function () {
-       $('.modal-body').html($('#textarea').val());
+       $('.modal-body').html($('#body').val());
     });
 
     //Add new content to textarea
