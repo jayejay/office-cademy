@@ -25,6 +25,8 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js
         "></script>
+        <script src=" {{ asset('js/scripts.js') }} ">
+        </script>
         @stack('scripts')
 </head>
 <body>
@@ -55,6 +57,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{route('posts.index')}}">Posts</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>

@@ -26,10 +26,38 @@
                 <h5>HTML-Tags</h5>
                 @include('posts.partials.html_helper')
                 <hr>
+                <h5>Category</h5>
+                <select name="category" id="category" class="selectpicker" form="post-form">
+                    @if(!isset($post->category))
+                        <option value="" disabled selected>Please select</option>
+                    @endif
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}"
+                                @if ($category->id == old('category_id', $post->category_id))
+                                selected="selected"
+                                @endif
+                        >{{ $category->category }}</option>
+                    @endforeach
+                </select>
+                <hr>
                 <h5>Tags</h5>
                 <select name="tags[]" class="selectpicker" multiple data-actions-box="true" form="post-form">
                     @foreach($tags as $tag)
                         <option value="{{ $tag->id }}" @if(in_array($tag->id, isset($postTagsArray) ? $postTagsArray : []))selected @endif >{{ $tag->tag }}</option>
+                    @endforeach
+                </select>
+                <hr>
+                <h5>Author</h5>
+                <select name="user" id="user" class="selectpicker" form="post-form">
+                    @if(!isset($post->user))
+                    <option value="" disabled selected>Please select</option>
+                    @endif
+                    @foreach($users as $user)
+                        <option value="{{$user->id}}"
+                                @if ($user->id == old('user_id', $post->user_id))
+                                    selected="selected"
+                                @endif
+                        >{{ $user->name . ' ' . $user->lastname }}</option>
                     @endforeach
                 </select>
                 <hr>

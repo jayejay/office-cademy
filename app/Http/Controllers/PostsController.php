@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Session;
@@ -31,7 +33,15 @@ class PostsController extends Controller
     {
         $post = new Post();
         $tags = Tag::all();
-        return view('posts.create', ['post' => $post, 'tags' => $tags]);
+        $categories = Category::all();
+        $users = User::all();
+        return view('posts.create', [
+            'post' => $post,
+            'tags' => $tags,
+            'users' => $users,
+            'categories' => $categories
+            ]
+        );
     }
 
     /**
@@ -87,13 +97,21 @@ class PostsController extends Controller
     {
         $postTags = $post->tags;
         $tags = Tag::all();
+        $categories = Category::all();
+        $users = User::all();
         $postTagsArray = [];
 
         //getting the related tag_ids of a certain post
         foreach($postTags as $tag){
             $postTagsArray[] = $tag->pivot->tag_id;
         }
-        return view('posts.edit', ['post' => $post, 'tags' => $tags, 'postTagsArray' => $postTagsArray]);
+        return view('posts.edit', [
+            'post' => $post,
+            'tags' => $tags,
+            'postTagsArray' => $postTagsArray,
+            'users' => $users,
+            'categories' => $categories
+        ]);
     }
 
     /**
