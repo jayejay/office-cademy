@@ -84,8 +84,10 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        <div class="container">
+            @include('layouts.partials.flash_messages')
+            @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->

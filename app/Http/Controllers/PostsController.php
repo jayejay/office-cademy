@@ -6,6 +6,7 @@ use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Session;
 use Storage;
 
 class PostsController extends Controller
@@ -17,7 +18,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('posts.index',['posts' => $posts]);
     }
 
     /**
@@ -40,7 +42,28 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
 
+        $request->validate([
+           'title' => 'required|unique:posts|max:255',
+           'body' => 'required',
+        ]);
+
+        $post = new Post();
+
+        $post->title = $request->title;
+        $post->body = $request->body;
+        //Todo user_id and category_id should be selectable
+        $post->user_id = 1;
+        $post->category_id = 1;
+
+        if($post->save()){
+            Session::flash('flash_message', 'Post has been created');
+        }
+
+        $post->tags()->attach($request->tags);
+
+        return redirect()->route('posts.show', ['post' => $post->id]);
     }
 
     /**
@@ -49,9 +72,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('posts.show', ['post' => $post]);
     }
 
     /**
@@ -91,9 +114,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        if($post->delete()){
+            Session::flash('flash_message', 'Post deleted');
+        }
+
+        return redirect()->route('posts.index');
     }
 
     public function storeImageAjax(Request $request){
