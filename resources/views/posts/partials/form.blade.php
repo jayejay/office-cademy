@@ -40,6 +40,12 @@
                     @endforeach
                 </select>
                 <hr>
+                <h5>Course Number</h5>
+                <input name="course" type="text" class="form-control" placeholder="Course Number" form="post-form">
+                <hr>
+                <h5>Chapter</h5>
+                <input name="chapter" type="text" class="form-control" placeholder="Chapter" form="post-form">
+                <hr>
                 <h5>Tags</h5>
                 <select name="tags[]" class="selectpicker" multiple data-actions-box="true" form="post-form">
                     @foreach($tags as $tag)

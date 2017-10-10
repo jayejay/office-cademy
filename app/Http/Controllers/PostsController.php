@@ -7,9 +7,8 @@ use App\Post;
 use App\Tag;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Session;
-use Storage;
+use Illuminate\Validation\Rule;
 
 class PostsController extends Controller
 {
@@ -22,6 +21,15 @@ class PostsController extends Controller
     {
         $posts = Post::all();
         return view('posts.index',['posts' => $posts]);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function adminIndex()
+    {
+        $posts = Post::all();
+        return view('posts.admin_index',['posts' => $posts]);
     }
 
     /**
@@ -39,7 +47,7 @@ class PostsController extends Controller
             'post' => $post,
             'tags' => $tags,
             'users' => $users,
-            'categories' => $categories
+            'categories' => $categories,
             ]
         );
     }
@@ -56,7 +64,9 @@ class PostsController extends Controller
             'title' => 'required|unique:posts|max:255',
             'body' => 'required',
             'category_id' => 'required',
-            'user_id' => 'required'
+            'user_id' => 'required',
+            'course' => 'required',
+            'chapter' => 'required'
         ]);
 
         $post = new Post();
@@ -123,10 +133,12 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required|unique:posts|max:255',
+            'title' => ['required', 'max:255', Rule::unique('posts')->ignore($post->id)],
             'body' => 'required',
             'category_id' => 'required',
-            'user_id' => 'required'
+            'user_id' => 'required',
+            'course' => 'required',
+            'chapter' => 'required'
         ]);
 
         $post->title = $request->title;
@@ -135,7 +147,7 @@ class PostsController extends Controller
         $post->category_id = $request->category_id;
 
         if($post->save()){
-            Session::flash('flash_message', 'Post has been created');
+            Session::flash('flash_message', 'Post has been updated');
         }
 
         $post->tags()->sync($request->tags);

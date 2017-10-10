@@ -57,7 +57,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{route('posts.index')}}">Posts</a></li>
+                        <li><a href="{{route('posts.admin.index')}}">Posts</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -89,6 +89,7 @@
         </nav>
         <div class="container">
             @include('layouts.partials.flash_messages')
+            @include('layouts.partials.errors')
             @yield('content')
         </div>
     </div>

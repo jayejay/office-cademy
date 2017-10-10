@@ -24,5 +24,10 @@ $factory->define(App\Post::class, function (Faker $faker) {
         },
         'published_at' => $faker->dateTime(),
         'category_id' => 1,
+        'course_id' => 1,
+        'chapter_id' => function(){
+            return factory(App\Chapter::class)->create()->id;
+        }
+
     ];
 });
