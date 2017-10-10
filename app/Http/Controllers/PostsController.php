@@ -52,20 +52,19 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
         $request->validate([
-           'title' => 'required|unique:posts|max:255',
-           'body' => 'required',
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+            'category_id' => 'required',
+            'user_id' => 'required'
         ]);
 
         $post = new Post();
 
         $post->title = $request->title;
         $post->body = $request->body;
-        //Todo user_id and category_id should be selectable
-        $post->user_id = 1;
-        $post->category_id = 1;
+        $post->user_id = $request->user_id;
+        $post->category_id = $request->category_id;
 
         if($post->save()){
             Session::flash('flash_message', 'Post has been created');
@@ -79,7 +78,7 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -118,18 +117,36 @@ class PostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Post  $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
     {
-        dd($request->all());
+        $request->validate([
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+            'category_id' => 'required',
+            'user_id' => 'required'
+        ]);
+
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = $request->user_id;
+        $post->category_id = $request->category_id;
+
+        if($post->save()){
+            Session::flash('flash_message', 'Post has been created');
+        }
+
+        $post->tags()->sync($request->tags);
+
+        return redirect()->route('posts.show', ['post' => $post->id]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)

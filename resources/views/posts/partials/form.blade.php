@@ -27,7 +27,7 @@
                 @include('posts.partials.html_helper')
                 <hr>
                 <h5>Category</h5>
-                <select name="category" id="category" class="selectpicker" form="post-form">
+                <select name="category_id" id="category" class="selectpicker" form="post-form">
                     @if(!isset($post->category))
                         <option value="" disabled selected>Please select</option>
                     @endif
@@ -48,7 +48,7 @@
                 </select>
                 <hr>
                 <h5>Author</h5>
-                <select name="user" id="user" class="selectpicker" form="post-form">
+                <select name="user_id" id="user" class="selectpicker" form="post-form">
                     @if(!isset($post->user))
                     <option value="" disabled selected>Please select</option>
                     @endif
