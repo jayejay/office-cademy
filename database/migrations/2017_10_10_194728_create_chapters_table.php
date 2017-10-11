@@ -18,11 +18,6 @@ class CreateChaptersTable extends Migration
             $table->string('chapter');
             $table->timestamps();
         });
-        //Todo: Foreign key is not created
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('chapter_id')->unsigned();
-            $table->foreign('chapter_id')->references('id')->on('chapters');
-        });
     }
 
     /**
@@ -32,10 +27,7 @@ class CreateChaptersTable extends Migration
      */
     public function down()
     {
-//        Schema::table('posts', function (Blueprint $table) {
-//            $table->dropForeign('chapter_id');
-//            $table->dropColumn('chapter_id');
-//        });
+
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('chapters');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');

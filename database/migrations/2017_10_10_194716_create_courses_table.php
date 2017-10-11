@@ -18,12 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('course');
             $table->timestamps();
         });
-        //Todo: Foreign key is not created
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('courses');
-        });
-    }
+}
 
     /**
      * Reverse the migrations.
@@ -32,10 +27,7 @@ class CreateCoursesTable extends Migration
      */
     public function down()
     {
-//        Schema::table('posts', function (Blueprint $table) {
-//            $table->dropForeign('course_id');
-//            $table->dropColumn('course_id');
-//        });
+
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('courses');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
