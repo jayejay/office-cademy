@@ -41,10 +41,23 @@
                 </select>
                 <hr>
                 <h5>Course Number</h5>
-                <input name="course" type="text" class="form-control" placeholder="Course Number" form="post-form">
+                <input name="course_id" type="text" class="form-control" placeholder="Course Number"
+                       form="post-form" value="{{old('course_id', $post->course_id)}}">
                 <hr>
                 <h5>Chapter</h5>
-                <input name="chapter" type="text" class="form-control" placeholder="Chapter" form="post-form">
+                <input name="chapter_id" type="text" class="form-control" placeholder="Chapter"
+                       form="post-form" value="{{old('chapter_id', $post->chapter_id)}}">
+                <hr>
+                <h5>Language</h5>
+                <select name="language_id" class="selectpicker" id="language" form="post-form">
+                    @foreach($languages as $language)
+                        <option value="{{$language->id}}"
+                                @if ($language->id == old('language_id', $post->language_id))
+                                selected="selected"
+                                @endif
+                        >{{ $language->language }}</option>
+                    @endforeach
+                </select>
                 <hr>
                 <h5>Tags</h5>
                 <select name="tags[]" class="selectpicker" multiple data-actions-box="true" form="post-form">

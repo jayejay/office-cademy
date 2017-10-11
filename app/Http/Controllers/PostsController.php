@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Language;
 use App\Post;
 use App\Tag;
 use App\User;
@@ -43,11 +44,13 @@ class PostsController extends Controller
         $tags = Tag::all();
         $categories = Category::all();
         $users = User::all();
+        $languages = Language::all();
         return view('posts.create', [
             'post' => $post,
             'tags' => $tags,
             'users' => $users,
             'categories' => $categories,
+            'languages' => $languages
             ]
         );
     }
@@ -60,29 +63,41 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
-            'category_id' => 'required',
-            'user_id' => 'required',
-            'course' => 'required',
-            'chapter' => 'required'
-        ]);
+        try {
 
-        $post = new Post();
+            $request->validate([
+                'title' => 'required|unique:posts|max:255',
+                'body' => 'required',
+                'category_id' => 'required',
+                'user_id' => 'required',
+                'course_id' => 'required',
+                'chapter_id' => 'required',
+                'language_id' => 'required'
+            ]);
 
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->user_id = $request->user_id;
-        $post->category_id = $request->category_id;
 
-        if($post->save()){
-            Session::flash('flash_message', 'Post has been created');
-        }
+            $post = new Post();
 
-        $post->tags()->attach($request->tags);
+            $post->title = $request->title;
+            $post->body = $request->body;
+            $post->user_id = $request->user_id;
+            $post->category_id = $request->category_id;
+            $post->language_id = $request->language_id;
+            $post->course_id = $request->course_id;
+            $post->chapter_id = $request->chapter_id;
 
-        return redirect()->route('posts.show', ['post' => $post->id]);
+            if ($post->save()) {
+                Session::flash('flash_message', 'Post has been created');
+            }
+
+            $post->tags()->attach($request->tags);
+
+            return redirect()->route('posts.show', ['post' => $post->id]);
+
+            }catch(\Exception $e) {
+                Session::flash('error', $e->getMessage());
+            }
+
     }
 
     /**
@@ -108,6 +123,7 @@ class PostsController extends Controller
         $tags = Tag::all();
         $categories = Category::all();
         $users = User::all();
+        $languages = Language::all();
         $postTagsArray = [];
 
         //getting the related tag_ids of a certain post
@@ -119,7 +135,8 @@ class PostsController extends Controller
             'tags' => $tags,
             'postTagsArray' => $postTagsArray,
             'users' => $users,
-            'categories' => $categories
+            'categories' => $categories,
+            'languages' => $languages
         ]);
     }
 
@@ -132,28 +149,39 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $request->validate([
-            'title' => ['required', 'max:255', Rule::unique('posts')->ignore($post->id)],
-            'body' => 'required',
-            'category_id' => 'required',
-            'user_id' => 'required',
-            'course' => 'required',
-            'chapter' => 'required'
-        ]);
+        try {
+            $request->validate([
+                'title' => ['required', 'max:255', Rule::unique('posts')->ignore($post->id)],
+                'body' => 'required',
+                'category_id' => 'required',
+                'user_id' => 'required',
+                'course_id' => 'required',
+                'chapter_id' => 'required',
+                'language_id' => 'required'
+            ]);
 
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->user_id = $request->user_id;
-        $post->category_id = $request->category_id;
+            $post->title = $request->title;
+            $post->body = $request->body;
+            $post->user_id = $request->user_id;
+            $post->category_id = $request->category_id;
+            $post->course_id = $request->course_id;
+            $post->chapter_id = $request->chapter_id;
+            $post->language_id = $request->language_id;
 
-        if($post->save()){
-            Session::flash('flash_message', 'Post has been updated');
+            if ($post->save()) {
+                Session::flash('flash_message', 'Post has been updated');
+            }
+
+            $post->tags()->sync($request->tags);
+
+            return redirect()->route('posts.show', ['post' => $post->id]);
+
+        }catch (\Exception $e) {
+            Session::flash('error', $e->getMessage());
+            return redirect()->route('posts.edit', ['post' => $post->id]);
         }
 
-        $post->tags()->sync($request->tags);
-
-        return redirect()->route('posts.show', ['post' => $post->id]);
-    }
+}
 
     /**
      * Remove the specified resource from storage.

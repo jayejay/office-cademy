@@ -37,4 +37,8 @@ class Post extends Model
 
     }
 
+    public function language(){
+        return $this->belongsTo('App\Language');
+    }
+
 }

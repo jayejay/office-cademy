@@ -27,7 +27,8 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'course_id' => 1,
         'chapter_id' => function(){
             return factory(App\Chapter::class)->create()->id;
-        }
+        },
+        'language_id' => 1
 
     ];
 });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnLanguageToPosts extends Migration
+class AddColumnLanguageIdToPosts extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class AddColumnLanguageToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('language');
+            $table->integer('language_id')->unsigned();
+            $table->foreign('language_id')->references('id')->on('languages');;
         });
     }
 
@@ -26,7 +27,8 @@ class AddColumnLanguageToPosts extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('language');
+            $table->dropForeign(['language_id']);
+            $table->dropColumn('language_id');
         });
     }
 }

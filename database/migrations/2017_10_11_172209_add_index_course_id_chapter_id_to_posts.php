@@ -25,8 +25,10 @@ class AddIndexCourseIdChapterIdToPosts extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropIndex(['chapter_id', 'course_id']);
+            $table->dropUnique(['chapter_id', 'course_id']);
         });
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
