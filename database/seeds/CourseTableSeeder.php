@@ -13,10 +13,12 @@ class CourseTableSeeder extends Seeder
     {
         DB::table('courses')->insert([
             'course' => 'Excel Beginner',
+            'category_id' => 1
         ]);
 
         DB::table('courses')->insert([
             'course' => 'Excel Advanced',
+            'category_id' => 1
         ]);
 
     }

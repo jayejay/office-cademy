@@ -6,5 +6,6 @@ $factory->define(App\Chapter::class, function (Faker $faker) {
 
     return [
         'chapter' => $faker->text(30),
+        'course_id' => 1
     ];
 });
