@@ -26,7 +26,10 @@ $(document).ready(function () {
             timeout: 600000,
             success: function (data) {
                 for(var i=0; i < data.path.length ; i++){
-                    var newContent = '<img src="' + data.path[i] +'" class="img-responsive">';
+                    var newContent = '' +
+                        '<div class="pics" style="width: 100%">' +
+                            '<img src="' + data.path[i] +'" class="img-responsive">' +
+                        '</div>';
                     addNewContent(newContent);
                 }
                 $('#image').val('');

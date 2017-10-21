@@ -10,27 +10,19 @@
 
         <title>{{ config('app.name', 'Officecademy') }}</title>
 
-        <!-- Styles -->
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @include('layouts/partials/head/css')
         @stack('styles')
 
-        <!-- scripts -->
-        <script src="https://code.jquery.com/jquery-3.2.1.js"
-                integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-                crossorigin="anonymous"></script>
-                <!-- Latest compiled and minified CSS -->
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js
-        "></script>
-        <script src=" {{ asset('js/scripts.js') }} ">
-        </script>
+        @include('layouts/partials/head/js')
         @stack('scripts')
 </head>
 <body>
     <div id="app">
+        <div class="overlay"></div>
+            <div id="header-pic" class="jumbotron">
+                {{--<img src="{{asset('images/office.jpeg')}}" alt="Office">--}}
+            </div>
+
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
