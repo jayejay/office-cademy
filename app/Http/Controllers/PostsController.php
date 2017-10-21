@@ -205,7 +205,7 @@ class PostsController extends Controller
         $path = [];
 
         foreach ($files as $file){
-            $path[] = asset($file->store('images'));
+            $path[] = asset($file->store('images/uploads'));
         }
 
         return response()->json(["success" => true, "path" => $path]);
