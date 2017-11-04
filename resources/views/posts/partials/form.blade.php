@@ -4,6 +4,8 @@
 @push('scripts')    
     <script src=" {{ asset('js/posts/post_create.js') }} ">
     </script>
+    <script src=" {{ asset('js/posts/post_show.js') }} ">
+    </script>
 @endpush
     <div class="container">
         <div class="row">
