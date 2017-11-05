@@ -96,6 +96,7 @@ class PostsController extends Controller
 
             }catch(\Exception $e) {
                 Session::flash('error', $e->getMessage());
+                return redirect()->back();
             }
 
     }
@@ -198,7 +199,8 @@ class PostsController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function storeImageAjax(Request $request){
+    public function storeImageAjax(Request $request)
+    {
 
         $files = $request->file('files');
 
@@ -209,5 +211,15 @@ class PostsController extends Controller
         }
 
         return response()->json(["success" => true, "path" => $path]);
+    }
+
+    public function getPanelContent(Post $post)
+    {
+        try {
+            return response()->json(["success" => true, "postBody" => $post->body]);
+        } catch (\Exception $e) {
+            return response()->json(["success" => false, "message" => $e->getMessage()]);
+        }
+
     }
 }
