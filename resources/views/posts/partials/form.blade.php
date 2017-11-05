@@ -31,7 +31,7 @@
                 <h5>Category</h5>
                 <select name="category_id" id="category" class="selectpicker" form="post-form">
                     @if(!isset($post->category))
-                        <option value="" disabled selected>Please select</option>
+                        <option value="" selected>Nothing selected</option>
                     @endif
                     @foreach($categories as $category)
                         <option value="{{$category->id}}"
@@ -42,14 +42,37 @@
                     @endforeach
                 </select>
                 <hr>
-                <h5>Course Number</h5>
-                <input name="course_id" type="text" class="form-control" placeholder="Course Number"
-                       form="post-form" value="{{old('course_id', $post->course_id)}}">
+                {{--todo: if course is choosen select of chapter has to eb filled.
+                    And before saved course of post has to be pre selected --}}
+
+                <h5>Course</h5>
+                {{--<input name="course_id" type="text" class="form-control" placeholder="Course Number"--}}
+                       {{--form="post-form" value="{{old('course_id', $post->course_id)}}">--}}
+                <select name="course" id="course" class="form-control">
+                    <option value="0">Nothing selected</option>
+                    {{--@foreach($courses as $course)--}}
+                        {{--<option value="{{$course->id}}"--}}
+                            {{--@if (isset($post->chapter->course->id))--}}
+                                {{--@if ($course->id === $post->chapter->course->id)--}}
+                                {{--selected="selected"--}}
+                                {{--@endif--}}
+                            {{--@endif--}}
+                                {{-->{{$course->course}}--}}
+                        {{--</option>--}}
+                    {{--@endforeach--}}
+                </select>
                 <hr>
                 <h5>Chapter</h5>
-                <input name="chapter_id" type="text" class="form-control" placeholder="Chapter"
-                       form="post-form" value="{{old('chapter_id', $post->chapter_id)}}">
-                <hr>
+                {{--<input name="chapter_id" type="text" class="form-control" placeholder="Chapter"--}}
+                       {{--form="post-form" value="{{old('chapter_id', $post->chapter_id)}}">--}}
+                {{--<hr>--}}
+                <select name="chapter" id="chapter" class="selectpicker" form="post-form">
+                    @if(isset($post->chapter))
+                        <option value="{{$post->chapter->id}}">{{$post->chapter->number}} - {{$post->chapter->chapter}}</option>
+                    @else
+                        <option value="0">Nothing selected</option>
+                    @endif
+                </select>
                 <h5>Language</h5>
                 <select name="language_id" class="selectpicker" id="language" form="post-form">
                     @foreach($languages as $language)

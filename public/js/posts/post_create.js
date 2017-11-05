@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var textarea = $('#body');
     textarea.focus();
+    getCourses();
     //Add image to post body
     $(document).on('change', '#image', function () {
 
@@ -54,6 +55,38 @@ $(document).ready(function () {
         var textareaText = textarea.val();
 
         textarea.val(textareaText.substring(0, caretPos) + ' ' + newContent + ' ' + textareaText.substring(caretPos));
+    };
+
+    function getCourses(){
+        categoryId = $('#category').val();
+        url = '/admin/posts/get-courses/' + categoryId;
+        selectCourses = $('#course');
+        selectCourses.html('');
+
+        $.get(url, [], function (response) {
+           if(response.success){
+               courses = response.courses;
+               // for(var i = 0; i < response.courses.length; i++){
+               //     html = '<option value="' + courses[i].id + '">' + courses[i].course + '</option>';
+               //     console.log(html);
+               //     selectCourses.html(html);
+               // }
+               $.each(courses, function (i, course) {
+                   selectCourses.append($('<option>', {
+                       value: course.id,
+                       text : course.course
+                   }));
+               });
+
+           }else{
+               alert(response.message);
+           }
+        });
     }
+
+    $(document).on('change', '#category', function () {
+        // console.log($('#category').val());
+        getCourses();
+    });
 
 })

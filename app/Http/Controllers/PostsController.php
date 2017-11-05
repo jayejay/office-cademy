@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Course;
 use App\Language;
 use App\Post;
 use App\Tag;
@@ -45,6 +46,7 @@ class PostsController extends Controller
         $categories = Category::all();
         $users = User::all();
         $languages = Language::all();
+
         return view('posts.create', [
             'post' => $post,
             'tags' => $tags,
@@ -68,9 +70,7 @@ class PostsController extends Controller
             $request->validate([
                 'title' => 'required|unique:posts|max:255',
                 'body' => 'required',
-                'category_id' => 'required',
                 'user_id' => 'required',
-                'course_id' => 'required',
                 'chapter_id' => 'required',
                 'language_id' => 'required'
             ]);
@@ -81,9 +81,7 @@ class PostsController extends Controller
             $post->title = $request->title;
             $post->body = $request->body;
             $post->user_id = $request->user_id;
-            $post->category_id = $request->category_id;
             $post->language_id = $request->language_id;
-            $post->course_id = $request->course_id;
             $post->chapter_id = $request->chapter_id;
 
             if ($post->save()) {
@@ -156,7 +154,6 @@ class PostsController extends Controller
                 'body' => 'required',
                 'category_id' => 'required',
                 'user_id' => 'required',
-                'course_id' => 'required',
                 'chapter_id' => 'required',
                 'language_id' => 'required'
             ]);
@@ -164,8 +161,6 @@ class PostsController extends Controller
             $post->title = $request->title;
             $post->body = $request->body;
             $post->user_id = $request->user_id;
-            $post->category_id = $request->category_id;
-            $post->course_id = $request->course_id;
             $post->chapter_id = $request->chapter_id;
             $post->language_id = $request->language_id;
 

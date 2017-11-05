@@ -48,3 +48,10 @@ Route::patch('/admin/posts/update/{post}', 'PostsController@update')
 
 Route::post('/admin/posts/store_image', 'PostsController@storeImageAjax')
     ->name('posts.store_image');
+
+//Chapters
+Route::get('/admin/posts/get-chapters/{course}', 'ChaptersController@getChaptersAjax')
+    ->name('posts.get_chapters');
+//Courses
+Route::get('/admin/posts/get-courses/{category}', 'CoursesController@getCoursesAjax')
+    ->name('posts.get_courses');
