@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 
 class CourseTableSeeder extends Seeder
 {
+
+    protected $courseArray = ["Excel Beginner", "Excel Advanced"];
     /**
      * Run the database seeds.
      *
@@ -11,15 +13,12 @@ class CourseTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('courses')->insert([
-            'course' => 'Excel Beginner',
-            'category_id' => 1
-        ]);
-
-        DB::table('courses')->insert([
-            'course' => 'Excel Advanced',
-            'category_id' => 1
-        ]);
+        foreach($this->courseArray as $course){
+            DB::table('courses')->insert([
+                'course' => $course,
+                'category_id' => 1
+            ]);
+        }
 
     }
 }
