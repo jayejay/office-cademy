@@ -33,8 +33,8 @@ Route::get('/admin/posts/edit/{post}', 'PostsController@edit')
 Route::get('/admin/posts/show/{post}', 'PostsController@show')
     ->name('posts.show');
 
-Route::get('/admin/posts/get-panel-content/{post}', 'PostsController@getPanelContent')
-    ->name('posts.get_panel_content');
+Route::get('/admin/posts/get-post-body/{post}', 'PostsController@getPostBody')
+    ->name('posts.get_post_body');
 
 Route::post('/admin/posts/store', 'PostsController@store')
     ->name('posts.store');

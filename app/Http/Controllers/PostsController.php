@@ -208,7 +208,7 @@ class PostsController extends Controller
         return response()->json(["success" => true, "path" => $path]);
     }
 
-    public function getPanelContent(Post $post)
+    public function getPostBody(Post $post)
     {
         try {
             return response()->json(["success" => true, "postBody" => $post->body]);
