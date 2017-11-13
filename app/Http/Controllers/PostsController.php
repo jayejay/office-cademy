@@ -152,16 +152,18 @@ class PostsController extends Controller
             $request->validate([
                 'title' => ['required', 'max:255', Rule::unique('posts')->ignore($post->id)],
                 'body' => 'required',
-                'category_id' => 'required',
+//                'category_id' => 'required',
                 'user_id' => 'required',
-                'chapter_id' => 'required',
+//                'chapter_id' => 'required',
                 'language_id' => 'required'
             ]);
 
             $post->title = $request->title;
             $post->body = $request->body;
             $post->user_id = $request->user_id;
-            $post->chapter_id = $request->chapter_id;
+//            $post->chapter_id = $request->chapter_id;
+            //todo: Define default for chapter_id
+            $post->chapter_id = 1;
             $post->language_id = $request->language_id;
 
             if ($post->save()) {
