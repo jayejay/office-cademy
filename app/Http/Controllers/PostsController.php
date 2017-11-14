@@ -65,13 +65,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-
+        //try {
             $request->validate([
                 'title' => 'required|unique:posts|max:255',
                 'body' => 'required',
                 'user_id' => 'required',
-                'chapter_id' => 'required',
+//                'chapter_id' => 'required',
                 'language_id' => 'required'
             ]);
 
@@ -82,7 +81,10 @@ class PostsController extends Controller
             $post->body = $request->body;
             $post->user_id = $request->user_id;
             $post->language_id = $request->language_id;
-            $post->chapter_id = $request->chapter_id;
+            //Todo: make chapter_id, course_id and category_id dynamic (if needed)
+            $post->chapter_id = 1;
+            $post->category_id = 1;
+            $post->course_id = 1;
 
             if ($post->save()) {
                 Session::flash('flash_message', 'Post has been created');
@@ -92,10 +94,10 @@ class PostsController extends Controller
 
             return redirect()->route('posts.show', ['post' => $post->id]);
 
-            }catch(\Exception $e) {
-                Session::flash('error', $e->getMessage());
-                return redirect()->back();
-            }
+//            }catch(\Exception $e) {
+//                Session::flash('error', $e->getMessage());
+//                return redirect()->back()->withInput();
+//            }
 
     }
 
@@ -193,7 +195,7 @@ class PostsController extends Controller
             Session::flash('flash_message', 'Post deleted');
         }
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.admin.index');
     }
 
     public function storeImageAjax(Request $request)

@@ -110,6 +110,7 @@
             </div>
         </div>
     </div>
+
     @include('posts.modals.preview')
 
 @section('javascript')
