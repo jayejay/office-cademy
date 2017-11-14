@@ -9,6 +9,7 @@
         <table class="table table-hover">
             @foreach($posts as $post)
                 <tr>
+                    <td>{{$post->id}}</td>
                     <td><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></td>
                     <td><a href="{{route('posts.edit', $post->id)}}" class="btn btn-default btn-sm">Edit</a></td>
                     <td>
