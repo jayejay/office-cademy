@@ -18,7 +18,7 @@ class CreateTablePosts extends Migration
             $table->string('title');
             $table->text('body');
             $table->boolean('status');
-            $table->timestamp('published_at');
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
 
