@@ -42,17 +42,10 @@ class PostsController extends Controller
     public function create()
     {
         $post = new Post();
-        $tags = Tag::all();
-        $categories = Category::all();
-        $users = User::all();
-        $languages = Language::all();
+
 
         return view('posts.create', [
             'post' => $post,
-            'tags' => $tags,
-            'users' => $users,
-            'categories' => $categories,
-            'languages' => $languages
             ]
         );
     }
@@ -121,10 +114,6 @@ class PostsController extends Controller
     public function edit(Post $post)
     {
         $postTags = $post->tags;
-        $tags = Tag::all();
-        $categories = Category::all();
-        $users = User::all();
-        $languages = Language::all();
         $postTagsArray = [];
 
         //getting the related tag_ids of a certain post
@@ -133,11 +122,7 @@ class PostsController extends Controller
         }
         return view('posts.edit', [
             'post' => $post,
-            'tags' => $tags,
             'postTagsArray' => $postTagsArray,
-            'users' => $users,
-            'categories' => $categories,
-            'languages' => $languages
         ]);
     }
 

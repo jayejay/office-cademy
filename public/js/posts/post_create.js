@@ -46,7 +46,8 @@ $(document).ready(function () {
 
     //Preview
     $(document).on('click', '#preview_button', function () {
-       $('.modal-body').html($('#body').val());
+        var previewModal = $('#preview');
+        previewModal.find('.modal-body').html($('#body').val());
     });
 
     //Add new content to textarea

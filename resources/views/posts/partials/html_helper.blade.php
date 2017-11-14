@@ -4,4 +4,4 @@
 <a href="#" data-html='@include('posts.partials.html_templates.template_ordered_list')' class="btn btn-primary btn-sm html_tags">Ordered List</a>
 <a href="#" data-html='@include('posts.partials.html_templates.template_unordered_list')' class="btn btn-primary btn-sm html_tags">Unordered List</a>
 <a href="#" data-html='@include('posts.partials.html_templates.template_table')' class="btn btn-primary btn-sm html_tags">Table</a>
-<a href="#" data-html='@include('posts.partials.html_templates.template_accordion')' class="btn btn-primary btn-sm html_tags">Accordion</a>
+<a href="#" data-html='@include('posts.partials.html_templates.template_accordeon')' class="btn btn-primary btn-sm html_tags">Accordeon Wrapper</a>
