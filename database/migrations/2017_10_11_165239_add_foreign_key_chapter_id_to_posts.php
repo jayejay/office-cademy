@@ -27,6 +27,7 @@ class AddForeignKeyChapterIdToPosts extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign(['chapter_id']);
             $table->dropColumn('chapter_id');
         });
     }
