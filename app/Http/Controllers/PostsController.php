@@ -201,7 +201,7 @@ class PostsController extends Controller
                 $s3 = Storage::disk('s3');
                 $filePath = '/images/' . $imageFileName;
                 $s3->put($filePath, file_get_contents($file), 'public');
-                $path[] =  Storage::cloud()->url($imageFileName);
+                $path[] =  Storage::cloud()->url($filePath);
                     //$s3->url($imageFileName);
             }
         }
