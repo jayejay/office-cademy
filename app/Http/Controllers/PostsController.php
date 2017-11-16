@@ -199,9 +199,9 @@ class PostsController extends Controller
             } elseif (App::environment('production')) {
                 $imageFileName = time() . '.' . $file->getClientOriginalExtension();
                 $s3 = Storage::disk('s3');
-                $filePath = '/Images/' . $imageFileName;
+                $filePath = '/images/' . $imageFileName;
                 $s3->put($filePath, file_get_contents($file), 'public');
-                $path[] = Storage::url($file);
+                $path[] = Storage::cloud()->url($imageFileName);
             }
         }
 
