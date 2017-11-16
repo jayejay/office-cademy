@@ -9,8 +9,11 @@ use App\Post;
 use App\Tag;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 use Session;
 use Illuminate\Validation\Rule;
+use Illuminate\Contracts\Filesystem\Filesystem;
 
 class PostsController extends Controller
 {
@@ -176,7 +179,7 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        if($post->delete()){
+        if ($post->delete()) {
             Session::flash('flash_message', 'Post deleted');
         }
 
@@ -191,7 +194,15 @@ class PostsController extends Controller
         $path = [];
 
         foreach ($files as $file){
-            $path[] = asset($file->store('images/uploads'));
+            if (App::environment('local')) {
+                $path[] = asset($file->store('images/uploads'));
+            } elseif (App::environment('production')) {
+                $imageFileName = time() . '.' . $file->getClientOriginalExtension();
+                $s3 = Storage::disk('s3');
+                $filePath = '/Images/' . $imageFileName;
+                $s3->put($filePath, file_get_contents($file), 'public');
+                $path[] = Storage::url($file);
+            }
         }
 
         return response()->json(["success" => true, "path" => $path]);
