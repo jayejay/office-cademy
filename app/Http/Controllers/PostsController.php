@@ -17,6 +17,16 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 
 class PostsController extends Controller
 {
+
+    public function __construct()
+    {
+        if (App::environment('local')){
+            $this->middleware('guest');
+        } else {
+            $this->middleware('auth');
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
