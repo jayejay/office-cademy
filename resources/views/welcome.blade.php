@@ -15,7 +15,7 @@
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Raleway', sans-serif;
+                /*font-family: 'Raleway', sans-serif;*/
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -60,7 +60,7 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 10px;
             }
         </style>
     </head>
@@ -74,6 +74,9 @@
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                     @endauth
+                    {{--<select name="" id="">--}}
+                        {{--<option value=""></option>--}}
+                    {{--</select>--}}
                 </div>
             @endif
 
@@ -81,7 +84,10 @@
                 <div class="title m-b-md">
                     Officecademy
                 </div>
-
+                <div>
+                    @lang('messages.welcome')
+                </div>
+                <br>
                 <div class="links">
                     <a href="{{ route('posts.admin.index') }}">Posts</a>
                 </div>
