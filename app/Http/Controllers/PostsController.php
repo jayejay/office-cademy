@@ -71,7 +71,6 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //try {
             $request->validate([
                 'title' => 'required|unique:posts|max:255',
                 'body' => 'required',
@@ -79,7 +78,6 @@ class PostsController extends Controller
 //                'chapter_id' => 'required',
                 'language_id' => 'required'
             ]);
-
 
             $post = new Post();
 
@@ -99,11 +97,6 @@ class PostsController extends Controller
             $post->tags()->attach($request->tags);
 
             return redirect()->route('posts.show', ['post' => $post->id]);
-
-//            }catch(\Exception $e) {
-//                Session::flash('error', $e->getMessage());
-//                return redirect()->back()->withInput();
-//            }
 
     }
 

@@ -49,7 +49,7 @@
                 <h5>Course</h5>
                 {{--<input name="course_id" type="text" class="form-control" placeholder="Course Number"--}}
                        {{--form="post-form" value="{{old('course_id', $post->course_id)}}">--}}
-                <select name="course" id="course" class="form-control">
+                <select name="course" id="course" class="selectpicker">
                     <option value="0">Nothing selected</option>
                     {{--@foreach($courses as $course)--}}
                         {{--<option value="{{$course->id}}"--}}

@@ -9,16 +9,21 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        @include('layouts/partials/head/css')
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-image: url({{asset('images/background.jpg')}});
+                color: #F5F5F5;
                 /*font-family: 'Raleway', sans-serif;*/
-                font-weight: 100;
+                /*font-weight: 100;*/
                 height: 100vh;
                 margin: 0;
+            }
+
+            .title{
+                color: #BDBDBD;
+                font-weight: 100;
             }
 
             .full-height {
@@ -45,23 +50,16 @@
                 text-align: center;
             }
 
-            .title {
-                font-size: 84px;
-            }
-
             .links > a {
-                color: #636b6f;
+                color: #F5F5F5;
                 padding: 0 25px;
                 font-size: 12px;
-                font-weight: 600;
+                /*font-weight: 600;*/
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
             }
 
-            .m-b-md {
-                margin-bottom: 10px;
-            }
         </style>
     </head>
     <body>
@@ -81,15 +79,15 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Officecademy
+                <div>
+                    <h1 class="title">Officecademy</h1>
                 </div>
                 <div>
                     @lang('messages.welcome')
                 </div>
                 <br>
-                <div class="links">
-                    <a href="{{ route('posts.admin.index') }}">Posts</a>
+                <div>
+                    <a class="text-info" href="{{ route('posts.admin.index') }}">Posts</a>
                 </div>
             </div>
         </div>

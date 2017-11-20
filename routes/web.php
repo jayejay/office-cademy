@@ -11,10 +11,31 @@
 |
 */
 
-Route::get('/{locale}', function ($locale) {
-    App::setLocale($locale);
-    return view('welcome');
-});
+//Route::get('/{locale}', function ($locale) {
+//    App::setLocale($locale);
+//
+//});
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ],
+    function()
+    {
+        /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+        Route::get('/', function()
+        {
+            return view('welcome');
+        });
+
+        Route::get('/admin/posts', 'PostsController@adminIndex')
+            ->name('posts.admin.index');
+
+    }
+);
+
+
 
 Auth::routes();
 
@@ -22,8 +43,7 @@ Route::get('/home', 'HomeController@index')
     ->name('home');
 
 //Posts
-Route::get('/admin/posts', 'PostsController@adminIndex')
-    ->name('posts.admin.index');
+
 
 Route::get('/admin/posts/create', 'PostsController@create')
     ->name('posts.create');
