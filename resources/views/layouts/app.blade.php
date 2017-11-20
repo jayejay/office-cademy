@@ -75,6 +75,9 @@
                                 </ul>
                             </li>
                         @endguest
+                        <li>
+                            @include('layouts/partials/language_switcher')
+                        </li>
                     </ul>
                 </div>
             </div>

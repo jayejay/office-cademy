@@ -3,7 +3,7 @@
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
 <!--   Core JS Files from Creative Tim -->
-{{--<script src="{{asset('js/vendor/creativetim/bootstrap.min.js')}}" type="text/javascript"></script>--}}
+<script src="{{asset('js/vendor/creativetim/bootstrap.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/vendor/creativetim/material.min.js')}}"></script>
 
 <!-- Latest compiled and minified JavaScript -->

@@ -61,6 +61,7 @@
             }
 
         </style>
+        @include('layouts/partials/head/js')
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -72,11 +73,11 @@
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                     @endauth
-                    {{--<select name="" id="">--}}
-                        {{--<option value=""></option>--}}
-                    {{--</select>--}}
-                </div>
             @endif
+
+            @include('layouts/partials/language_switcher')
+        </div>
+
 
             <div class="content">
                 <div>
