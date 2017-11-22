@@ -43,7 +43,7 @@
                     @endforeach
                 </select>
                 <hr>
-                {{--todo: if course is choosen select of chapter has to eb filled.
+                {{--todo: if course is choosen select of chapter has to be filled.
                     And before saved course of post has to be pre selected --}}
 
                 <h5>Course</h5>

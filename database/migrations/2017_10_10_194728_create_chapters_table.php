@@ -13,11 +13,13 @@ class CreateChaptersTable extends Migration
      */
     public function up()
     {
-        Schema::create('chapters', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('chapter');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('chapters')) {
+            Schema::create('chapters', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('chapter');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

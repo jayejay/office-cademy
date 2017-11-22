@@ -179,6 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        Dimsav\Translatable\TranslatableServiceProvider::class,
 
     ],
 

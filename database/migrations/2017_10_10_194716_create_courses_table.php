@@ -13,11 +13,13 @@ class CreateCoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('courses', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('course');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('courses')) {
+            Schema::create('courses', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('course');
+                $table->timestamps();
+            });
+        }
 }
 
     /**
