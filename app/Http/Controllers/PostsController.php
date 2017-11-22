@@ -182,13 +182,15 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->deleteTranslations(App::getLocale());
+        $language = App::getLocale();
+        $post->deleteTranslations($language);
 
-        if(!$post->hasTranslation(App::getLocale())){
-            Session::flash('flash_message', 'Translation has been deleted');
+        if(!$post->hasTranslation($language)){
+            Session::flash('flash_message', "Translation (".$language.") of post ". $post->id ." has been deleted");
         }
 
-        if(empty($post->translations)){
+        //Todo: check for a better option to check if post have still translations
+        if(!$post->hasTranslation('de') && !$post->hasTranslation('en')){
             if ($post->delete()) {
                 Session::flash('flash_message', 'Post deleted');
             }
