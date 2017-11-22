@@ -54,13 +54,18 @@
                                 <td>{{$postTranslation->locale}}:</td>
                                 <td>{{$postTranslation->title}}</td>
                                 <td>
+                                    <a href="{{ LaravelLocalization::getLocalizedURL($postTranslation->locale, route('posts.show', $post->id), [], true) }}"
+                                       class="btn btn-default btn-sm">@lang('custom.show')</a>
+                                </td>
+                                <td>
                                     <a href="{{ LaravelLocalization::getLocalizedURL($postTranslation->locale, route('posts.edit', $post->id), [], true) }}"
-                                       class="btn btn-default btn-sm">Edit</a></td>
+                                       class="btn btn-default btn-sm">@lang('custom.edit')</a>
+                                </td>
                                 <td>
                                     <form method="post" action="{{ LaravelLocalization::getLocalizedURL($postTranslation->locale, route('posts.delete',$post->id), [], true) }}">
                                         {{ csrf_field() }}
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button type="submit" class="btn btn-danger btn-sm pull-right">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm pull-right">@lang('custom.delete')</button>
                                     </form>
                                 </td>
                             </tr>

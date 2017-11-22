@@ -14,5 +14,8 @@ return [
     */
 
     'Choose language' => 'Choose language',
+    'show' => 'show',
+    'edit' => 'edit',
+    'delete' => 'delete',
 
 ];

@@ -19,6 +19,14 @@ class UsersTableSeeder extends Seeder
             'role_id' => 1
         ]);
 
+        DB::table('users')->insert([
+            'name' => 'Thilo',
+            'lastname' => 'Putz',
+            'email' => 'lathilo@yahoo.de',
+            'password' => bcrypt($_ENV['EMAIL_PASSWORD_THILO']),
+            'role_id' => 1
+        ]);
+
 //        factory(App\User::class, 11)->create();
 
     }

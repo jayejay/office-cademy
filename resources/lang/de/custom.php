@@ -14,5 +14,7 @@ return [
     */
 
     'Choose language' => 'Sprache wählen',
-
+    'show' => 'anzeigen',
+    'edit' => 'bearbeiten',
+    'delete' => 'löschen',
 ];
