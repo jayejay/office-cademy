@@ -27,7 +27,7 @@ class CreateTablePosts extends Migration
                 $table->increments('id');
                 $table->integer('post_id')->unsigned();
                 $table->string('title');
-                $table->text('content');
+                $table->text('body');
                 $table->string('locale')->index();
 
                 $table->unique(['post_id', 'locale']);

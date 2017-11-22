@@ -56,48 +56,10 @@ class PostsController extends Controller
     {
         $post = new Post();
 
-
         return view('posts.create', [
             'post' => $post,
             ]
         );
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-            $request->validate([
-                'title' => 'required|unique:posts|max:255',
-                'body' => 'required',
-                'user_id' => 'required',
-//                'chapter_id' => 'required',
-                'language_id' => 'required'
-            ]);
-
-            $post = new Post();
-
-            $post->title = $request->title;
-            $post->body = $request->body;
-            $post->user_id = $request->user_id;
-            $post->language_id = $request->language_id;
-            //Todo: make chapter_id, course_id and category_id dynamic (if needed)
-            $post->chapter_id = 1;
-            $post->category_id = 1;
-            $post->course_id = 1;
-
-            if ($post->save()) {
-                Session::flash('flash_message', 'Post has been created');
-            }
-
-            $post->tags()->attach($request->tags);
-
-            return redirect()->route('posts.show', ['post' => $post->id]);
-
     }
 
     /**
@@ -119,6 +81,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
+
         $postTags = $post->tags;
         $postTagsArray = [];
 
@@ -133,6 +96,42 @@ class PostsController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'user_id' => 'required',
+//                'chapter_id' => 'required',
+        ]);
+
+        $post = new Post();
+
+        $language = App::getLocale();
+
+        $post->translateOrNew($language)->title = $request->title;
+        $post->translateOrNew($language)->body = $request->body;
+        $post->user_id = $request->user_id;
+        //Todo: make chapter_id, course_id and category_id dynamic (if needed)
+        $post->chapter_id = 1;
+        $post->category_id = 1;
+        $post->course_id = 1;
+
+        if ($post->save()) {
+            Session::flash('flash_message', 'Post has been created');
+        }
+
+        $post->tags()->attach($request->tags);
+
+        return redirect()->route('posts.show', ['post' => $post->id]);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -143,21 +142,22 @@ class PostsController extends Controller
     {
         try {
             $request->validate([
-                'title' => ['required', 'max:255', Rule::unique('posts')->ignore($post->id)],
+                'title' => ['required', 'max:255'],
                 'body' => 'required',
-//                'category_id' => 'required',
                 'user_id' => 'required',
+//                'category_id' => 'required',
 //                'chapter_id' => 'required',
-                'language_id' => 'required'
             ]);
 
-            $post->title = $request->title;
-            $post->body = $request->body;
+            $language = App::getLocale();
+
+            $post->translateOrNew($language)->title = $request->title;
+            $post->translateOrNew($language)->body = $request->body;
+
             $post->user_id = $request->user_id;
 //            $post->chapter_id = $request->chapter_id;
             //todo: Define default for chapter_id
             $post->chapter_id = 1;
-            $post->language_id = $request->language_id;
 
             if ($post->save()) {
                 Session::flash('flash_message', 'Post has been updated');
@@ -168,7 +168,7 @@ class PostsController extends Controller
             return redirect()->route('posts.show', ['post' => $post->id]);
 
         }catch (\Exception $e) {
-            Session::flash('error', $e->getMessage());
+            Session::flash('error', 'Mist: '.$e->getMessage());
             return redirect()->route('posts.edit', ['post' => $post->id]);
         }
 
@@ -182,8 +182,16 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        if ($post->delete()) {
-            Session::flash('flash_message', 'Post deleted');
+        $post->deleteTranslations(App::getLocale());
+
+        if(!$post->hasTranslation(App::getLocale())){
+            Session::flash('flash_message', 'Translation has been deleted');
+        }
+
+        if(empty($post->translations)){
+            if ($post->delete()) {
+                Session::flash('flash_message', 'Post deleted');
+            }
         }
 
         return redirect()->route('posts.admin.index');
@@ -203,7 +211,7 @@ class PostsController extends Controller
                 $imageFileName = time() . '.' . $file->getClientOriginalExtension();
                 $s3 = Storage::disk('s3');
                 $filePath = '/images/' . $imageFileName;
-                $s3->put($filePath, file_get_contents($file), 'public');
+                $s3->put($filePath, file_get_bodys($file), 'public');
                 $path[] = $s3->url('images/'.$imageFileName);
             }
         }

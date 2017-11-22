@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App;
 use App\Category;
 use App\Language;
 use App\Post;
@@ -41,6 +42,12 @@ class ViewComposerServiceProvider extends ServiceProvider
                 'languages' => Language::all(),
                 'storedPosts' => Post::all(),
             ]);
+        });
+
+        view()->composer(['posts.show', 'posts.edit', 'posts.admin_index'], function ($view){
+                $view->with([
+                   'locale' => App::getLocale(),
+                ]);
         });
     }
 }

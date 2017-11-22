@@ -20,16 +20,21 @@
                 <button id="post_index_button" type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#posts-index">All Posts</button>
             </div>
             <div class="col-md-4">
-                <h5>Add images</h5>
+                <hr>
+            </div>
+            <div class="col-md-2">
+                {{--<button type="button" class="btn btn-sm btn-success" id="button-create-parent-post" data-toggle="modal" data-target="#create-parent-post">@lang('Create Parent Post')</button>--}}
+                {{--<hr>--}}
+                <label for="image">Add images</label>
                 <label class="btn btn-default btn-sm">
                         Browse
                     <input id="image" type="file" multiple="multiple" hidden>
                 </label>
                 <hr>
-                <h5>HTML-Tags</h5>
-                @include('posts.partials.html_helper')
+                <label for="html-helper">HTML-Tags</label>
+                    @include('posts.partials.html_helper')
                 <hr>
-                <h5>Category</h5>
+                <label for="category">Category</label>
                 <select name="category_id" id="category" class="selectpicker" form="post-form">
                     @if(!isset($post->category))
                         <option value="" selected>Nothing selected</option>
@@ -43,29 +48,32 @@
                     @endforeach
                 </select>
                 <hr>
-                {{--todo: if course is choosen select of chapter has to be filled.
-                    And before saved course of post has to be pre selected --}}
+                {{--todo: if course is choosen select of chapter has to be filled. And before saved course of post has to be pre selected --}}
 
-                <h5>Course</h5>
+                <label for="course">Course</label>
                 {{--<input name="course_id" type="text" class="form-control" placeholder="Course Number"--}}
-                       {{--form="post-form" value="{{old('course_id', $post->course_id)}}">--}}
+                {{--form="post-form" value="{{old('course_id', $post->course_id)}}">--}}
                 <select name="course" id="course" class="selectpicker">
                     <option value="0">Nothing selected</option>
                     {{--@foreach($courses as $course)--}}
-                        {{--<option value="{{$course->id}}"--}}
-                            {{--@if (isset($post->chapter->course->id))--}}
-                                {{--@if ($course->id === $post->chapter->course->id)--}}
-                                {{--selected="selected"--}}
-                                {{--@endif--}}
-                            {{--@endif--}}
-                                {{-->{{$course->course}}--}}
-                        {{--</option>--}}
+                    {{--<option value="{{$course->id}}"--}}
+                    {{--@if (isset($post->chapter->course->id))--}}
+                    {{--@if ($course->id === $post->chapter->course->id)--}}
+                    {{--selected="selected"--}}
+                    {{--@endif--}}
+                    {{--@endif--}}
+                    {{-->{{$course->course}}--}}
+                    {{--</option>--}}
                     {{--@endforeach--}}
                 </select>
                 <hr>
-                <h5>Chapter</h5>
+                <label for="active">Publish</label><br>
+                <input type="checkbox" name="active" id="active" form="post-form">
+            </div>{{--end row 2--}}
+            <div class="col-md-2">
+                <label for="chapter">Chapter</label>
                 {{--<input name="chapter_id" type="text" class="form-control" placeholder="Chapter"--}}
-                       {{--form="post-form" value="{{old('chapter_id', $post->chapter_id)}}">--}}
+                {{--form="post-form" value="{{old('chapter_id', $post->chapter_id)}}">--}}
                 {{--<hr>--}}
                 <select name="chapter" id="chapter" class="selectpicker" form="post-form">
                     @if(isset($post->chapter))
@@ -74,41 +82,42 @@
                         <option value="0">Nothing selected</option>
                     @endif
                 </select>
-                <h5>Language</h5>
-                <select name="language_id" class="selectpicker" id="language" form="post-form">
-                    @foreach($languages as $language)
-                        <option value="{{$language->id}}"
-                                @if ($language->id == old('language_id', $post->language_id))
-                                selected="selected"
-                                @endif
-                        >{{ $language->language }}</option>
-                    @endforeach
-                </select>
                 <hr>
-                <h5>Tags</h5>
-                <select name="tags[]" class="selectpicker" multiple data-actions-box="true" form="post-form">
+                {{--<label for="language">Language</label>--}}
+                {{--<select name="language_short" class="selectpicker" id="language" form="post-form">--}}
+                    {{--@foreach($languages as $language)--}}
+                        {{--<option value="{{$language->language_short}}"--}}
+                                {{--@if ($language->language_short == old('language_short', $post->locale))--}}
+                                {{--selected="selected"--}}
+                                {{--@endif--}}
+                        {{-->{{ $language->language }}</option>--}}
+                    {{--@endforeach--}}
+                {{--</select>--}}
+                {{--<hr>--}}
+                <label for="tags">Tags</label>
+                <select id="tags" name="tags[]" class="selectpicker" multiple data-actions-box="true" form="post-form">
+                    @if(!isset($postTagsArray))
+                        <option value="" disabled selected>Please select</option>
+                    @endif
                     @foreach($tags as $tag)
                         <option value="{{ $tag->id }}" @if(in_array($tag->id, isset($postTagsArray) ? $postTagsArray : []))selected @endif >{{ $tag->tag }}</option>
                     @endforeach
                 </select>
                 <hr>
-                <h5>Author</h5>
+                <label for="user">Author</label>
                 <select name="user_id" id="user" class="selectpicker" form="post-form">
                     @if(!isset($post->user))
-                    <option value="" disabled selected>Please select</option>
+                        <option value="" disabled selected>Please select</option>
                     @endif
                     @foreach($users as $user)
                         <option value="{{$user->id}}"
                                 @if ($user->id == old('user_id', $post->user_id))
-                                    selected="selected"
+                                selected="selected"
                                 @endif
                         >{{ $user->name . ' ' . $user->lastname }}</option>
                     @endforeach
                 </select>
-                <hr>
-                <h5>Publish</h5><br>
-                <input type="checkbox" name="active" id="active" form="post-form">
-            </div>
+            </div>{{--end row 3--}}
         </div>
     </div>
 

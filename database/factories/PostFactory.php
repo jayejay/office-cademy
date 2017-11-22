@@ -17,9 +17,9 @@ $factory->define(App\Post::class, function (Faker $faker) {
 
     return [
         'title:de' => 'Deutscher Titel', #$faker->text(30),
-        'content:de' => $faker->realText(250),
-        'title:en' => 'English Title', #$faker->text(30),
-        'content:en' => $faker->realText(250),
+        'body:de' => $faker->realText(250),
+        'title:en' => $faker->text(30),
+        'body:en' => $faker->realText(250),
         'active' => $faker->boolean,
         'user_id' => function () {
             return factory(App\User::class)->create()->id;

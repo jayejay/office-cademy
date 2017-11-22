@@ -9,7 +9,7 @@ class Post extends Model
 {
     use Translatable;
 
-    public $translatedAttributes = ['title', 'content'];
+    public $translatedAttributes = ['title', 'body'];
 
     public function category(){
 
