@@ -11,10 +11,10 @@
 @section('content')
     <div class="row">
         <div class="row" id="title">
-            <h2>{{$post->translateOrDefault($locale)->title}}</h2>
+            <h2>{{!empty($post->translateOrDefault($locale)->title) ?  $post->translateOrDefault($locale)->title : "Nothing to show"}}</h2>
         </div>
         <div class="row" id="body">
-            {!! $post->translateOrDefault($locale)->body !!}
+            {!! !empty($post->translateOrDefault($locale)->body) ? $post->translateOrDefault($locale)->body : "" !!}
         </div>
         <div class="row" id="tags">
             @foreach($post->tags as $tag)

@@ -32,6 +32,9 @@
         </table>
     </div>--}}
 
+    <div class="row">
+        <a href="{{route('posts.create')}}" class="btn btn-info btn-sm">New Post</a>
+    </div>
     <div class="panel-group">
         @foreach($posts as $post)
             <div class="panel panel-default">

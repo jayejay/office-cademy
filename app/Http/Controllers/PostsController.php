@@ -222,10 +222,12 @@ class PostsController extends Controller
     public function getPostBody(Post $post)
     {
         try {
-            return response()->json(["success" => true, "postBody" => $post->translateOrDefault(App::getLocale())->body]);
+            return response()->json([
+                "success" => true,
+                "postBody" => $post->translateOrDefault(App::getLocale())->body,
+            ]);
         } catch (\Exception $e) {
             return response()->json(["success" => false, "message" => $e->getMessage()]);
         }
-
     }
 }

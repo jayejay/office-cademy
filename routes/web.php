@@ -43,22 +43,16 @@ Route::group(
 
         Route::get('/home', 'HomeController@index')
             ->name('home');
+
+        Route::get('/admin/posts/get-post-body/{post}', 'PostsController@getPostBody')
+            ->name('posts.get_post_body');
     }
 );
-
-
-
-
-
-
 
 //Posts
 
 Route::get('/admin/posts/create', 'PostsController@create')
     ->name('posts.create');
-
-Route::get('/admin/posts/get-post-body/{post}', 'PostsController@getPostBody')
-    ->name('posts.get_post_body');
 
 Route::post('/admin/posts/store', 'PostsController@store')
     ->name('posts.store');
