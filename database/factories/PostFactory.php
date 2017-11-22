@@ -16,8 +16,10 @@ use Faker\Generator as Faker;
 $factory->define(App\Post::class, function (Faker $faker) {
 
     return [
-        'title' => $faker->text(30),
-        'body' => $faker->realText(250),
+        'title:de' => 'Deutscher Titel', #$faker->text(30),
+        'content:de' => $faker->realText(250),
+        'title:en' => 'English Title', #$faker->text(30),
+        'content:en' => $faker->realText(250),
         'active' => $faker->boolean,
         'user_id' => function () {
             return factory(App\User::class)->create()->id;
@@ -27,8 +29,6 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'course_id' => 1,
         'chapter_id' => function(){
             return factory(App\Chapter::class)->create()->id;
-        },
-        'language_id' => 1
-
+        }
     ];
 });
