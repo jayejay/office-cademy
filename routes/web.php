@@ -38,6 +38,11 @@ Route::group(
 
         Route::patch('/admin/posts/update/{post}', 'PostsController@update')
             ->name('posts.update');
+
+        Auth::routes();
+
+        Route::get('/home', 'HomeController@index')
+            ->name('home');
     }
 );
 
@@ -45,10 +50,7 @@ Route::group(
 
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')
-    ->name('home');
 
 //Posts
 
