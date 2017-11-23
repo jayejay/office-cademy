@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Language Lines
@@ -17,5 +16,5 @@ return [
     'show' => 'show',
     'edit' => 'edit',
     'delete' => 'delete',
-
+    'Nothing to show' => 'Nothing to show'
 ];

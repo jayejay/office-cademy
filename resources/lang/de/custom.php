@@ -17,4 +17,5 @@ return [
     'show' => 'anzeigen',
     'edit' => 'bearbeiten',
     'delete' => 'löschen',
+    'Nothing to show' => 'Nichts zu sehen'
 ];

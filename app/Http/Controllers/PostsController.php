@@ -185,12 +185,11 @@ class PostsController extends Controller
         $language = App::getLocale();
         $post->deleteTranslations($language);
 
-        if(!$post->hasTranslation($language)){
+        if (!$post->hasTranslation($language)){
             Session::flash('flash_message', "Translation (".$language.") of post ". $post->id ." has been deleted");
         }
 
-        //Todo: check for a better option to check if post have still translations
-        if(!$post->hasTranslation('de') && !$post->hasTranslation('en')){
+        if (!$post->translations()->exists()){
             if ($post->delete()) {
                 Session::flash('flash_message', 'Post deleted');
             }
