@@ -27,7 +27,7 @@ Route::group(
         Route::get('/admin/posts', 'PostsController@adminIndex')
             ->name('posts.admin.index');
 
-        Route::get('/admin/posts/show/{post}', 'PostsController@show')
+        Route::get('/admin/posts/show/{post}/{slug?}', 'PostsController@show')
             ->name('posts.show');
 
         Route::get('/admin/posts/edit/{post}', 'PostsController@edit')

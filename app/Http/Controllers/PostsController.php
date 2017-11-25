@@ -68,8 +68,11 @@ class PostsController extends Controller
      * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post, $slug = '')
     {
+        if($slug !== $post->getSlugAttribute(App::getLocale())){
+            return redirect()->to($post->url);
+        }
         return view('posts.show', ['post' => $post]);
     }
 
@@ -194,13 +197,11 @@ class PostsController extends Controller
                 Session::flash('flash_message', 'Post deleted');
             }
         }
-
         return redirect()->route('posts.admin.index');
     }
 
     public function storeImageAjax(Request $request)
     {
-
         $files = $request->file('files');
 
         $path = [];
@@ -216,7 +217,6 @@ class PostsController extends Controller
                 $path[] = $s3->url('images/'.$imageFileName);
             }
         }
-
         return response()->json(["success" => true, "path" => $path]);
     }
 

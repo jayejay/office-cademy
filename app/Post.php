@@ -11,38 +11,44 @@ class Post extends Model
 
     public $translatedAttributes = ['title', 'body'];
 
-    public function category(){
-
+    public function category()
+    {
         return $this->belongsTo('App\Category');
-
     }
 
-    public function chapter(){
-
+    public function chapter()
+    {
         return $this->belongsTo('App\Chapter');
-
     }
 
-    public function course(){
-
+    public function course()
+    {
         return $this->belongsTo('App\Course');
-
     }
 
-    public function user(){
-
+    public function user()
+    {
         return $this->belongsTo('App\User');
-
     }
 
-    public function tags(){
-
+    public function tags()
+    {
         return $this->belongsToMany('App\Tag');
-
     }
 
-    public function language(){
+    public function language()
+    {
         return $this->belongsTo('App\Language');
+    }
+
+    public function getSlugAttribute($language)
+    {
+        return str_slug($this->translateOrDefault($language)->title);
+    }
+
+    public function getUrlAttribute()
+    {
+        return action('PostsController@show', [$this->id, $this->slug]);
     }
 
 }
