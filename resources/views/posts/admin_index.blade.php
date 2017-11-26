@@ -18,7 +18,7 @@
                     <h4 class="panel-title">
                         <a data-toggle="collapse" href="#collapse{{$post->id}}">
                             {{$post->id}}-
-                            @if($post->translations()->exists())
+                            @if($post->translations()->exists() && isset($post->translateOrDefault($locale)->title))
                                 {{$post->translateOrDefault($locale)->title}}
                             @else
                                 @lang('custom.Nothing to show')
