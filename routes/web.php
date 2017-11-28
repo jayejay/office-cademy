@@ -24,6 +24,10 @@ Route::group(
             return view('welcome');
         });
 
+        Route::get('/home', 'HomeController@index')
+            ->name('home');
+
+        /*Post routes*/
         Route::get('/admin/posts', 'PostsController@adminIndex')
             ->name('posts.admin.index');
 
@@ -39,13 +43,13 @@ Route::group(
         Route::patch('/admin/posts/update/{post}', 'PostsController@update')
             ->name('posts.update');
 
-        Auth::routes();
-
-        Route::get('/home', 'HomeController@index')
-            ->name('home');
-
         Route::get('/admin/posts/get-post-body/{post}', 'PostsController@getPostBody')
             ->name('posts.get_post_body');
+
+        /*Users routes*/
+        Auth::routes();
+
+        Route::get('/admin/tags/index', 'TagsController@adminIndex')->name('tags.admin.index');
     }
 );
 

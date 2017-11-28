@@ -16,6 +16,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Tag::class, function (Faker $faker) {
 
     return [
-        'tag' => $faker->text(20),
+        'name:de' => 'de: '.$faker->text(10),
+        'name:en' => 'en: '.$faker->text(10),
     ];
 });
