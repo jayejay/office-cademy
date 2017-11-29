@@ -14,8 +14,17 @@ return [
     */
 
     'Choose language' => 'Sprache wählen',
+    'New Post' => 'Neuer Beitrag',
+    'New Tag' => 'Neuer Tag',
+    'New Chapter' => 'Neues Kapitel',
+    'New Course' => 'Neuer Kurs',
     'show' => 'anzeigen',
     'edit' => 'bearbeiten',
     'delete' => 'löschen',
-    'Nothing to show' => 'Nichts zu sehen'
+    'Nothing to show' => 'Nichts zu sehen',
+    'Tags' => 'Tags',
+    'Courses' => 'Kurse',
+    'Chapters' => 'Kapitel',
+    'Posts' => 'Beiträge'
+
 ];

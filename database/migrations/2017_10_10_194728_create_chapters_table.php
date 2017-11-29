@@ -16,8 +16,20 @@ class CreateChaptersTable extends Migration
         if (!Schema::hasTable('chapters')) {
             Schema::create('chapters', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('chapter');
                 $table->timestamps();
+            });
+        }
+
+        if(!Schema::hasTable('chapter_translations')){
+            Schema::create('chapter_translations', function (Blueprint $table){
+                $table->increments('id');
+                $table->integer('chapter_id')->unsigned();
+                $table->string('name');
+                $table->string('locale')->index();
+
+                $table->unique(['chapter_id', 'locale']);
+                $table->foreign('chapter_id')->references('id')->on('chapters')->onDelete('cascade');
+
             });
         }
     }

@@ -48,6 +48,8 @@ class ViewComposerServiceProvider extends ServiceProvider
             'posts.show',
             'posts.edit',
             'posts.admin_index',
+            'chapters.admin_index',
+            'courses.admin_index',
             'tags.admin_index'
         ], function ($view){
                 $view->with([

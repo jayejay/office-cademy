@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="row">
-    <a href="{{route('posts.create')}}" class="btn btn-info btn-sm">New Post</a>
+    <a href="{{route('posts.create')}}" class="btn btn-info btn-sm">@lang('custom.New Post')</a>
 </div>
 <div class="row">
     <div class="panel-group">

@@ -44,12 +44,15 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                &nbsp;
+                        <li><a href="{{route('tags.admin.index')}}">@lang('Custom.Tags')</a></li>
+                        <li><a href="{{route('chapters.admin.index')}}">@lang('Custom.Chapters')</a></li>
+                        <li><a href="{{route('courses.admin.index')}}">@lang('Custom.Courses')</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{route('posts.admin.index')}}">Posts</a></li>
+                        <li><a href="{{route('posts.admin.index')}}">@lang('custom.Posts')</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>

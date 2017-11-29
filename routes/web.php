@@ -49,7 +49,15 @@ Route::group(
         /*Users routes*/
         Auth::routes();
 
+        /*Tag routes*/
         Route::get('/admin/tags/index', 'TagsController@adminIndex')->name('tags.admin.index');
+
+        /*Chapter routes*/
+        Route::get('admin/chapters/index', 'ChaptersController@adminIndex')->name('chapters.admin.index');
+
+        /*Course routes*/
+        Route::get('admin/courses/index', 'CoursesController@adminIndex')->name('courses.admin.index');
+
     }
 );
 

@@ -13,8 +13,16 @@ return [
     */
 
     'Choose language' => 'Choose language',
+    'New Post' => 'New Post',
+    'New Tag' => 'New Tag',
+    'New Chapter' => 'New Chapter',
+    'New Course' => 'New Course',
     'show' => 'show',
     'edit' => 'edit',
     'delete' => 'delete',
-    'Nothing to show' => 'Nothing to show'
+    'Nothing to show' => 'Nothing to show',
+    'Tags' => 'Tags',
+    'Courses' => 'Courses',
+    'Chapters' => 'Chapters',
+    'Posts' => 'Posts'
 ];
