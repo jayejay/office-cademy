@@ -2,15 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: Jay
- * Date: 28.11.2017
- * Time: 19:17
+ * Date: 29.11.2017
+ * Time: 20:11
  */
 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TagTranslation extends Model
+class CourseTranslation extends Model
 {
     public $timestamps = false;
     public $fillable = ['name'];

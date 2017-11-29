@@ -16,11 +16,23 @@ class CreateCoursesTable extends Migration
         if (!Schema::hasTable('courses')) {
             Schema::create('courses', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('course');
                 $table->timestamps();
             });
         }
-}
+
+        if(!Schema::hasTable('course_translations')){
+            Schema::create('course_translations', function (Blueprint $table){
+                $table->increments('id');
+                $table->integer('course_id')->unsigned();
+                $table->string('name');
+                $table->string('locale')->index();
+
+                $table->unique(['course_id', 'locale']);
+                $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+
+            });
+        }
+    }
 
     /**
      * Reverse the migrations.
@@ -30,6 +42,7 @@ class CreateCoursesTable extends Migration
     public function down()
     {
 //        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('course_translations');
         Schema::dropIfExists('courses');
 //        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
