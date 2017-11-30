@@ -45,9 +45,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                 &nbsp;
-                        <li><a href="{{route('tags.admin.index')}}">@lang('Custom.Tags')</a></li>
-                        <li><a href="{{route('chapters.admin.index')}}">@lang('Custom.Chapters')</a></li>
-                        <li><a href="{{route('courses.admin.index')}}">@lang('Custom.Courses')</a></li>
+                        <li><a href="{{route('tags.admin.index')}}">@lang('custom.Tags')</a></li>
+                        <li><a href="{{route('chapters.admin.index')}}">@lang('custom.Chapters')</a></li>
+                        <li><a href="{{route('courses.admin.index')}}">@lang('custom.Courses')</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
