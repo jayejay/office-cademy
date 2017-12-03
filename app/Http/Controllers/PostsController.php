@@ -54,12 +54,13 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $post = new Post();
-
-        return view('posts.create', [
-            'post' => $post,
-            ]
-        );
+//        $post = new Post();
+//
+//        return view('posts.create', [
+//                'post' => $post,
+//            ]
+//        );
+        return view('posts.create');
     }
 
     /**
@@ -171,7 +172,7 @@ class PostsController extends Controller
             return redirect()->route('posts.show', ['post' => $post->id]);
 
         }catch (\Exception $e) {
-            Session::flash('error', 'Mist: '.$e->getMessage());
+            Session::flash('error', 'Oops: '.$e->getMessage());
             return redirect()->route('posts.edit', ['post' => $post->id]);
         }
 
@@ -179,9 +180,9 @@ class PostsController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     * @throws
      * @param  Post $post
-     * @return \Illuminate\Http\Response
+     * @return \Redirect
      */
     public function destroy(Post $post)
     {

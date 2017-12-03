@@ -34,10 +34,6 @@
                                 <td>{{$chapterTranslation->locale}}:</td>
                                 <td>{{$chapterTranslation->name}}</td>
                                 <td>
-                                    <a href="{{-- LaravelLocalization::getLocalizedURL($chapterTranslation->locale, route('chapters.show', $chapter->id), [], true) --}}"
-                                       class="btn btn-default btn-sm">@lang('custom.show')</a>
-                                </td>
-                                <td>
                                     <a href="{{-- LaravelLocalization::getLocalizedURL($chapterTranslation->locale, route('chapters.edit', $chapter->id), [], true) --}}"
                                        class="btn btn-default btn-sm">@lang('custom.edit')</a>
                                 </td>

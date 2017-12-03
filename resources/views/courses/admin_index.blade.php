@@ -34,10 +34,6 @@
                                 <td>{{$courseTranslation->locale}}:</td>
                                 <td>{{$courseTranslation->name}}</td>
                                 <td>
-                                    <a href="{{-- LaravelLocalization::getLocalizedURL($courseTranslation->locale, route('courses.show', $course->id), [], true) --}}"
-                                       class="btn btn-default btn-sm">@lang('custom.show')</a>
-                                </td>
-                                <td>
                                     <a href="{{-- LaravelLocalization::getLocalizedURL($courseTranslation->locale, route('courses.edit', $course->id), [], true) --}}"
                                        class="btn btn-default btn-sm">@lang('custom.edit')</a>
                                 </td>

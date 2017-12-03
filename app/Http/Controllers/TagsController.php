@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\App;
+
 
 class TagsController extends Controller
 {
@@ -36,7 +39,7 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        return view('tags.create');
     }
 
     /**
@@ -47,7 +50,24 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $tag = new Tag();
+
+        $language = App::getLocale();
+
+        $tag->translateOrNew($language)->name = $request->name;
+
+        if ($tag->save()) {
+            Session::flash('flash_message', 'Tag has been created');
+        } else {
+            Session::flash('error', 'Oops, Something went wrong');
+            return redirect()->route('tags.create')->withInput();
+        }
+
+        return redirect()->route('tags.admin.index');
     }
 
     /**
@@ -67,9 +87,9 @@ class TagsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tag $tag)
     {
-        //
+        return view('tags.edit', ['tag' => $tag]);
     }
 
     /**
@@ -79,19 +99,46 @@ class TagsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $language = App::getLocale();
+
+        $tag->translateOrNew($language)->name = $request->name;
+
+        if ($tag->save()) {
+            Session::flash('flash_message', 'Tag has been updated');
+        } else {
+            Session::flash('error', 'Oops, Something went wrong');
+            return redirect()->route('tags.edit')->withInput();
+        }
+
+        return redirect()->route('tags.admin.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tag $tag)
     {
-        //
+        $language = App::getLocale();
+        $tag->deleteTranslations($language);
+
+        if (!$tag->hasTranslation($language)){
+            Session::flash('flash_message', "Translation (".$language.") of tag ". $tag->id ." has been deleted");
+        }
+
+        if (!$tag->translations()->exists()){
+            if ($tag->delete()) {
+                Session::flash('flash_message', 'Tag deleted');
+            }
+        }
+        return redirect()->route('tags.admin.index');
     }
 }

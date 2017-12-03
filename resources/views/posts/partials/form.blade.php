@@ -1,3 +1,9 @@
+<?php
+/**
+ * @var $post App\Post
+ */
+?>
+
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/admin_posts/custom.css') }}">
 @endpush
@@ -12,9 +18,9 @@
             <div class="col-md-8">
                 {{ csrf_field() }}
                 <label for="title">Post title</label>
-                <input type="text" id="title" name="title" class="form-control" placeholder="Enter post title" value="{{old('title', $post->title)}}">
+                <input type="text" id="title" name="title" class="form-control" placeholder="Enter post title" value="{{old('title', isset($post) ? $post->title : '')}}">
                 <label for="body">Post body</label>
-                <textarea class="form-control" name="body" id="body" placeholder="Enter post body" cols="100" rows="15">{{ old('body', $post->body) }}</textarea>
+                <textarea class="form-control" name="body" id="body" placeholder="Enter post body" cols="100" rows="15">{{old('body', isset($post) ? $post->body : '')}}</textarea>
                 <button type="submit" class="btn btn-success" id="send" form="post-form">Save</button>
                 <button id="preview_button" type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#preview">Preview</button>
                 <button id="post_index_button" type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#posts-index">All Posts</button>
@@ -41,7 +47,7 @@
                     @endif
                     @foreach($categories as $category)
                         <option value="{{$category->id}}"
-                                @if ($category->id == old('category_id', $post->category_id))
+                                @if (isset($post) && $category->id == old('category_id', $post->category_id))
                                 selected="selected"
                                 @endif
                         >{{ $category->category }}</option>
@@ -111,7 +117,7 @@
                     @endif
                     @foreach($users as $user)
                         <option value="{{$user->id}}"
-                                @if ($user->id == old('user_id', $post->user_id))
+                                @if (isset($post) && $user->id == old('user_id', $post->user_id))
                                 selected="selected"
                                 @endif
                         >{{ $user->name . ' ' . $user->lastname }}</option>

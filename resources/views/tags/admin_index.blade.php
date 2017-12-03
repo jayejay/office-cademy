@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="row">
-    <a href="{{--route('tags.create')--}}" class="btn btn-info btn-sm">@lang('custom.New Tag')</a>
+    <a href="{{route('tags.create')}}" class="btn btn-info btn-sm">@lang('custom.New Tag')</a>
 </div>
 <h3 class="title">@lang('custom.Tags')</h3>
 <div class="row">
@@ -34,15 +34,11 @@
                                 <td>{{$tagTranslation->locale}}:</td>
                                 <td>{{$tagTranslation->name}}</td>
                                 <td>
-                                    <a href="{{-- LaravelLocalization::getLocalizedURL($tagTranslation->locale, route('tags.show', $tag->id), [], true) --}}"
-                                       class="btn btn-default btn-sm">@lang('custom.show')</a>
-                                </td>
-                                <td>
-                                    <a href="{{-- LaravelLocalization::getLocalizedURL($tagTranslation->locale, route('tags.edit', $tag->id), [], true) --}}"
+                                    <a href="{{ LaravelLocalization::getLocalizedURL($tagTranslation->locale, route('tags.edit', $tag->id), [], true) }}"
                                        class="btn btn-default btn-sm">@lang('custom.edit')</a>
                                 </td>
                                 <td>
-                                    <form method="post" action="{{-- LaravelLocalization::getLocalizedURL($tagTranslation->locale, route('tags.delete',$tag->id), [], true) --}}">
+                                    <form method="post" action="{{ LaravelLocalization::getLocalizedURL($tagTranslation->locale, route('tags.delete',$tag->id), [], true) }}">
                                         {{ csrf_field() }}
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button type="submit" class="btn btn-danger btn-sm pull-right">@lang('custom.delete')</button>

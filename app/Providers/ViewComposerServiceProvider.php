@@ -45,12 +45,10 @@ class ViewComposerServiceProvider extends ServiceProvider
         });
 
         view()->composer([
-            'posts.show',
-            'posts.edit',
-            'posts.admin_index',
-            'chapters.admin_index',
-            'courses.admin_index',
-            'tags.admin_index'
+            'posts.*',
+            'tags.*',
+            'chapters.*',
+            'courses.*'
         ], function ($view){
                 $view->with([
                    'locale' => App::getLocale(),

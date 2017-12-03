@@ -14,7 +14,7 @@
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ],
     ],
     function()
     {
@@ -40,6 +40,9 @@ Route::group(
         Route::delete('/admin/posts/delete/{post}', 'PostsController@destroy')
             ->name('posts.delete');
 
+        Route::post('/admin/posts/store', 'PostsController@store')
+            ->name('posts.store');
+
         Route::patch('/admin/posts/update/{post}', 'PostsController@update')
             ->name('posts.update');
 
@@ -51,6 +54,17 @@ Route::group(
 
         /*Tag routes*/
         Route::get('/admin/tags/index', 'TagsController@adminIndex')->name('tags.admin.index');
+        Route::get('/admin/tags/create', 'TagsController@create')->name('tags.create');
+        Route::get('/admin/tags/edit/{tag}', 'TagsController@edit')->name('tags.edit');
+
+        Route::patch('/admin/tags/update/{tag}', 'TagsController@update')
+            ->name('tags.update');
+
+        Route::post('/admin/tags/store', 'TagsController@store')
+            ->name('tags.store');
+
+        Route::delete('/admin/tags/delete/{tag}', 'TagsController@destroy')
+            ->name('tags.delete');
 
         /*Chapter routes*/
         Route::get('admin/chapters/index', 'ChaptersController@adminIndex')->name('chapters.admin.index');
@@ -66,11 +80,13 @@ Route::group(
 Route::get('/admin/posts/create', 'PostsController@create')
     ->name('posts.create');
 
-Route::post('/admin/posts/store', 'PostsController@store')
-    ->name('posts.store');
+
 
 Route::post('/admin/posts/store_image', 'PostsController@storeImageAjax')
     ->name('posts.store_image');
+
+//Tags
+
 
 //Chapters
 Route::get('/admin/posts/get-chapters/{course}', 'ChaptersController@getChaptersAjax')
