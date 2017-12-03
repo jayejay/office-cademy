@@ -21,10 +21,15 @@ return [
     'show' => 'anzeigen',
     'edit' => 'bearbeiten',
     'delete' => 'löschen',
+    'save' => 'speichern',
     'Nothing to show' => 'Nichts zu sehen',
     'Tags' => 'Tags',
     'Courses' => 'Kurse',
+    'Course' => 'Kurs',
     'Chapters' => 'Kapitel',
-    'Posts' => 'Beiträge'
+    'Chapter' => 'Kapitel',
+    'Posts' => 'Beiträge',
+    'Post' => 'Beitrag',
+    'Chapter number' => 'Nummer des Kapitels'
 
 ];

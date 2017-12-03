@@ -42,6 +42,7 @@ class CreateChaptersTable extends Migration
     public function down()
     {
 //        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('chapter_translations');
         Schema::dropIfExists('chapters');
 //        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
       }

@@ -17,10 +17,13 @@
         <div class="row">
             <div class="col-md-8">
                 {{ csrf_field() }}
-                <label for="title">Post title</label>
-                <input type="text" id="title" name="title" class="form-control" placeholder="Enter post title" value="{{old('title', isset($post) ? $post->title : '')}}">
-                <label for="body">Post body</label>
-                <textarea class="form-control" name="body" id="body" placeholder="Enter post body" cols="100" rows="15">{{old('body', isset($post) ? $post->body : '')}}</textarea>
+                <div class="form-group label-floating">
+                    <label for="title" class="control-label">Post title</label>
+                    <input type="text" id="title" name="title" class="form-control" value="{{old('title', isset($post) ? $post->title : '')}}">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="body" id="body" placeholder="Enter post body" cols="100" rows="15">{{old('body', isset($post) ? $post->body : '')}}</textarea>
+                </div>
                 <button type="submit" class="btn btn-success" id="send" form="post-form">Save</button>
                 <button id="preview_button" type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#preview">Preview</button>
                 <button id="post_index_button" type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#posts-index">All Posts</button>

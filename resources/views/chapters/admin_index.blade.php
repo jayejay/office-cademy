@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="row">
-    <a href="{{--route('chapters.create')--}}" class="btn btn-info btn-sm">@lang('custom.New Chapter')</a>
+    <a href="{{route('chapters.create')}}" class="btn btn-info btn-sm">@lang('custom.New Chapter')</a>
 </div>
 <h3 class="title">@lang('custom.Chapters')</h3>
 <div class="row">
@@ -34,11 +34,11 @@
                                 <td>{{$chapterTranslation->locale}}:</td>
                                 <td>{{$chapterTranslation->name}}</td>
                                 <td>
-                                    <a href="{{-- LaravelLocalization::getLocalizedURL($chapterTranslation->locale, route('chapters.edit', $chapter->id), [], true) --}}"
+                                    <a href="{{ LaravelLocalization::getLocalizedURL($chapterTranslation->locale, route('chapters.edit', $chapter->id), [], true) }}"
                                        class="btn btn-default btn-sm">@lang('custom.edit')</a>
                                 </td>
                                 <td>
-                                    <form method="post" action="{{-- LaravelLocalization::getLocalizedURL($chapterTranslation->locale, route('chapters.delete',$chapter->id), [], true) --}}">
+                                    <form method="post" action="{{ LaravelLocalization::getLocalizedURL($chapterTranslation->locale, route('chapters.delete',$chapter->id), [], true) }}">
                                         {{ csrf_field() }}
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button type="submit" class="btn btn-danger btn-sm pull-right">@lang('custom.delete')</button>

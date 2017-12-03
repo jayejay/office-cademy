@@ -71,20 +71,9 @@ class TagsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Tag $tag
      * @return \Illuminate\Http\Response
      */
     public function edit(Tag $tag)
@@ -95,8 +84,8 @@ class TagsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param Tag $tag
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Tag $tag)
@@ -122,8 +111,9 @@ class TagsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Tag  $tag
+     * @param  Tag $tag
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Tag $tag)
     {

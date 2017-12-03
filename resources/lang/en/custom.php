@@ -20,9 +20,14 @@ return [
     'show' => 'show',
     'edit' => 'edit',
     'delete' => 'delete',
+    'save' => 'save',
     'Nothing to show' => 'Nothing to show',
     'Tags' => 'Tags',
     'Courses' => 'Courses',
+    'Course' => 'Course',
     'Chapters' => 'Chapters',
-    'Posts' => 'Posts'
+    'Chapter' => 'Chapter',
+    'Posts' => 'Posts',
+    'Post' => 'Post',
+    'Chapter number' => 'Chapter number'
 ];
