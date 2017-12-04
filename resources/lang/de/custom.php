@@ -18,6 +18,7 @@ return [
     'New Tag' => 'Neuer Tag',
     'New Chapter' => 'Neues Kapitel',
     'New Course' => 'Neuer Kurs',
+    'New Category' => 'Neue Kategorie',
     'show' => 'anzeigen',
     'edit' => 'bearbeiten',
     'delete' => 'löschen',
@@ -30,6 +31,8 @@ return [
     'Chapter' => 'Kapitel',
     'Posts' => 'Beiträge',
     'Post' => 'Beitrag',
+    'Category' => 'Kategorie',
+    'Categories' => 'Kategorien',
     'Chapter number' => 'Nummer des Kapitels'
 
 ];

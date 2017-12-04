@@ -11,8 +11,10 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
-            'category' => 'Excel',
-        ]);
+        factory(App\Category::class, 1)->create();
+
+//        DB::table('categories')->insert([
+//            'category' => 'Excel',
+//        ]);
     }
 }

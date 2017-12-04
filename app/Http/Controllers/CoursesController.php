@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use Exception;
 use Illuminate\Http\Request;
 use App\Chapter;
 use App\Course;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 class CoursesController extends Controller
 {
@@ -16,7 +20,9 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        //Todo: change view to courses.index
+        return view('courses.admin_index',['courses' => $courses]);
     }
 
     /**
@@ -37,7 +43,8 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('courses.create', ['categories' => $categories]);
     }
 
     /**
@@ -48,53 +55,108 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'name' => 'required|max:255',
+            'category_id' => 'required|integer',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $course = new Course();
+
+        $language = App::getLocale();
+
+        $course->translateOrNew($language)->name = $request->name;
+        $course->category_id = $request->category_id;
+
+        if ($course->save()) {
+            Session::flash('flash_message', 'Course has been created');
+        } else {
+            Session::flash('error', 'Oops, Something went wrong');
+            return redirect()->route('courses.create')->withInput();
+        }
+
+        return redirect()->route('courses.admin.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Course $course
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Course $course)
     {
-        //
+        $categories = Category::all();
+
+        return view('courses.edit', [
+            'course' => $course,
+            'categories' => $categories
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Chapter $chapter
+     * @param Request $request
+     * @param Course $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Course $course)
+    public function update(Request $request, Course $course)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'category_id' => 'required|integer',
+        ]);
+
+        $language = App::getLocale();
+
+        $course->translateOrNew($language)->name = $request->name;
+        $course->category_id = $request->category_id;
+
+        if ($course->save()) {
+            Session::flash('flash_message', 'Course has been updated');
+        } else {
+            Session::flash('error', 'Oops, Something went wrong');
+            return redirect()->route('courses.edit')->withInput();
+        }
+
+        return redirect()->route('courses.admin.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Course $course
+     * @return Response
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Course $course)
     {
-        //
+        $language = App::getLocale();
+        $course->deleteTranslations($language);
+
+        if (!$course->hasTranslation($language)){
+            Session::flash('flash_message', "Translation (".$language.") of course ". $course->id ." has been deleted");
+        }
+
+        if (!$course->translations()->exists()){
+
+            try {
+                if ($course->delete()) {
+                    Session::flash('flash_message', 'Course deleted');
+                }
+            }  catch (Exception $exception) {
+                Session::flash('error', $exception->getMessage());
+                return redirect()->route('courses.admin.index');
+            }
+        }
+
+        return redirect()->route('courses.admin.index');
     }
 
+    /**
+     * @param Category $category
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getCoursesAjax(Category $category)
     {
         try {

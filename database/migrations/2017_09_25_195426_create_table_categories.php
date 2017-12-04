@@ -13,15 +13,30 @@ class CreateTableCategories extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('category');
-        });
+        if(!Schema::hasTable('categories')) {
 
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
-        });
+            Schema::create('categories', function (Blueprint $table) {
+                $table->increments('id');
+            });
+
+            if(!Schema::hasTable('category_translations')){
+                Schema::create('category_translations', function (Blueprint $table){
+                    $table->increments('id');
+                    $table->integer('category_id')->unsigned();
+                    $table->string('name');
+                    $table->string('locale')->index();
+
+                    $table->unique(['category_id', 'locale']);
+                    $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
+                });
+            }
+
+            Schema::table('posts', function (Blueprint $table) {
+                $table->integer('category_id')->unsigned();
+                $table->foreign('category_id')->references('id')->on('categories');
+            });
+        }
     }
 
     /**
@@ -35,8 +50,7 @@ class CreateTableCategories extends Migration
             $table->dropForeign(['category_id']);
             $table->dropColumn('category_id');
         });
-//        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('category_translations');
         Schema::dropIfExists('categories');
-//        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

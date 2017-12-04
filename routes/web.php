@@ -89,6 +89,20 @@ Route::group(
         Route::delete('/admin/courses/delete/{course}', 'CoursesController@destroy')
             ->name('courses.delete');
 
+        /*Categories*/
+        Route::get('admin/categories/index', 'CategoriesController@adminIndex')->name('categories.admin.index');
+        Route::get('/admin/categories/create', 'CategoriesController@create')->name('categories.create');
+        Route::get('/admin/categories/edit/{category}', 'CategoriesController@edit')->name('categories.edit');
+
+        Route::patch('/admin/categories/update/{category}', 'CategoriesController@update')
+            ->name('categories.update');
+
+        Route::post('/admin/categories/store', 'CategoriesController@store')
+            ->name('categories.store');
+
+        Route::delete('/admin/categories/delete/{category}', 'CategoriesController@destroy')
+            ->name('categories.delete');
+
     }
 );
 

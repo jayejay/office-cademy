@@ -114,7 +114,7 @@ class ChaptersController extends Controller
             Session::flash('flash_message', 'Chapter has been updated');
         } else {
             Session::flash('error', 'Oops, Something went wrong');
-            return redirect()->route('chapters.create')->withInput();
+            return redirect()->route('chapters.edit')->withInput();
         }
 
         return redirect()->route('chapters.admin.index');
@@ -129,7 +129,6 @@ class ChaptersController extends Controller
      */
     public function destroy(Chapter $chapter)
     {
-
             $language = App::getLocale();
             $chapter->deleteTranslations($language);
 
@@ -148,11 +147,13 @@ class ChaptersController extends Controller
                     return redirect()->route('chapters.admin.index');
                 }
             }
-
             return redirect()->route('chapters.admin.index');
-
     }
 
+    /**
+     * @param Course $course
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getChaptersAjax(Course $course)
     {
         try {

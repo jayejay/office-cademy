@@ -12,9 +12,7 @@ class Chapter extends Model
     public $translatedAttributes = ['name'];
 
     public function posts(){
-
         return $this->hasMany('App\Post');
-
     }
 
     public function course(){

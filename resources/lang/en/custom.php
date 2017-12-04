@@ -17,6 +17,7 @@ return [
     'New Tag' => 'New Tag',
     'New Chapter' => 'New Chapter',
     'New Course' => 'New Course',
+    'New Category' => 'New Category',
     'show' => 'show',
     'edit' => 'edit',
     'delete' => 'delete',
@@ -29,5 +30,7 @@ return [
     'Chapter' => 'Chapter',
     'Posts' => 'Posts',
     'Post' => 'Post',
+    'Category' => 'Category',
+    'Categories' => 'Categories',
     'Chapter number' => 'Chapter number'
 ];

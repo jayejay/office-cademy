@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="row">
-    <a href="{{--route('courses.create')--}}" class="btn btn-info btn-sm">@lang('custom.New Course')</a>
+    <a href="{{route('courses.create')}}" class="btn btn-info btn-sm">@lang('custom.New Course')</a>
 </div>
 <h3 class="title">@lang('custom.Courses')</h3>
 <div class="row">
@@ -34,11 +34,11 @@
                                 <td>{{$courseTranslation->locale}}:</td>
                                 <td>{{$courseTranslation->name}}</td>
                                 <td>
-                                    <a href="{{-- LaravelLocalization::getLocalizedURL($courseTranslation->locale, route('courses.edit', $course->id), [], true) --}}"
+                                    <a href="{{ LaravelLocalization::getLocalizedURL($courseTranslation->locale, route('courses.edit', $course->id), [], true) }}"
                                        class="btn btn-default btn-sm">@lang('custom.edit')</a>
                                 </td>
                                 <td>
-                                    <form method="post" action="{{-- LaravelLocalization::getLocalizedURL($courseTranslation->locale, route('courses.delete',$course->id), [], true) --}}">
+                                    <form method="post" action="{{ LaravelLocalization::getLocalizedURL($courseTranslation->locale, route('courses.delete',$course->id), [], true) }}">
                                         {{ csrf_field() }}
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button type="submit" class="btn btn-danger btn-sm pull-right">@lang('custom.delete')</button>
