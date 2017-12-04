@@ -53,7 +53,7 @@
                                 @if (isset($post) && $category->id == old('category_id', $post->category_id))
                                 selected="selected"
                                 @endif
-                        >{{ $category->category }}</option>
+                        >{{ $category->name }}</option>
                     @endforeach
                 </select>
                 <hr>
@@ -86,7 +86,7 @@
                 {{--<hr>--}}
                 <select name="chapter" id="chapter" class="selectpicker" form="post-form">
                     @if(isset($post->chapter))
-                        <option value="{{$post->chapter->id}}">{{$post->chapter->number}} - {{$post->chapter->chapter}}</option>
+                        <option value="{{$post->chapter->id}}">{{$post->chapter->number}} - {{$post->chapter->name}}</option>
                     @else
                         <option value="0">Nothing selected</option>
                     @endif
@@ -106,10 +106,10 @@
                 <label for="tags">Tags</label>
                 <select id="tags" name="tags[]" class="selectpicker" multiple data-actions-box="true" form="post-form">
                     @if(!isset($postTagsArray))
-                        <option value="" disabled selected>Please select</option>
+                        <option value="" disabled selected="selected">Please select</option>
                     @endif
                     @foreach($tags as $tag)
-                        <option value="{{ $tag->id }}" @if(in_array($tag->id, isset($postTagsArray) ? $postTagsArray : []))selected @endif >{{ $tag->tag }}</option>
+                        <option value="{{ $tag->id }}" @if(in_array($tag->id, isset($postTagsArray) ? $postTagsArray : []))selected @endif >{{ $tag->name }}</option>
                     @endforeach
                 </select>
                 <hr>
