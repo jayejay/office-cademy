@@ -27,3 +27,11 @@ body{
     padding-top: 60px;
     margin-bottom: 0;
 }
+
+.form-group, .is-empty{
+    margin: 0;
+}
+
+.typeahead-category-name{
+    font-size: 0.7em;
+}

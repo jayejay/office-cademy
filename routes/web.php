@@ -103,6 +103,9 @@ Route::group(
         Route::delete('/admin/categories/delete/{category}', 'CategoriesController@destroy')
             ->name('categories.delete');
 
+        // Search
+        Route::get('find/{q}', 'SearchController@find');
+
     }
 );
 

@@ -49,6 +49,7 @@
                         <li><a href="{{route('chapters.admin.index')}}">@lang('custom.Chapters')</a></li>
                         <li><a href="{{route('courses.admin.index')}}">@lang('custom.Courses')</a></li>
                         <li><a href="{{route('categories.admin.index')}}">@lang('custom.Categories')</a></li>
+                        <li><input id="navbar-search-input" class="form-control" type="text" placeholder="search"></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

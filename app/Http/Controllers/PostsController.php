@@ -41,9 +41,13 @@ class PostsController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function adminIndex()
+    public function adminIndex(Request $request)
     {
-        $posts = Post::all();
+        if ($q = isset($request->q)) {
+            $posts = Post::search($q)->get();
+        } else {
+            $posts = Post::all();
+        }
         return view('posts.admin_index',['posts' => $posts]);
     }
 
@@ -232,4 +236,5 @@ class PostsController extends Controller
             return response()->json(["success" => false, "message" => $e->getMessage()]);
         }
     }
+
 }
