@@ -43,8 +43,13 @@ class PostsController extends Controller
      */
     public function adminIndex(Request $request)
     {
-        if ($q = isset($request->q)) {
-            $posts = Post::search($q)->get();
+        if (isset($request->q)) {
+            $q = $request->q;
+            $posts = Post::whereHas('translations', function($query) use ($q){
+                $query->where('title', 'ilike', '%' . $q . '%')
+//                    ->orWhere('body', 'ilike', '%' . $q . '%')
+                    ->where('locale', App::getLocale());
+            })->get();
         } else {
             $posts = Post::all();
         }

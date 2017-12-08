@@ -4,25 +4,12 @@ namespace App;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
-use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Post extends Model
 {
     use Translatable;
 
     public $translatedAttributes = ['title', 'body'];
-
-    use SearchableTrait;
-
-    protected $searchable = [
-        'columns' => [
-            'post_translations.title' => 10,
-            'post_translations.body' => 5,
-        ],
-        'joins' => [
-            'post_translations' => ['posts.id','post_translations.post_id'],
-        ],
-    ];
 
     public function category()
     {

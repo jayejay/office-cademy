@@ -35,3 +35,12 @@ body{
 .typeahead-category-name{
     font-size: 0.7em;
 }
+
+#navbar-search-input{
+    background-color: white !important;
+}
+
+.tt-suggestion.tt-cursor {
+    color: #fff;
+    background-color: #0097cf;
+}
