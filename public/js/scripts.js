@@ -16,8 +16,6 @@ $(document).ready(function () {
 
     var searchInput = $("#navbar-search-input");
 
-    searchInput.removeClass("")
-
     searchInput.typeahead({
         hint: true,
         highlight: true,
