@@ -18,8 +18,10 @@ $factory->define(App\Post::class, function (Faker $faker) use ($autoIncrement) {
     $autoIncrement->next();
     return [
         'title:de' => "Deutscher Titel {$autoIncrement->current()}",
+        'description:de' => "Kurze Beschreibung: " . $faker->realText(100),
         'body:de' => $faker->realText(250),
         'title:en' => "English Title {$autoIncrement->current()}",
+        'description:en' => "Short description: " . $faker->realText(100),
         'body:en' => $faker->realText(250),
         'active' => $faker->boolean,
         'user_id' => random_int(1,2),
