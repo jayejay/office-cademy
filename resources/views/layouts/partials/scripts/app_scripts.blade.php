@@ -1,7 +1,19 @@
 <script>
     $(document).ready(function () {
+        var searchInput = $("#navbar-search-input");
+
+        searchInput.on('keydown', function(e) {
+
+            if (e.keyCode === 13) {
+                var typeahead = $(this).data('typeahead');
+                var val = typeahead.$menu.find('.active').data('value');
+                if (!val)
+                    $('#search-form').submit();
+            }
+        });
+
         // Typeahead Search
-        var engine = new Bloodhound({
+            var engine = new Bloodhound({
             remote: {
                 url: '/find/%QUERY%',
                 wildcard: '%QUERY%'
@@ -10,7 +22,7 @@
             queryTokenizer: Bloodhound.tokenizers.whitespace
         });
 
-        var searchInput = $("#navbar-search-input");
+
 
         searchInput.typeahead({
             hint: true,

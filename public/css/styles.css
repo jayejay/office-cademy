@@ -48,3 +48,7 @@ body{
 .btn.btn-default.btn-sm.dropdown-toggle.nav-button-toggle{
     margin-top: 10px;
 }
+
+.tt-menu{
+    margin-top:-10%;
+}
