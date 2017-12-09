@@ -44,3 +44,7 @@ body{
     color: #fff;
     background-color: #0097cf;
 }
+
+.btn.btn-default.btn-sm.dropdown-toggle.nav-button-toggle{
+    margin-top: 10px;
+}
