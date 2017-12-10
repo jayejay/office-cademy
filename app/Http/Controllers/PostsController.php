@@ -64,12 +64,6 @@ class PostsController extends Controller
      */
     public function create()
     {
-//        $post = new Post();
-//
-//        return view('posts.create', [
-//                'post' => $post,
-//            ]
-//        );
         return view('posts.create');
     }
 
@@ -135,6 +129,8 @@ class PostsController extends Controller
         $post->chapter_id = 1;
         $post->category_id = 1;
         $post->course_id = 1;
+        //Todo: create a field in form and save from request
+        $post->translateOrNew($language)->description = 'Test';
 
         if ($post->save()) {
             Session::flash('flash_message', 'Post has been created');
@@ -167,6 +163,8 @@ class PostsController extends Controller
 
             $post->translateOrNew($language)->title = $request->title;
             $post->translateOrNew($language)->body = $request->body;
+            //Todo: create a field in form and save from request
+            $post->translateOrNew($language)->description = 'Test';
 
             $post->user_id = $request->user_id;
 //            $post->chapter_id = $request->chapter_id;
