@@ -46,9 +46,9 @@ var big_image;
      //removed class label and label-color from tag span and replaced with data-color
      var tagClass = $('.tagsinput').data('color');
 
-     $('.tagsinput').tagsinput({
-         tagClass: ' tag-'+ tagClass +' '
-     });
+     // $('.tagsinput').tagsinput({
+     //     tagClass: ' tag-'+ tagClass +' '
+     // });
 
      if($('.navbar-color-on-scroll').length != 0){
          $(window).on('scroll', materialKit.checkScrollForTransparentNavbar)

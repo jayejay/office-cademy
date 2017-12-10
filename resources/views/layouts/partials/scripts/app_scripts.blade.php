@@ -3,12 +3,14 @@
         var searchInput = $("#navbar-search-input");
 
         searchInput.on('keydown', function(e) {
-
             if (e.keyCode === 13) {
-                var typeahead = $(this).data('typeahead');
-                var val = typeahead.$menu.find('.active').data('value');
-                if (!val)
+                var choosenItem = $('.tt-cursor');
+
+                if (typeof choosenItem !=='undefined') {
+                    document.location = choosenItem.attr('href');
+                } else {
                     $('#search-form').submit();
+                }
             }
         });
 
