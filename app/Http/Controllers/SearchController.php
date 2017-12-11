@@ -11,24 +11,30 @@ class SearchController extends Controller
 
     /**
      * @param Request $request
+     * @param $q
      * @return mixed
      */
-    public function find($q){
+    public function find(Request $request, $q = null){
 
-        $posts = Post::whereHas('translations', function($query) use ($q){
-            $query->where('title', 'ilike', '%' . $q . '%')
-//                  ->orWhere('body', 'ilike', '%' . $q . '%')
-                  ->where('locale', App::getLocale());
-        })->get();
+        if($request->ajax()){
+            $posts = Post::whereHas('translations', function($query) use ($q){
+                $query->where('title', 'ilike', '%' . $q . '%')
+    //                  ->orWhere('body', 'ilike', '%' . $q . '%')
+                      ->where('locale', App::getLocale());
+            })->get();
 
-        $postsArray = [];
+            $postsArray = [];
 
-        foreach($posts as $post){
-            $postsArray[$post->id]['id'] = $post->id;
-            $postsArray[$post->id]['title'] = $post->title;
-            $postsArray[$post->id]['category_name'] = $post->category->name;
+            foreach($posts as $post){
+                $postsArray[$post->id]['id'] = $post->id;
+                $postsArray[$post->id]['title'] = $post->title;
+                $postsArray[$post->id]['category_name'] = $post->category->name;
+            }
+
+            return $postsArray;
         }
-
-        return $postsArray;
+        $q = $request->q;
+//        $query = str_slug($q);
+        return redirect()->route('posts.admin.index', ["q" => $q]);
     }
 }

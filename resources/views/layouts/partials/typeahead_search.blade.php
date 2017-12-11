@@ -1,4 +1,4 @@
-<form id="search-form" method="get" role="search" class="typeahead" action="{{route('posts.admin.index')}}">
+<form id="search-form" method="get" role="search" class="typeahead" action="{{route('posts.find')}}">
     <div>
         <div class="input-group">
             <input id="navbar-search-input" name="q" class="form-control" type="text" placeholder="search">
