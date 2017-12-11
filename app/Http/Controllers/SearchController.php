@@ -33,8 +33,8 @@ class SearchController extends Controller
 
             return $postsArray;
         }
-        $q = $request->q;
-//        $query = str_slug($q);
-        return redirect()->route('posts.admin.index', ["q" => $q]);
+        $q = str_slug($request->q);
+
+        return redirect()->route('posts.admin.index', ["q" => $q, 'search' => 'search']);
     }
 }

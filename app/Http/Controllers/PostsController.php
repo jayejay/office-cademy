@@ -45,7 +45,8 @@ class PostsController extends Controller
     public function adminIndex(Request $request)
     {
         if (isset($request->q)) {
-            $q = $request->q;
+            $q = str_replace('-', ' ', $request->q);
+//            dd($q);
             $posts = Post::whereHas('translations', function($query) use ($q){
                 $query->where('title', 'ilike', '%' . $q . '%')
 //                    ->orWhere('body', 'ilike', '%' . $q . '%')
