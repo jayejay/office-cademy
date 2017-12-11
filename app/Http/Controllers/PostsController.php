@@ -46,7 +46,6 @@ class PostsController extends Controller
     {
         if (isset($request->q)) {
             $q = str_replace('-', ' ', $request->q);
-//            dd($q);
             $posts = Post::whereHas('translations', function($query) use ($q){
                 $query->where('title', 'ilike', '%' . $q . '%')
 //                    ->orWhere('body', 'ilike', '%' . $q . '%')

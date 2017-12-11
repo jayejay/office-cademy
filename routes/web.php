@@ -27,9 +27,11 @@ Route::group(
         Route::get('/home', 'HomeController@index')->name('home');
 
         /*Post routes*/
-        Route::get('/admin/posts/{search?}/{q?}', 'PostsController@adminIndex')->name('posts.admin.index');
+        Route::get('/admin/posts/list/{search?}/{q?}', 'PostsController@adminIndex')->name('posts.admin.index');
         Route::get('/posts/show/{post}/{slug?}', 'PostsController@show')->name('posts.show');
-        Route::get('/admin/posts/create', 'PostsController@create')->name('posts.create');
+
+        Route::get('/admin/posts/new/create', 'PostsController@create')->name('posts.create');
+
         Route::get('/admin/posts/edit/{post}', 'PostsController@edit')->name('posts.edit');
         Route::get('/admin/posts/get-post-body/{post}', 'PostsController@getPostBody')
             ->name('posts.get_post_body');

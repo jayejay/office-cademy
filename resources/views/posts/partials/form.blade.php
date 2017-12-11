@@ -32,8 +32,6 @@
                 <hr>
             </div>
             <div class="col-md-2">
-                {{--<button type="button" class="btn btn-sm btn-success" id="button-create-parent-post" data-toggle="modal" data-target="#create-parent-post">@lang('Create Parent Post')</button>--}}
-                {{--<hr>--}}
                 <label for="image">Add images</label>
                 <label class="btn btn-default btn-sm">
                         Browse
@@ -60,20 +58,8 @@
                 {{--todo: if course is choosen select of chapter has to be filled. And before saved course of post has to be pre selected --}}
 
                 <label for="course">Course</label>
-                {{--<input name="course_id" type="text" class="form-control" placeholder="Course Number"--}}
-                {{--form="post-form" value="{{old('course_id', $post->course_id)}}">--}}
                 <select name="course" id="course" class="selectpicker">
                     <option value="0">Nothing selected</option>
-                    {{--@foreach($courses as $course)--}}
-                    {{--<option value="{{$course->id}}"--}}
-                    {{--@if (isset($post->chapter->course->id))--}}
-                    {{--@if ($course->id === $post->chapter->course->id)--}}
-                    {{--selected="selected"--}}
-                    {{--@endif--}}
-                    {{--@endif--}}
-                    {{-->{{$course->course}}--}}
-                    {{--</option>--}}
-                    {{--@endforeach--}}
                 </select>
                 <hr>
                 <label for="active">Publish</label><br>
@@ -81,9 +67,6 @@
             </div>{{--end row 2--}}
             <div class="col-md-2">
                 <label for="chapter">Chapter</label>
-                {{--<input name="chapter_id" type="text" class="form-control" placeholder="Chapter"--}}
-                {{--form="post-form" value="{{old('chapter_id', $post->chapter_id)}}">--}}
-                {{--<hr>--}}
                 <select name="chapter" id="chapter" class="selectpicker" form="post-form">
                     @if(isset($post->chapter))
                         <option value="{{$post->chapter->id}}">{{$post->chapter->number}} - {{$post->chapter->name}}</option>
@@ -92,17 +75,6 @@
                     @endif
                 </select>
                 <hr>
-                {{--<label for="language">Language</label>--}}
-                {{--<select name="language_short" class="selectpicker" id="language" form="post-form">--}}
-                    {{--@foreach($languages as $language)--}}
-                        {{--<option value="{{$language->language_short}}"--}}
-                                {{--@if ($language->language_short == old('language_short', $post->locale))--}}
-                                {{--selected="selected"--}}
-                                {{--@endif--}}
-                        {{-->{{ $language->language }}</option>--}}
-                    {{--@endforeach--}}
-                {{--</select>--}}
-                {{--<hr>--}}
                 <label for="tags">Tags</label>
                 <select id="tags" name="tags[]" class="selectpicker" multiple data-actions-box="true" form="post-form">
                     @if(!isset($postTagsArray))
@@ -135,7 +107,7 @@
 
 @section('javascript')
     <script>
-        //is used in "js/posts/post_create.js"
+        /*is used in "js/posts/post_create.js"*/
         var ajaxUrl = '{{ route("posts.store_image") }}';
     </script>
 @endsection
