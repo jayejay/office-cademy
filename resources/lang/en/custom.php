@@ -32,5 +32,6 @@ return [
     'Post' => 'Post',
     'Category' => 'Category',
     'Categories' => 'Categories',
-    'Chapter number' => 'Chapter number'
+    'Chapter number' => 'Chapter number',
+    'Chapter name' => 'Chapter name'
 ];

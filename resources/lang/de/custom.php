@@ -33,6 +33,7 @@ return [
     'Post' => 'Beitrag',
     'Category' => 'Kategorie',
     'Categories' => 'Kategorien',
-    'Chapter number' => 'Nummer des Kapitels'
+    'Chapter number' => 'Nummer des Kapitels',
+    'Chapter name' => 'Kapitel Name'
 
 ];

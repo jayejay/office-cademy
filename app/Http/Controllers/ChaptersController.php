@@ -64,6 +64,8 @@ class ChaptersController extends Controller
 
         $chapter->translateOrNew($language)->name = $request->name;
         $chapter->course_id = $request->course_id;
+        $chapter->number = $request->number;
+
 
         if ($chapter->save()) {
             Session::flash('flash_message', 'Chapter has been created');
@@ -109,6 +111,7 @@ class ChaptersController extends Controller
 
         $chapter->translateOrNew($language)->name = $request->name;
         $chapter->course_id = $request->course_id;
+        $chapter->number = $request->number;
 
         if ($chapter->save()) {
             Session::flash('flash_message', 'Chapter has been updated');
