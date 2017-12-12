@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin_layout')
 
 @section('content')
     <form id="chapter-form" method="post" action="{{route('chapters.update', $chapter->id)}}">

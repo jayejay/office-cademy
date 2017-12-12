@@ -11,6 +11,7 @@
         <title>{{ config('app.name', 'Officecademy') }}</title>
 
         @include('layouts/partials/head/css')
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
         @stack('styles')
 
         @include('layouts/partials/head/js')

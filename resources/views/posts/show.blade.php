@@ -3,7 +3,7 @@
  * @var $post App\Post;
  */
 ?>
-@extends('layouts.app')
+@extends('layouts.admin_layout')
 @push('scripts')
     <script src=" {{ asset('js/posts/post_show.js') }} ">
     </script>

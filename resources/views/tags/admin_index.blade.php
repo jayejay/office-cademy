@@ -3,7 +3,7 @@
  * @var $tag App\Tag;
  */
 ?>
-@extends('layouts.app')
+@extends('layouts.admin_layout')
 
 @section('content')
 

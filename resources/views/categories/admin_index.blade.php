@@ -3,7 +3,7 @@
  * @var $category App\Category;
  */
 ?>
-@extends('layouts.app')
+@extends('layouts.admin_layout')
 
 @section('content')
 

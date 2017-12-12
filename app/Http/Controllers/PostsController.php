@@ -11,17 +11,17 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\View;
 use Session;
 use Illuminate\Validation\Rule;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
 class PostsController extends Controller
 {
-
     public function __construct()
     {
         if (App::environment('local')){
-            $this->middleware('guest');
+//            $this->middleware('guest');
         } else {
             $this->middleware('auth');
         }
@@ -54,6 +54,7 @@ class PostsController extends Controller
         } else {
             $posts = Post::all();
         }
+
         return view('posts.admin_index',['posts' => $posts]);
     }
 

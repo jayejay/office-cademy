@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin_layout')
 
 @section('content')
     <form id="category-form" method="post" action="{{route('categories.update', $category->id)}}">

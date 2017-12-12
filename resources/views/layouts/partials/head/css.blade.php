@@ -10,4 +10,3 @@
 <link href="{{asset('css/vendor/creativetim/material-kit.css?v=1.2.0')}}" rel="stylesheet"/>
 
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<link href="{{ asset('css/styles.css') }}" rel="stylesheet">

@@ -36,9 +36,9 @@ body{
     font-size: 0.7em;
 }
 
-#navbar-search-input{
-    background-color: white !important;
-}
+/*#navbar-search-input{*/
+    /*background-color: white !important;*/
+/*}*/
 
 .tt-suggestion.tt-cursor {
     color: #fff;
@@ -53,3 +53,11 @@ body{
     margin-top:-10%;
 }
 
+/*Admin Nav bar*/
+.navbar .navbar-form .form-group .form-control,
+.navbar .navbar-form .form-control {
+    color: black;
+}
+.navbar .navbar-brand {
+    color: black;
+}

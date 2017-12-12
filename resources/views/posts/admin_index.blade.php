@@ -3,7 +3,7 @@
  * @var $post App\Post;
  */
 ?>
-@extends('layouts.app')
+@extends('layouts.admin_layout')
 
 @section('content')
 
