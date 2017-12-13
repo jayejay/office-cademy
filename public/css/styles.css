@@ -41,7 +41,7 @@ body{
 /*}*/
 
 .tt-suggestion.tt-cursor {
-    color: #fff;
+    color: #000000;
     background-color: #0097cf;
 }
 
@@ -49,9 +49,11 @@ body{
     margin-top: 10px;
 }
 
+/*
 .tt-menu{
     margin-top:-10%;
 }
+*/
 
 /*Admin Nav bar*/
 .navbar .navbar-form .form-group .form-control,

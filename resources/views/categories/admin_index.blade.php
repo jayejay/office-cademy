@@ -33,15 +33,19 @@
                             <tr class="">
                                 <td>{{$categoryTranslation->locale}}:</td>
                                 <td>{{$categoryTranslation->name}}</td>
-                                <td>
+                                <td class="td-actions">
                                     <a href="{{ LaravelLocalization::getLocalizedURL($categoryTranslation->locale, route('categories.edit', $category->id), [], true) }}"
-                                       class="btn btn-default btn-sm">@lang('custom.edit')</a>
+                                       rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                        <i class="material-icons">edit</i>
+                                    </a>
                                 </td>
-                                <td>
+                                <td class="td-actions">
                                     <form method="post" action="{{ LaravelLocalization::getLocalizedURL($categoryTranslation->locale, route('categories.delete',$category->id), [], true) }}">
                                         {{ csrf_field() }}
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button type="submit" class="btn btn-danger btn-sm pull-right">@lang('custom.delete')</button>
+                                        <button type="submit" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
+                                            <i class="material-icons">close</i>
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
