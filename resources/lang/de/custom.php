@@ -23,6 +23,7 @@ return [
     'edit' => 'bearbeiten',
     'delete' => 'löschen',
     'save' => 'speichern',
+    'show all' => 'alle anzeigen',
     'Nothing to show' => 'Nichts zu sehen',
     'Tags' => 'Tags',
     'Courses' => 'Kurse',

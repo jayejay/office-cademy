@@ -8,6 +8,7 @@ use App\Language;
 use App\Post;
 use App\Tag;
 use App\User;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class ViewComposerServiceProvider extends ServiceProvider
@@ -19,7 +20,7 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->composePostForm();
+        $this->composeViews();
     }
 
     /**
@@ -32,7 +33,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         //
     }
 
-    private function composePostForm()
+    private function composeViews()
     {
         view()->composer('posts.partials.form', function($view){
             $view->with([
@@ -53,6 +54,11 @@ class ViewComposerServiceProvider extends ServiceProvider
         ], function ($view){
                 $view->with([
                    'locale' => App::getLocale(),
+                ]);
+        });
+        view()->composer('layouts.admin_layout', function ($view){
+                $view->with([
+                   'currentPath' => Route::currentRouteName(),
                 ]);
         });
     }

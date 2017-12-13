@@ -22,6 +22,7 @@ return [
     'edit' => 'edit',
     'delete' => 'delete',
     'save' => 'save',
+    'show all' => 'show all',
     'Nothing to show' => 'Nothing to show',
     'Tags' => 'Tags',
     'Courses' => 'Courses',
