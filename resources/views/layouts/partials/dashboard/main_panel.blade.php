@@ -73,7 +73,7 @@
         </div>
     </nav>
     <div class="content">
-        <div class="container-fluid">
+        <div class="container">
             @include('layouts.partials.flash_messages')
             @include('layouts.partials.errors')
             @yield('content')

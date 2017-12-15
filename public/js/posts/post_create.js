@@ -2,12 +2,13 @@ $(document).ready(function () {
 
     var textarea = $('#body');
     textarea.focus();
-    getCourses();
+    // getCourses();
+
     //Add image to post body
+    var counter = 1;
     $(document).on('change', '#image', function () {
 
         var formData = new FormData();
-
         for(var i=0; i < $(this).get(0).files.length; i++ ){
             formData.append('files['+ i +']', $(this).get(0).files[i]);
         }
@@ -28,12 +29,15 @@ $(document).ready(function () {
             success: function (data) {
                 for(var i=0; i < data.path.length ; i++){
                     var newContent = '' +
-                        '<div class="pics" style="width: 100%">' +
-                            '<img src="' + data.path[i] +'" class="img-responsive">' +
-                        '</div>';
+                        '<a href="' + data.path[i] + '" data-lightbox="image-' + counter + '" data-title="xxx ' + counter + '">' +
+                            '<div class="pics" style="width: 50%">' +
+                                '<img src="' + data.path[i] +'" class="img-responsive">' +
+                            '</div>' +
+                        '</a>';
                     addNewContent(newContent);
                 }
                 $('#image').val('');
+                counter++;
             }
         });
     });
@@ -58,32 +62,32 @@ $(document).ready(function () {
         textarea.val(textareaText.substring(0, caretPos) + ' ' + newContent + ' ' + textareaText.substring(caretPos));
     };
 
-    function getCourses(){
-        categoryId = $('#category').val();
-        url = '/admin/posts/get-courses/' + categoryId;
-        selectCourses = $('#course');
-        selectCourses.html('');
-
-        $.get(url, [], function (response) {
-           if(response.success){
-               courses = response.courses;
-               // for(var i = 0; i < response.courses.length; i++){
-               //     html = '<option value="' + courses[i].id + '">' + courses[i].course + '</option>';
-               //     console.log(html);
-               //     selectCourses.html(html);
-               // }
-               $.each(courses, function (i, course) {
-                   selectCourses.append($('<option>', {
-                       value: course.id,
-                       text : course.course
-                   }));
-               });
-
-           }else{
-               alert(response.message);
-           }
-        });
-    }
+    // function getCourses(){
+    //     categoryId = $('#category').val();
+    //     url = '/admin/posts/get-courses/' + categoryId;
+    //     selectCourses = $('#course');
+    //     selectCourses.html('');
+    //
+    //     $.get(url, [], function (response) {
+    //        if(response.success){
+    //            courses = response.courses;
+    //            // for(var i = 0; i < response.courses.length; i++){
+    //            //     html = '<option value="' + courses[i].id + '">' + courses[i].course + '</option>';
+    //            //     console.log(html);
+    //            //     selectCourses.html(html);
+    //            // }
+    //            $.each(courses, function (i, course) {
+    //                selectCourses.append($('<option>', {
+    //                    value: course.id,
+    //                    text : course.course
+    //                }));
+    //            });
+    //
+    //        }else{
+    //            alert(response.message);
+    //        }
+    //     });
+    // }
 
     $(document).on('change', '#category', function () {
         // console.log($('#category').val());

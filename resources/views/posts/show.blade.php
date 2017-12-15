@@ -9,17 +9,29 @@
     </script>
 @endpush
 @section('content')
+    {{--Todo: Bevor going live--}}
+    {{--@auth--}}
+        <div class="row">
+            <a href="{{route('posts.edit', $post->id)}}" class="btn btn-default btn-sm">@lang('custom.edit')</a>
+        </div>
+    {{--@endauth--}}
     <div class="row">
         <div class="row" id="title">
-            <h2>{{!empty($post->translateOrDefault($locale)->title) ?  $post->translateOrDefault($locale)->title : "Nothing to show"}}</h2>
+            <div class="col-md-12">
+                <h2>{{!empty($post->translateOrDefault($locale)->title) ?  $post->translateOrDefault($locale)->title : "Nothing to show"}}</h2>
+            </div>
         </div>
         <div class="row" id="body">
+            <div class="col-md-12">
             {!! !empty($post->translateOrDefault($locale)->body) ? $post->translateOrDefault($locale)->body : "" !!}
+            </div>
         </div>
         <div class="row" id="tags">
-            @foreach($post->tags as $tag)
-                <span class="label label-primary">{{ $tag->tag }}</span>
-            @endforeach
+            <div class="col-md-12">
+                @foreach($post->tags as $tag)
+                    <span class="label label-primary">{{ $tag->tag }}</span>
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection
