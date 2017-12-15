@@ -6,11 +6,9 @@
 @extends('layouts.admin_layout')
 
 @section('content')
-
 <div class="row">
-    <a href="{{route('categories.create')}}" class="btn btn-info btn-sm">@lang('custom.New Category')</a>
+    <h3 class="title">@lang('custom.Categories')</h3>
 </div>
-<h3 class="title">@lang('custom.Categories')</h3>
 <div class="row">
     <div class="panel-group">
     @foreach($categories as $category)

@@ -8,9 +8,8 @@
 @section('content')
 
 <div class="row">
-    <a href="{{route('courses.create')}}" class="btn btn-info btn-sm">@lang('custom.New Course')</a>
+    <h3 class="title">@lang('custom.Courses')</h3>
 </div>
-<h3 class="title">@lang('custom.Courses')</h3>
 <div class="row">
     <div class="panel-group">
     @foreach($courses as $course)

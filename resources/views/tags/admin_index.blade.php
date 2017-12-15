@@ -8,9 +8,8 @@
 @section('content')
 
 <div class="row">
-    <a href="{{route('tags.create')}}" class="btn btn-info btn-sm">@lang('custom.New Tag')</a>
+    <h3 class="title">@lang('custom.Tags')</h3>
 </div>
-<h3 class="title">@lang('custom.Tags')</h3>
 <div class="row">
     <div class="panel-group">
     @foreach($tags as $tag)
