@@ -64,3 +64,7 @@ body{
     color: black;
 }
 
+.material-icons {
+    vertical-align: middle;
+    margin: 0 0.4%;
+}
