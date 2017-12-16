@@ -67,4 +67,5 @@ body{
 .material-icons {
     vertical-align: middle;
     margin: 0 0.4%;
+    display: inline-flex;
 }
