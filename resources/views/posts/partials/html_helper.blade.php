@@ -3,8 +3,9 @@
         <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="html-helper">
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='@include('posts.partials.html_templates.template_heading')' class="html_tags">Heading</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='@include('posts.partials.html_templates.template_panel')' class="html_tags">Panel</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='<p></p>' class="html_tags">Paragraph</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='@include('posts.partials.html_templates.template_panel')' class="html_tags">Panel</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='@include('posts.partials.html_templates.template_material_icons')' class="html_tags">Material icons</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='<div class="" id="" name=""></div>' class="html_tags">Div</a></li>
         {{--<li role="presentation" class="divider"></li>--}}
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='@include('posts.partials.html_templates.template_ordered_list')' class="html_tags">Ordered List</a></li>
