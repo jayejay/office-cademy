@@ -27,6 +27,7 @@
                 <button type="submit" class="btn btn-success" id="send" form="post-form">Save</button>
                 <button id="preview_button" type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#preview">Preview</button>
                 <button id="post_index_button" type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#posts-index">All Posts</button>
+                @include('posts.partials.material_icons')
             </div>
             <div class="col-md-4">
                 <hr>

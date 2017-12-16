@@ -28,7 +28,15 @@
         <div class="container">
             @include('layouts.partials.flash_messages')
             @include('layouts.partials.errors')
-            @yield('content')
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                @yield('content')
+            </div>
+            <div class="col-md-2">
+
+            </div>
         </div>
     </div>
 
