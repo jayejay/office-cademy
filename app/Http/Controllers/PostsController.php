@@ -228,7 +228,7 @@ class PostsController extends Controller
                 $imageFileName = time() . '.' . $file->getClientOriginalExtension();
                 $s3 = Storage::disk('s3');
                 $filePath = '/images/' . $imageFileName;
-                $s3->put($filePath, file_get_bodys($file), 'public');
+                $s3->put($filePath, file_get_contents($file), 'public');
                 $path[] = $s3->url('images/'.$imageFileName);
             }
         }
