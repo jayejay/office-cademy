@@ -113,7 +113,7 @@ Route::group(
     }
 );
 
-Route::any('/admin/posts/store_image', 'PostsController@storeImageAjax')
+Route::post('/admin/posts/store_image', 'PostsController@storeImageAjax')
     ->name('posts.store_image');
 //Chapters
 Route::get('/admin/posts/get-chapters/{course}', 'ChaptersController@getChaptersAjax')
