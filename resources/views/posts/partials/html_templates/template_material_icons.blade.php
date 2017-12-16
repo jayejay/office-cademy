@@ -1,1 +1,1 @@
-<span><i class="material-icons">tag_faces</i></span>
+<span><i class="material-icons">alarm_on</i></span>

@@ -1,5 +1,11 @@
 body{
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    background-color: white;
+}
+
+.navbar.navbar-default.navbar-static-top{
+    background-color: #009688;
+    color:whitesmoke;
 }
 
 .pics {
@@ -47,6 +53,7 @@ body{
 
 .btn.btn-default.btn-sm.dropdown-toggle.nav-button-toggle{
     margin-top: 10px;
+    background-color: #004D40;
 }
 
 /*

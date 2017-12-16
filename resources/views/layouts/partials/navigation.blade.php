@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Officecademy') }}:{{App::getlocale()}}
+                {{ config('app.name', 'Officecademy') }}
             </a>
         </div>
 
