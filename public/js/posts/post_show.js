@@ -14,7 +14,7 @@ $(document).ready(function () {
             if(response.success){
                 var panelBody = panel.find('.panel-body');
                 console.log(panelBody);
-                panelBody.append(response.postBody);
+                panelBody.html(response.postBody);
             }else{
                 console.log(response.message)
             }

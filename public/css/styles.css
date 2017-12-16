@@ -76,3 +76,8 @@ body{
     margin: 0 0.4%;
     display: inline-flex;
 }
+
+.loading-gif{
+    display:block;
+    margin: 0 auto;
+}
