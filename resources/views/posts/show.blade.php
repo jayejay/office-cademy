@@ -13,12 +13,13 @@
     {{--@auth--}}
         <div class="row">
             <a href="{{route('posts.edit', $post->id)}}" class="btn btn-default btn-sm">@lang('custom.edit')</a>
+            <a href="{{route('posts.show', $post->id)}}" class="btn btn-default btn-sm">@lang('custom.show')</a>
         </div>
     {{--@endauth--}}
     <div class="row">
         <div class="row" id="title">
             <div class="col-md-12">
-                <h2>{{!empty($post->translateOrDefault($locale)->title) ?  $post->translateOrDefault($locale)->title : "Nothing to show"}}</h2>
+                <h2 class="title">{{!empty($post->translateOrDefault($locale)->title) ?  $post->translateOrDefault($locale)->title : "Nothing to show"}}</h2>
             </div>
         </div>
         <div class="row" id="body">

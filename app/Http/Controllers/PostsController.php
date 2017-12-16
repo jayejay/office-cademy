@@ -52,7 +52,7 @@ class PostsController extends Controller
                     ->where('locale', App::getLocale());
             })->get();
         } else {
-            $posts = Post::all();
+            $posts = Post::all()->sortBy('id');
         }
 
         return view('posts.admin_index',['posts' => $posts]);
