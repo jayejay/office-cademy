@@ -35,7 +35,7 @@ Route::group(
         Route::get('/admin/posts/new/create', 'PostsController@create')->name('posts.create');
 
         Route::get('/admin/posts/edit/{post}', 'PostsController@edit')->name('posts.edit');
-        Route::get('/admin/posts/get-post-body/{post}', 'PostsController@getPostBody')
+        Route::get('/posts/get-post-body/{post}', 'PostsController@getPostBody')
             ->name('posts.get_post_body');
 
         Route::delete('/admin/posts/delete/{post}', 'PostsController@destroy')->name('posts.delete');

@@ -1,17 +1,23 @@
 $(document).ready(function () {
 
-    $('.panel-link').each(function () {
+    $('.panel').each(function () {
 
-       var panel = $(this);
-       var url = panel.attr("data-url");
+        var panel = $(this);
+        var postId = panel.attr("data-id");
+        var url = baseUrl + "/" + locale + "/posts/get-post-body/" + postId
 
+        getPostBody(panel, postId, url)
+    });
+
+    function getPostBody(panel, postId, url){
         $.get(url, function (response) {
             if(response.success){
-                panelContent = panel.parent().parent().next('.panel-content');
-                panelContent.append(response.postBody);
+                var panelBody = panel.find('.panel-body');
+                console.log(panelBody);
+                panelBody.append(response.postBody);
             }else{
                 console.log(response.message)
             }
         });
-    });
+    }
 });
