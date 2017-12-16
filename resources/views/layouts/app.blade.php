@@ -34,7 +34,7 @@
 
     <!-- Scripts -->
     {{--<script src="{{ asset('js/app.js') }}"></script>--}}
-    @include('layouts.partials.scripts.app_scripts')
+    @include('layouts.partials.scripts.app_variables')
     @yield('javascript');
 </body>
 </html>

@@ -34,7 +34,7 @@
                                     <td>{{$postTranslation->locale}}:</td>
                                     <td>{{$postTranslation->title}}</td>
                                     <td class="td-actions">
-                                        <a href="{{ LaravelLocalization::getLocalizedURL($postTranslation->locale, route('posts.show', $post->id), [], true) }}"
+                                        <a href="{{ LaravelLocalization::getLocalizedURL($postTranslation->locale, route('posts.admin.show', $post->id), [], true) }}"
                                            rel="tooltip" class="btn btn-info" data-original-title="" title="">
                                             <i class="material-icons">visibility</i>
                                             <div class="ripple-container"></div></a>

@@ -28,7 +28,7 @@
     </div>
 </div>
 
-@include('layouts.partials.scripts.app_scripts')
+@include('layouts.partials.scripts.app_variables')
 @yield('javascript');
 </body>
 </html>

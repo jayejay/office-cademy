@@ -17,12 +17,9 @@
                 <a class="navbar-brand" href="#"> {{ config('app.name') }} </a>
             </div>
             <div class="collapse navbar-collapse">
-                {{--<ul class="nav navbar-nav navbar-right">--}}
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@include('layouts.partials.language_switcher')</li>
                     {{--<li>--}}
-                        {{--<a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">--}}
-                            {{--<i class="material-icons">dashboard</i>--}}
-                            {{--<p class="hidden-lg hidden-md">Dashboard</p>--}}
-                        {{--</a>--}}
                     {{--</li>--}}
                     {{--<li class="dropdown">--}}
                         {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
@@ -58,7 +55,7 @@
                         {{--</a>--}}
                     {{--</li>--}}
                     {{--<li class="separator hidden-lg hidden-md"></li>--}}
-                {{--</ul>--}}
+                </ul>
                 <form action="{{route('posts.find')}}" id="search-form" method="get" class="navbar-form navbar-left typeahead" role="search">
                     <div class="form-group form-search is-empty">
                         <input id="navbar-search-input" type="text" name="q" class="form-control" placeholder=" Search ">

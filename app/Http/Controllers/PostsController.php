@@ -79,7 +79,12 @@ class PostsController extends Controller
         if($slug !== $post->getSlugAttribute(App::getLocale())){
             return redirect()->to($post->url);
         }
-        return view('posts.show', ['post' => $post]);
+        return view('posts.show', ['post' => $post, 'layout' => 'app']);
+    }
+
+    public function adminShow(Post $post)
+    {
+        return view('posts.show', ['post' => $post, 'layout' => 'admin_layout']);
     }
 
     /**
@@ -139,7 +144,7 @@ class PostsController extends Controller
 
         $post->tags()->attach($request->tags);
 
-        return redirect()->route('posts.show', ['post' => $post->id]);
+        return redirect()->route('posts.admin.show', ['post' => $post->id]);
     }
 
     /**
@@ -178,7 +183,7 @@ class PostsController extends Controller
 
             $post->tags()->sync($request->tags);
 
-            return redirect()->route('posts.show', ['post' => $post->id]);
+            return redirect()->route('posts.admin.show', ['post' => $post->id]);
 
         }catch (\Exception $e) {
             Session::flash('error', 'Oops: '.$e->getMessage());

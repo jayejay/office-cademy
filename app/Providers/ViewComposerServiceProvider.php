@@ -56,7 +56,9 @@ class ViewComposerServiceProvider extends ServiceProvider
                    'locale' => App::getLocale(),
                 ]);
         });
-        view()->composer('layouts.admin_layout', function ($view){
+        view()->composer([
+            'layouts.admin_layout',
+            'layouts.app'], function ($view){
                 $view->with([
                    'currentPath' => Route::currentRouteName(),
                 ]);
