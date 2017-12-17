@@ -1,6 +1,7 @@
 body{
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     background-color: white;
+    line-height: 1.5em;
 }
 hr{
     border: 0;
@@ -17,6 +18,13 @@ ul{
     list-style-type: square;
     list-style-position: inside;
     padding-left:1%;
+}
+
+code {
+    padding: 0 2px;
+    font-size: 100%;
+    color: whitesmoke;
+    background-color: black;
 }
 
 .navbar.navbar-default.navbar-static-top{
