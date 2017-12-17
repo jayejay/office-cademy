@@ -29,7 +29,7 @@ Route::group(
         /*Post routes*/
         Route::get('/admin/posts/list/{search?}/{q?}', 'PostsController@adminIndex')->name('posts.admin.index');
 
-        Route::get('/posts/show/{post}/{slug?}', 'PostsController@show')->name('posts.show');
+        Route::get('/posts/show/{post}/{category?}/{slug?}', 'PostsController@show')->name('posts.show');
         Route::get('/admin/posts/show/{post}', 'PostsController@adminShow')->name('posts.admin.show');
 
         Route::get('/admin/posts/new/create', 'PostsController@create')->name('posts.create');

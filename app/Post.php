@@ -41,14 +41,19 @@ class Post extends Model
         return $this->belongsTo('App\Language');
     }
 
-    public function getSlugAttribute($language)
+    public function getSlugAttribute()
     {
-        return str_slug($this->translateOrDefault($language)->title);
+        return str_slug($this->title);
+    }
+
+    public function getCategorySlugAttribute()
+    {
+        return str_slug($this->category->name);
     }
 
     public function getUrlAttribute()
     {
-        return action('PostsController@show', [$this->id, $this->slug]);
+        return action('PostsController@show', [$this->id, $this->getCategorySlugAttribute(), $this->slug]);
     }
 
 }

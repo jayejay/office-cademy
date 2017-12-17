@@ -74,9 +74,9 @@ class PostsController extends Controller
      * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post, $slug = '')
+    public function show(Post $post, $category, $slug = '')
     {
-        if($slug !== $post->getSlugAttribute(App::getLocale())){
+        if($slug !== $post->getSlugAttribute()){
             return redirect()->to($post->url);
         }
         return view('posts.show', ['post' => $post, 'layout' => 'app']);
