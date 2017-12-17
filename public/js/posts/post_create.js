@@ -29,11 +29,12 @@ $(document).ready(function () {
             success: function (data) {
                 for(var i=0; i < data.path.length ; i++){
                     var newContent = '' +
-                        '<a href="' + data.path[i] + '" data-lightbox="image-' + counter + '" data-title="xxx ' + counter + '">' +
-                            '<div class="pics" style="width: 50%">' +
+                        '<div class="pics" style="width: 50%">' +
+                            '<a href="' + data.path[i] + '" data-lightbox="image-' + counter + '" data-title="xxx ' + counter + '">' +
                                 '<img src="' + data.path[i] +'" class="img-responsive">' +
-                            '</div>' +
-                        '</a>';
+                            '</a>'+
+                        '</div>';
+
                     addNewContent(newContent);
                 }
                 $('#image').val('');
