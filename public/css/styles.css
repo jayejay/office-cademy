@@ -134,3 +134,8 @@ span.code{
     display:block;
     margin: 0 auto;
 }
+
+/*Select Button on post form*/
+.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:active, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
+    color: #FFFFFF;
+}

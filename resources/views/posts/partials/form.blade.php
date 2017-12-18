@@ -24,9 +24,9 @@
                 <div class="form-group">
                     <textarea class="form-control" name="body" id="body" placeholder="Enter post body" cols="100" rows="15">{{old('body', isset($post) ? $post->body : '')}}</textarea>
                 </div>
-                <button type="submit" class="btn btn-success" id="send" form="post-form">Save</button>
-                <button id="preview_button" type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#preview">Preview</button>
-                <button id="post_index_button" type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#posts-index">All Posts</button>
+                <button type="submit" class="btn btn-success btn-sm" id="send" form="post-form">Save</button>
+                <button id="preview_button" type="button" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#preview">Preview</button>
+                <button id="post_index_button" type="button" class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#posts-index">Posts list</button>
                 @include('posts.partials.material_icons')
             </div>
             <div class="col-md-4">
@@ -34,6 +34,7 @@
             </div>
             <div class="col-md-2">
                 <label for="image">Add images</label>
+                <br>
                 <label class="btn btn-default btn-sm">
                         Browse
                     <input id="image" type="file" multiple="multiple" hidden>
@@ -45,7 +46,7 @@
                 <label for="category">Category</label>
                 <select name="category_id" id="category" class="selectpicker" form="post-form">
                     @if(!isset($post->category))
-                        <option value="" selected>Nothing selected</option>
+                        <option value="0" selected>Nothing selected</option>
                     @endif
                     @foreach($categories as $category)
                         <option value="{{$category->id}}"
@@ -56,8 +57,6 @@
                     @endforeach
                 </select>
                 <hr>
-                {{--todo: if course is choosen select of chapter has to be filled. And before saved course of post has to be pre selected --}}
-
                 <label for="course">Course</label>
                 <select name="course" id="course" class="selectpicker">
                     <option value="0">Nothing selected</option>

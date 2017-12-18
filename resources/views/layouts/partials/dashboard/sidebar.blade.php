@@ -14,7 +14,7 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
     <div class="sidebar-wrapper ps-container ps-theme-default" data-ps-id="c612a139-2b8b-5add-ffaa-afc344d8e0a4">
         <ul class="nav">
             <li>
-                <a href="{{ url()->previous() }}">
+                <a href="javascript:history.go(-1)">
                     <i class="material-icons">fast_rewind</i>
                     <p> Back </p>
                 </a>

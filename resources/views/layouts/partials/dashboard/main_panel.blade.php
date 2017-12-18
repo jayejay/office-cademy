@@ -66,6 +66,10 @@
                         <div class="ripple-container"></div>
                     </button>
                 </form>
+                <a class="btn btn-default btn-sm" href="javascript:history.go(-1)">
+                    <i class="material-icons">fast_rewind</i>
+                    Back
+                </a>
             </div>
         </div>
     </nav>
