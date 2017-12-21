@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var textarea = $('#body');
+    var textarea = $('#post-body');
     textarea.focus();
     // getCourses();
 
@@ -58,7 +58,7 @@ $(document).ready(function () {
     //Preview
     $(document).on('click', '#preview_button', function () {
         var previewModal = $('#preview');
-        previewModal.find('.modal-body').html($('#body').val());
+        previewModal.find('.modal-body').html($('#post-body').val());
     });
 
     //Add new content to textarea
