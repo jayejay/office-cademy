@@ -49,6 +49,12 @@ $(document).ready(function () {
         addNewContent(newContent);
     });
 
+    $(document).on('click', '.button-add-post-panel', function (e) {
+        var newContent = $(this).attr('data-id');
+        addNewContent(newContent);
+        $('#posts-index').modal('hide');
+    });
+
     //Preview
     $(document).on('click', '#preview_button', function () {
         var previewModal = $('#preview');
@@ -61,6 +67,29 @@ $(document).ready(function () {
         var textareaText = textarea.val();
 
         textarea.val(textareaText.substring(0, caretPos) + ' ' + newContent + ' ' + textareaText.substring(caretPos));
-    };
+    }
 
-})
+    enableTab('body');
+});
+
+function enableTab(id) {
+    var el = document.getElementById(id);
+    el.onkeydown = function (e) {
+        if (e.keyCode === 9) { // tab was pressed
+
+            // get caret position/selection
+            var val = this.value,
+                start = this.selectionStart,
+                end = this.selectionEnd;
+
+            // set textarea value to: text before caret + tab + text after caret
+            this.value = val.substring(0, start) + '\t' + val.substring(end);
+
+            // put caret at right position again
+            this.selectionStart = this.selectionEnd = start + 1;
+
+            // prevent the focus lose
+            return false;
+        }
+    }
+}

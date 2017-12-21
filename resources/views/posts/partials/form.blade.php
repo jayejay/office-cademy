@@ -22,7 +22,7 @@
                     <input type="text" id="title" name="title" class="form-control" value="{{old('title', isset($post) ? $post->title : '')}}">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" name="body" id="body" placeholder="Enter post body" cols="100" rows="15">{{old('body', isset($post) ? $post->body : '')}}</textarea>
+                    <textarea class="form-control post-body" name="body" id="body" placeholder="Enter post body" rows="20">{{old('body', isset($post) ? $post->body : '')}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-success btn-sm" id="send" form="post-form">Save</button>
                 <button id="preview_button" type="button" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#preview">Preview</button>
@@ -62,8 +62,14 @@
                     <option value="0">Nothing selected</option>
                 </select>
                 <hr>
-                <label for="active">Publish</label><br>
-                <input type="checkbox" name="active" id="active" form="post-form">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="active" id="active" form="post-form">
+                        <span class="checkbox-material">
+                        </span>
+                        publish
+                    </label>
+                </div>
             </div>{{--end row 2--}}
             <div class="col-md-2">
                 <label for="chapter">Chapter</label>
