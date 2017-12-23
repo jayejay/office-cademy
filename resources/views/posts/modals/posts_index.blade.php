@@ -5,14 +5,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Posts index</h4>
+                <h4 class="modal-title">Posts list</h4>
             </div>
             <div class="modal-body">
-                <table class="table">
+                <table class="table table-responsive table-striped">
                     @foreach($storedPosts as $storedPost)
                         <tr>
                             <td>{{$storedPost->id}}</td>
                             <td>{{$storedPost->title}}</td>
+                            <td><button data-id="{{$storedPost->id}}" type="button" class="btn btn-default btn-sm button-add-post-panel">@lang('custom.add')</button></td>
                         </tr>
                     @endforeach
                 </table>

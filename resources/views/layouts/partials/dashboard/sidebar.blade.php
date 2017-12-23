@@ -7,14 +7,14 @@ Tip 2: you can also add an image using data-image tag
 Tip 3: you can change the color of the sidebar with data-background-color="white | black"
 -->
     <div class="logo">
-        <a href="{{route('welcome')}}" class="simple-text logo-normal">
+        <a href="{{route('home')}}" class="simple-text logo-normal">
             {{ config('app.name') }}
         </a>
     </div>
     <div class="sidebar-wrapper ps-container ps-theme-default" data-ps-id="c612a139-2b8b-5add-ffaa-afc344d8e0a4">
         <ul class="nav">
             <li>
-                <a href="{{ url()->previous() }}">
+                <a href="javascript:history.go(-1)">
                     <i class="material-icons">fast_rewind</i>
                     <p> Back </p>
                 </a>
