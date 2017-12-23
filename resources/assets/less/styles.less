@@ -1,0 +1,147 @@
+@font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+@main-background-color: #FFFFFF;
+@color-teal-500: #009688;
+@color-teal-900: #004D40;
+@text-color-white: #F5F5F5;
+
+body{
+  font-family: @font-family;
+  background-color: white;
+  line-height: 1.5em;
+}
+
+hr{
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+h5.title{
+  margin-top:2%;
+  font-size: 1em;
+}
+
+ul{
+  list-style-type: square;
+  list-style-position: inside;
+  padding-left:1%;
+}
+
+code {
+  padding: 0 2px;
+  font-size: 100%;
+  color: @text-color-white;
+  background-color: @color-teal-500;
+}
+
+span.code{
+  background-color: @color-teal-500;
+  color: @text-color-white;
+  display: block;
+  margin: 3% 0;
+  padding: 1% 2%;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 1em;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+//***Layout***
+
+//*Header*
+.overlay{
+  position: relative;
+  bottom:192px;
+  background: rgba(0, 0, 0, .6);
+}
+
+#header-pic {
+  background-image: url('../../../public/images/office.jpg');
+  /*background-position: center;*/
+  padding-bottom: 60px;
+  padding-top: 60px;
+  margin-bottom: 0;
+}
+
+// Navbar
+.navbar.navbar-default.navbar-static-top{
+  background-color: @color-teal-500;
+  color: @text-color-white;
+}
+
+.navbar .dropdown-menu li > a:hover,
+.navbar .dropdown-menu li > a:focus,
+.navbar.navbar-default .dropdown-menu li > a:hover,
+.navbar.navbar-default .dropdown-menu li > a:focus {
+  background-color: @color-teal-500;
+}
+
+.btn.btn-default.btn-sm.dropdown-toggle.nav-button-toggle,
+.btn.btn-default.btn-sm.nav-button-toggle
+{
+  margin-top: 10px;
+  background-color: #004D40;
+}
+
+.typeahead-category-name{
+  font-size: 0.7em;
+}
+
+.tt-suggestion.tt-cursor {
+  color: @text-color-white;
+  background-color: @color-teal-500;
+}
+
+.form-group, .is-empty{
+  margin: 0;
+}
+
+//Admin Nav bar
+.navbar .navbar-form .form-group .form-control,
+.navbar .navbar-form .form-control {
+  color: black;
+}
+.navbar .navbar-brand {
+  color: black;
+}
+
+// Posts
+#textarea-post-body{
+  background-color: white;
+  color: black;
+  font-family: monospace;
+}
+
+.bootstrap-select > .dropdown-toggle.bs-placeholder
+{
+  &:active, &focus, &hover {
+    color: #FFFFFF;
+  }
+}
+
+
+// Pics
+.pics {
+  padding: 0.7%;
+  margin: 4% 0%;
+  background-color: whitesmoke;
+  font-size: 0.7em;
+  color: whitesmoke;
+  font-weight: 400;
+  -webkit-box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+// Material Icons
+.material-icons {
+  vertical-align: middle;
+  margin-right: 0.4%;
+  display: inline-flex;
+}
+
+//Loading gif
+.loading-gif{
+  display:block;
+  margin: 0 auto;
+}

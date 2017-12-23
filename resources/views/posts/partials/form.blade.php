@@ -22,7 +22,7 @@
                     <input type="text" id="title" name="title" class="form-control" value="{{old('title', isset($post) ? $post->title : '')}}">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control post-body" name="body" id="post-body" placeholder="Enter post body" rows="20">{{old('body', isset($post) ? $post->body : '')}}</textarea>
+                    <textarea class="form-control textarea-post-body" name="body" id="textarea-post-body" placeholder="Enter post body" rows="20">{{old('body', isset($post) ? $post->body : '')}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-success btn-sm" id="send" form="post-form">Save</button>
                 <button id="preview_button" type="button" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#preview">Preview</button>
