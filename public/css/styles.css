@@ -97,8 +97,16 @@ span.code{
     background-color: #009688;
 }
 
-.btn.btn-default.btn-sm.dropdown-toggle.nav-button-toggle{
+.btn.btn-default.btn-sm.dropdown-toggle.nav-button-toggle,
+.btn.btn-default.btn-sm.nav-button-toggle
+{
     margin-top: 10px;
+    background-color: #004D40;
+}
+
+.btn.btn-default.btn-sm.nav-button-toggle
+{
+    margin-bottom: 10px;
     background-color: #004D40;
 }
 

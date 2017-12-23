@@ -7,7 +7,7 @@ Tip 2: you can also add an image using data-image tag
 Tip 3: you can change the color of the sidebar with data-background-color="white | black"
 -->
     <div class="logo">
-        <a href="{{route('welcome')}}" class="simple-text logo-normal">
+        <a href="{{route('home')}}" class="simple-text logo-normal">
             {{ config('app.name') }}
         </a>
     </div>
