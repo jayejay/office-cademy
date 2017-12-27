@@ -220,6 +220,7 @@ class PostsController extends Controller
     {
         $files = $request->file('files');
         $path = [];
+        $fileNames = [];
 
         foreach ($files as $file){
             if (App::environment('local')) {
@@ -230,13 +231,14 @@ class PostsController extends Controller
                  * @var $file UploadedFile
                  */
                 $imageFileName = $file->getClientOriginalName();
+                $fileNames[] = $imageFileName;
                 $s3 = Storage::disk('s3');
                 $filePath = '/images/' . $imageFileName;
                 $s3->put($filePath, file_get_contents($file), 'public');
                 $path[] = $s3->url('images/'.$imageFileName);
             }
         }
-        return response()->json(["success" => true, "path" => $path]);
+        return response()->json(["success" => true, "path" => $path, "fileNames" => $fileNames]);
     }
 
     public function getPostBody(Post $post)
