@@ -222,12 +222,10 @@ class PostsController extends Controller
         $path = [];
 
         foreach ($files as $file){
-            if (false) {
-//            if (App::environment('local')) {
+            if (App::environment('local')) {
                 $path[] = asset($file->store('images/uploads'));
 
-//            } elseif (App::environment('production')) {
-            } elseif (true) {
+            } elseif (App::environment('production')) {
                 /**
                  * @var $file UploadedFile
                  */

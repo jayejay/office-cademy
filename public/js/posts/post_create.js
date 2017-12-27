@@ -28,10 +28,11 @@ $(document).ready(function () {
             timeout: 600000,
             success: function (data) {
                 for(var i=0; i < data.path.length ; i++){
+                    var filename = data.fileNames[i];
                     var newContent = '' +
                         '<div class="pics" style="width: 50%">' +
                             '<a href="' + data.path[i] + '" data-lightbox="image-' + counter + '" data-title="xxx ' + counter + '">' +
-                                '<img src="' + data.path[i] +'" class="img-responsive">' +
+                                '<img src="' + data.path[i] +'" class="img-responsive" alt="'+ filename.substring(0, filename.indexOf('.') ) +'">' +
                             '</a>'+
                         '</div>';
 
