@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\View;
 use Session;
 use Illuminate\Validation\Rule;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PostsController extends Controller
 {
@@ -218,14 +219,17 @@ class PostsController extends Controller
     public function storeImageAjax(Request $request)
     {
         $files = $request->file('files');
-
         $path = [];
 
         foreach ($files as $file){
             if (App::environment('local')) {
                 $path[] = asset($file->store('images/uploads'));
+
             } elseif (App::environment('production')) {
-                $imageFileName = time() . '.' . $file->getClientOriginalExtension();
+                /**
+                 * @var $file UploadedFile
+                 */
+                $imageFileName = $file->getClientOriginalName();
                 $s3 = Storage::disk('s3');
                 $filePath = '/images/' . $imageFileName;
                 $s3->put($filePath, file_get_contents($file), 'public');
