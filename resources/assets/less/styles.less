@@ -1,8 +1,12 @@
 @font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 @main-background-color: #FFFFFF;
-@color-teal-500: #009688;
-@color-teal-900: #004D40;
+@navbar-background-color: #607D8B;
+/*#009688*/
+@navbar-background-color-buttons: #263238;
+/*#004D40*/
 @text-color-white: #F5F5F5;
+@text-color-dark: #263238;
+@code-backgorund-color: #CFD8DC;
 
 body{
   font-family: @font-family;
@@ -31,12 +35,12 @@ code {
   padding: 0 2px;
   font-size: 100%;
   color: @text-color-white;
-  background-color: @color-teal-500;
+  background-color: @code-backgorund-color;
 }
 
 span.code{
-  background-color: @color-teal-500;
-  color: @text-color-white;
+  background-color: @code-backgorund-color;
+  color: @text-color-dark;
   display: block;
   margin: 3% 0;
   padding: 1% 2%;
@@ -65,7 +69,7 @@ span.code{
 
 // Navbar
 .navbar.navbar-default.navbar-static-top{
-  background-color: @color-teal-500;
+  background-color: @navbar-background-color;
   color: @text-color-white;
 }
 
@@ -73,14 +77,14 @@ span.code{
 .navbar .dropdown-menu li > a:focus,
 .navbar.navbar-default .dropdown-menu li > a:hover,
 .navbar.navbar-default .dropdown-menu li > a:focus {
-  background-color: @color-teal-500;
+  background-color: @navbar-background-color;
 }
 
 .btn.btn-default.btn-sm.dropdown-toggle.nav-button-toggle,
 .btn.btn-default.btn-sm.nav-button-toggle
 {
   margin-top: 10px;
-  background-color: #004D40;
+  background-color: @navbar-background-color-buttons;
 }
 
 .typeahead-category-name{
@@ -89,7 +93,11 @@ span.code{
 
 .tt-suggestion.tt-cursor {
   color: @text-color-white;
-  background-color: @color-teal-500;
+  background-color: @navbar-background-color;
+}
+
+#searchbar-button{
+  margin: 0;
 }
 
 .form-group, .is-empty{
@@ -101,8 +109,19 @@ span.code{
 .navbar .navbar-form .form-control {
   color: black;
 }
+
+.sidebar{
+  background-color: #263238;
+}
+
 .navbar .navbar-brand {
   color: black;
+}
+
+// Main Panel Admin
+
+#back-button{
+  margin-top: 10px;
 }
 
 // Posts

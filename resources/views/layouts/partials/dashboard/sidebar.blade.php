@@ -1,4 +1,5 @@
-<div class="sidebar" data-active-color="purple" data-background-color="black"
+<div class="sidebar" data-active-color="purple"
+     data-background-color="grey"
      {{--data-image="../assets/img/sidebar-1.jpg"--}}
 >
     <!--

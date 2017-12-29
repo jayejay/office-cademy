@@ -14,7 +14,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"> {{ config('app.name') }} </a>
+                {{--<a class="navbar-brand" href="#"> {{ config('app.name') }} </a>--}}
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -66,7 +66,7 @@
                         <div class="ripple-container"></div>
                     </button>
                 </form>
-                <a class="btn btn-default btn-sm" href="javascript:history.go(-1)">
+                <a class="btn btn-default btn-sm" id="back-button" href="javascript:history.go(-1)">
                     <i class="material-icons">fast_rewind</i>
                     Back
                 </a>

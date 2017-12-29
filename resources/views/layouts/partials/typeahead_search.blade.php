@@ -3,7 +3,7 @@
         <div class="input-group">
             <input id="navbar-search-input" name="q" class="form-control" type="text" placeholder="search">
             <span class="input-group-btn">
-                <button class="btn btn-default btn-sm nav-button-toggle" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                <button id="searchbar-button" class="btn btn-default btn-sm nav-button-toggle" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </span>
         </div>
     </div>
