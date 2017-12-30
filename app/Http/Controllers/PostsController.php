@@ -80,7 +80,7 @@ class PostsController extends Controller
         if($slug !== $post->getSlugAttribute()){
             return redirect()->to($post->url);
         }
-        return view('posts.show', ['post' => $post, 'layout' => 'app']);
+        return view('posts.show', ['post' => $post, 'layout' => 'excel_layout']);
     }
 
     public function adminShow(Post $post)

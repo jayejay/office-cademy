@@ -24,7 +24,7 @@ return [
     'save' => 'save',
     'add' => 'add',
     'show all' => 'show all',
-    'Nothing to show' => 'Nothing to show',
+    'Nothing to show' => 'No translation available',
     'Tags' => 'Tags',
     'Courses' => 'Courses',
     'Course' => 'Course',

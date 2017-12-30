@@ -25,7 +25,7 @@
         <br>
         <div class="options">
             @if(isset($question))
-                @foreach(json_decode($question->options) as $optionId => $option)
+                @foreach($question->options as $optionId => $option)
                     <div class="form-group label-floating answer-option">
                         <label for="" class="control-label">@lang('custom.Answer Option')</label>
                         <div class="input-group">

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top {{$class}}">
     <div class="container">
         <div class="navbar-header">
 

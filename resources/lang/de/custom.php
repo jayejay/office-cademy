@@ -25,7 +25,7 @@ return [
     'save' => 'speichern',
     'add' => 'hinzufügen',
     'show all' => 'alle anzeigen',
-    'Nothing to show' => 'Nichts zu sehen',
+    'Nothing to show' => 'Keine Übersetzung vorhanden',
     'Tags' => 'Tags',
     'Courses' => 'Kurse',
     'Course' => 'Kurs',

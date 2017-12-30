@@ -59,7 +59,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         });
         view()->composer([
             'layouts.admin_layout',
-            'layouts.app'], function ($view){
+            'layouts.excel_layout'], function ($view){
                 $view->with([
                    'currentPath' => Route::currentRouteName(),
                 ]);

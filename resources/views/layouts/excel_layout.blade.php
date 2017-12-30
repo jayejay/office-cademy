@@ -17,14 +17,14 @@
         @include('layouts/partials/head/js')
         @stack('scripts')
 </head>
-<body>
+<body id="excel-layout">
     <div id="app">
         <div class="overlay"></div>
             <div id="header-pic" class="jumbotron">
                 {{--<img src="{{asset('images/office.jpeg')}}" alt="Office">--}}
             </div>
 
-        @include('layouts.partials.navigation')
+        @include('layouts.partials.navigation', ['class' => 'excel-layout-navigation'])
         <div class="container">
             @include('layouts.partials.flash_messages')
             @include('layouts.partials.errors')

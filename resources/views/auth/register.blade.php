@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.excel_layout')
 
 @section('content')
     <div class="row">

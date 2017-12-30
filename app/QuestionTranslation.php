@@ -15,4 +15,9 @@ class QuestionTranslation extends Model
         $this->attributes['options'] = json_encode($options);
     }
 
+    public function getOptionsAttribute()
+    {
+        return json_decode($this->attributes['options']);
+    }
+
 }

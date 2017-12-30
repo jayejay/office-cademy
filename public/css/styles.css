@@ -50,7 +50,7 @@ span.code {
   padding-top: 60px;
   margin-bottom: 0;
 }
-.navbar.navbar-default.navbar-static-top {
+.navbar.navbar-default.navbar-static-top.excel-layout-navigation {
   background-color: #607D8B;
   color: #F5F5F5;
 }

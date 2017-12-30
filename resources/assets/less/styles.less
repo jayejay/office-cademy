@@ -1,8 +1,8 @@
 @font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 @main-background-color: #FFFFFF;
-@navbar-background-color: #607D8B;
+@excel-layout-navbar-color: #607D8B;
 /*#009688*/
-@navbar-background-color-buttons: #263238;
+@excel-layout-navbar-color-buttons: #263238;
 /*#004D40*/
 @text-color-white: #F5F5F5;
 @text-color-dark: #263238;
@@ -68,8 +68,9 @@ span.code{
 }
 
 // Navbar
-.navbar.navbar-default.navbar-static-top{
-  background-color: @navbar-background-color;
+
+.navbar.navbar-default.navbar-static-top.excel-layout-navigation{
+  background-color: @excel-layout-navbar-color;
   color: @text-color-white;
 }
 
@@ -77,14 +78,14 @@ span.code{
 .navbar .dropdown-menu li > a:focus,
 .navbar.navbar-default .dropdown-menu li > a:hover,
 .navbar.navbar-default .dropdown-menu li > a:focus {
-  background-color: @navbar-background-color;
+  background-color: @excel-layout-navbar-color;
 }
 
 .btn.btn-default.btn-sm.dropdown-toggle.nav-button-toggle,
 .btn.btn-default.btn-sm.nav-button-toggle
 {
   margin-top: 10px;
-  background-color: @navbar-background-color-buttons;
+  background-color: @excel-layout-navbar-color-buttons;
 }
 
 .typeahead-category-name{
@@ -93,7 +94,7 @@ span.code{
 
 .tt-suggestion.tt-cursor {
   color: @text-color-white;
-  background-color: @navbar-background-color;
+  background-color: @excel-layout-navbar-color;
 }
 
 #searchbar-button{
