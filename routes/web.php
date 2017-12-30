@@ -109,6 +109,9 @@ Route::group(
         // Search
         Route::get('find/{q?}', 'SearchController@find')->name('posts.find');
 
+        //Questions
+        Route::post('admin/questions/store','QuestionsController@store')->name('questions.store');
+        Route::get('admin/questions/create','QuestionsController@create')->name('questions.create');
     }
 );
 

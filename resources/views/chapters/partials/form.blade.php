@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $tag App\Tag
+ * @var $chapter App\Chapter
  */
 ?>
 <div class="container">
