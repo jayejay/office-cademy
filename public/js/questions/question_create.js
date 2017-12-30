@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $('#button-add-option').click(function(){
         var answerOptionToClone = $('.answer-option').last();
         var newOption = answerOptionToClone.clone();
@@ -12,5 +11,4 @@ $(document).ready(function () {
             button.closest('.answer-option').remove();
         }
     });
-
-})
+});

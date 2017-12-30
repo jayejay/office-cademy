@@ -36,9 +36,9 @@
                 {{!empty($question->translateOrDefault($locale)->answer) ? $question->translateOrDefault($locale)->answer : ""}}
             </div>
         </div>
-        <div class="row" id=" ">
+        <div class="row" id="category">
             <div class="col-md-12">
-               {{!empty($question->translateOrDefault($locale)->category) ? $question->translateOrDefault($locale)->category : ""}}
+               {{!empty($question->category) ? $question->category : ""}}
             </div>
         </div>
     </div>
