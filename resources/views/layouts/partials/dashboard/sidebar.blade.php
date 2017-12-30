@@ -25,6 +25,7 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
             @include('layouts.partials.dashboard.sidebar-items.chapter_items')
             @include('layouts.partials.dashboard.sidebar-items.course_items')
             @include('layouts.partials.dashboard.sidebar-items.category_items')
+            @include('layouts.partials.dashboard.sidebar-items.question_items')
 
 
         </ul>

@@ -38,6 +38,9 @@ return [
     'Chapter number' => 'Nummer des Kapitels',
     'Chapter name' => 'Kapitel Name',
     'Question Title' => 'Frage',
-    'Answer Option' => 'Antwort Option'
+    'Questions' => 'Fragen',
+    'Answer' => 'Antwort',
+    'Answer Option' => 'Antwort Option',
+    'New Question' => 'Neue Frage'
 
 ];

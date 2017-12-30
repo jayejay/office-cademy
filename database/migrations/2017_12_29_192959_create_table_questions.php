@@ -26,7 +26,7 @@ class CreateTableQuestions extends Migration
             Schema::create('question_translations', function (Blueprint $table){
                 $table->increments('id');
                 $table->integer('question_id')->unsigned();
-                $table->integer('title');
+                $table->string('title');
                 $table->integer('answer');
                 $table->json('options');
                 $table->string('locale')->index();

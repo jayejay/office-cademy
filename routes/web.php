@@ -111,7 +111,12 @@ Route::group(
 
         //Questions
         Route::post('admin/questions/store','QuestionsController@store')->name('questions.store');
+        Route::patch('admin/questions/update/{question}','QuestionsController@update')->name('questions.update');
         Route::get('admin/questions/create','QuestionsController@create')->name('questions.create');
+        Route::get('admin/questions/edit/{question}','QuestionsController@edit')->name('questions.edit');
+        Route::get('admin/questions/show/{question}','QuestionsController@show')->name('questions.show');
+        Route::get('admin/questions/index','QuestionsController@index')->name('questions.index');
+        Route::delete('admin/questions/delete/{question}','QuestionsController@destroy')->name('questions.delete');
     }
 );
 

@@ -123,3 +123,7 @@ span.code {
   display: block;
   margin: 0 auto;
 }
+/*Questions*/
+.ol-answer-options {
+  padding-left: 15px;
+}

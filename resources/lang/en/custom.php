@@ -36,6 +36,9 @@ return [
     'Categories' => 'Categories',
     'Chapter number' => 'Chapter number',
     'Chapter name' => 'Chapter name',
+    'Questions' => 'Questions',
     'Question Title' => 'Question',
-    'Answer Option' => 'Answer Option'
+    'Answer' => 'Answer',
+    'Answer Option' => 'Answer Option',
+    'New Question' => 'Neue Frage'
 ];
