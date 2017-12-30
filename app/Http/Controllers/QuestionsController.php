@@ -6,6 +6,7 @@ use App;
 use App\Category;
 use App\Question;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Tags\See;
 use Session;
 
 class QuestionsController extends Controller
@@ -138,4 +139,16 @@ class QuestionsController extends Controller
         }
         return redirect()->route('questions.index');
     }
+
+    public function getQuestion(){
+
+        $questions = Question::inRandomOrder()->take(5)->get();
+
+        return response()->json(["questions" => $questions]);
+    }
+
+    public function getQuestionIds(){
+
+    }
+
 }

@@ -88,6 +88,7 @@
                 </div>
                 <br>
                 <div>
+                    <a class="text-info" href="{{ route('home') }}">Home</a><span> |</span>
                     <a class="text-info" href="{{ route('posts.admin.index') }}">Posts</a>
                 </div>
             </div>

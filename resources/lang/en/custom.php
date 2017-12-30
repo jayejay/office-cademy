@@ -40,5 +40,8 @@ return [
     'Question Title' => 'Question',
     'Answer' => 'Answer',
     'Answer Option' => 'Answer Option',
-    'New Question' => 'Neue Frage'
+    'New Question' => 'New Question',
+    'Test your Excel skills' => 'Test your Excel skills',
+    'Quiz' => 'Quiz',
+
 ];

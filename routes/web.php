@@ -117,6 +117,7 @@ Route::group(
         Route::get('admin/questions/show/{question}','QuestionsController@show')->name('questions.show');
         Route::get('admin/questions/index','QuestionsController@index')->name('questions.index');
         Route::delete('admin/questions/delete/{question}','QuestionsController@destroy')->name('questions.delete');
+        Route::get('admin/questions/get-question', 'QuestionsController@getQuestion')->name('questions.get_question');
     }
 );
 

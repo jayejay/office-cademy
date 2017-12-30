@@ -24,7 +24,7 @@
         </div>
         <br>
         <div class="options">
-            @if(isset($question))
+            @if(!empty($question->options))
                 @foreach($question->options as $optionId => $option)
                     <div class="form-group label-floating answer-option">
                         <label for="" class="control-label">@lang('custom.Answer Option')</label>

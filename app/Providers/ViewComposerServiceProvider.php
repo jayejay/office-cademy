@@ -51,7 +51,8 @@ class ViewComposerServiceProvider extends ServiceProvider
             'chapters.*',
             'courses.*',
             'categories.*',
-            'questions.*'
+            'questions.*',
+            'home'
         ], function ($view){
                 $view->with([
                    'locale' => App::getLocale(),
