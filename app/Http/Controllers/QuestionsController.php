@@ -140,7 +140,7 @@ class QuestionsController extends Controller
         return redirect()->route('questions.index');
     }
 
-    public function getQuestion(){
+    public function getQuestions(){
 
         $questions = Question::inRandomOrder()->take(5)->get();
 

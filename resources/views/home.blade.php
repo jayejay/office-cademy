@@ -1,7 +1,7 @@
 @extends('layouts.excel_layout')
 @push('scripts')
     <script>
-        var ajaxUrl = "{{route('questions.get_question')}}";
+        var ajaxUrl = "{{route('questions.get_questions')}}";
     </script>
     <script src=" {{ asset('js/questions/quiz.js') }} ">
     </script>

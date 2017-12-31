@@ -44,5 +44,7 @@ return [
     'New Question' => 'Neue Frage',
     'Test your Excel skills' => 'Teste deine Excel-Kenntnisse',
     'Quiz' => 'Quiz',
-
+    'next' => 'weiter',
+    'close' => 'schließen',
+    'correct answers' => 'korrekte Antworten'
 ];

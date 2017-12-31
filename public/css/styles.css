@@ -5,7 +5,7 @@ body {
   background-color: white;
   line-height: 1.5em;
 }
-hr {
+hr.gradient {
   border: 0;
   height: 1px;
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0)));
@@ -126,4 +126,7 @@ span.code {
 /*Questions*/
 .ol-answer-options {
   padding-left: 15px;
+}
+.quiz-finished {
+  display: none;
 }
