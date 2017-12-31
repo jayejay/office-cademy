@@ -3,7 +3,7 @@ $(document).ready(function () {
     var questions;
     var numberOfQuestions;
 
-    var modalHeader = $('.quiz-question-header')
+    var modalHeader = $('.quiz-question-header');
     var modalBody = $('.quiz-question');
     var areaQuizFinished = $('.quiz-finished');
     var areaQuizResult = $('.quiz-result');
@@ -40,7 +40,6 @@ $(document).ready(function () {
 
         if(isAnswerCorrect){
             correctAnswers++;
-            console.log(correctAnswers);
         }
 
         if(counter < numberOfQuestions){
@@ -51,8 +50,8 @@ $(document).ready(function () {
         }
     });
 
-    function checkAnswer(question, answerValue){
-        if(question === answerValue){
+    function checkAnswer(answer, answerValue){
+        if(answer === answerValue){
             return true;
         }
         return false;
@@ -63,7 +62,6 @@ $(document).ready(function () {
             if (response) {
                 questions = response.questions;
                 numberOfQuestions = Object.keys(response.questions).length;
-                console.log(numberOfQuestions);
                 buttonOpenQuizModal.prop('disabled', false);
             } else {
                 alert('An error occured!');
@@ -82,8 +80,6 @@ $(document).ready(function () {
             modalHeader.append('<h5>' + question.title + '</h5>');
 
             for(var i=0; i < question.options.length; i++){
-                console.log(question.options[i]);
-
                 modalBody.append(
 
                     '<div class="answer-options">' +
