@@ -41,7 +41,7 @@
                 <div class="quiz-footer">
                 </div>
                 <hr>
-                <button type="button" class="btn btn-sm btn-success pull-left button-show-answer">@lang('custom.Answers')</button>
+                <button type="button" class="btn btn-sm btn-success pull-left button-show-answer">@lang('custom.Solutions')</button>
                 <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">@lang('custom.close')</button>
             </div>
         </div>

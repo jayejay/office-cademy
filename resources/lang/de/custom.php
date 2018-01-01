@@ -45,7 +45,7 @@ return [
     'New Question' => 'Neue Frage',
     'Questions' => 'Fragen',
     'Answer' => 'Antwort',
-    'Answers' => 'Antworten',
+    'Solutions' => 'Lösungen',
     'Answer Option' => 'Antwort Option',
     'Test your Excel skills' => 'Teste deine Excel-Kenntnisse',
     'Quiz' => 'Quiz',
