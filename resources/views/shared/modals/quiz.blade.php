@@ -1,3 +1,14 @@
+@push('scripts')
+    <script>
+        var ajaxUrl = "{{route('questions.get_questions')}}";
+        var locale = "{{ $locale }}";
+    </script>
+    <script src=" {{ asset('js/localization/messages.js') }} ">
+    </script>
+
+    <script src=" {{ asset('js/questions/quiz.js') }} ">
+    </script>
+@endpush
 <!-- Modal -->
 <div id="modal-quiz" class="modal fade" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -12,18 +23,25 @@
                 </div>
             </div>
             <div class="modal-body">
+
                 <div class="quiz-question">
                 </div>
 
                 <div class="quiz-finished">
-                    <i class="material-icons">done</i>
                     <span class="quiz-result">
                     </span>
-                    @lang('custom.correct answers')
+                </div>
+
+                <div class="quiz-correct-answers">
+
                 </div>
 
             </div>
             <div class="modal-footer">
+                <div class="quiz-footer">
+                </div>
+                <hr>
+                <button type="button" class="btn btn-sm btn-success pull-left button-show-answer">@lang('custom.Answers')</button>
                 <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">@lang('custom.close')</button>
             </div>
         </div>

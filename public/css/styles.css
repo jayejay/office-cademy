@@ -123,10 +123,23 @@ span.code {
   display: block;
   margin: 0 auto;
 }
-/*Questions*/
+/*Quiz*/
 .ol-answer-options {
   padding-left: 15px;
 }
 .quiz-finished {
+  display: none;
+}
+.quiz-result {
+  text-align: center;
+}
+.quiz-result-points {
+  text-align: center;
+}
+.quiz-result-message {
+  margin-top: 3%;
+  text-align: center;
+}
+.button-show-answer {
   display: none;
 }

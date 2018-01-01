@@ -36,14 +36,21 @@ return [
     'Categories' => 'Categories',
     'Chapter number' => 'Chapter number',
     'Chapter name' => 'Chapter name',
-    'Questions' => 'Questions',
-    'Question Title' => 'Question',
-    'Answer' => 'Answer',
-    'Answer Option' => 'Answer Option',
-    'New Question' => 'New Question',
-    'Test your Excel skills' => 'Test your Excel skills',
-    'Quiz' => 'Quiz',
     'next' => 'next',
     'close' => 'close',
-    'correct answers' => 'correct answers'
+
+
+    /*Quiz*/
+    'Question Title' => 'Question',
+    'New Question' => 'New Question',
+    'Questions' => 'Questions',
+    'Answer' => 'Answer',
+    'Answers' => 'Answers',
+    'Answer Option' => 'Answer Option',
+    'Test your Excel skills' => 'Test your Excel skills',
+    'Quiz' => 'Quiz',
+    'correct answers' => 'correct answers',
+    'Quiz good result' => 'Well done!',
+    'Quiz medium result' => 'Not bad!',
+    'Quiz bad result' => 'Don\'t worry! Your results will be better soon.',
 ];

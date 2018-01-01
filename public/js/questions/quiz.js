@@ -4,12 +4,17 @@ $(document).ready(function () {
     var numberOfQuestions;
 
     var modalHeader = $('.quiz-question-header');
-    var modalBody = $('.quiz-question');
+    var modalFooter = $('.quiz-footer');
+
+    var areaQuizQuestion = $('.quiz-question');
     var areaQuizFinished = $('.quiz-finished');
     var areaQuizResult = $('.quiz-result');
+    var areaQuizCorrectAnswer = $('.quiz-correct-answers');
+
     var counter = 0;
 
     var quizModal = $('#modal-quiz');
+    var buttonShowAnswers = $('.button-show-answer');
     var buttonOpenQuizModal = $('.button-modal-quiz');
 
     var correctAnswers = 0;
@@ -21,13 +26,15 @@ $(document).ready(function () {
     quizModal.on('hidden.bs.modal', function () {
         clearModal();
         areaQuizFinished.hide();
+        buttonShowAnswers.hide();
+        areaQuizCorrectAnswer.html('');
         areaQuizResult.html('');
         counter = 0;
         correctAnswers = 0;
     });
 
     buttonOpenQuizModal.click(function () {
-        appendQuestionToModal(questions[counter]);
+        appendContentToModal(questions[counter]);
         counter++;
     });
 
@@ -43,11 +50,19 @@ $(document).ready(function () {
         }
 
         if(counter < numberOfQuestions){
-            appendQuestionToModal(questions[counter]);
+            appendContentToModal(questions[counter]);
             counter++;
         } else {
-            appendQuestionToModal(false);
+            appendContentToModal(false);
         }
+    });
+
+    buttonShowAnswers.click(function () {
+        clearModal();
+        areaQuizResult.html('');
+        areaQuizQuestion.html('');
+        showCorrectAnswers();
+        buttonShowAnswers.hide();
     });
 
     function checkAnswer(answer, answerValue){
@@ -69,33 +84,82 @@ $(document).ready(function () {
         });
     }
 
-    function appendQuestionToModal(question){
+    function appendContentToModal(question){
 
         if (question === false) {
 
             areaQuizFinished.show();
-            areaQuizResult.append(correctAnswers + '/' + numberOfQuestions );
+            buttonShowAnswers.show();
+            areaQuizResult.append(
+                '<div class="quiz-result-points">' +
+                    '<i class="material-icons">done</i>' +
+                    correctAnswers + '/' + numberOfQuestions + ' ' + Lang.get('custom.correct answers') +
+                '</div>' +
+                '<br>' +
+                '<div class="quiz-result-message">'+ getMessage() +
+                    '<i class="material-icons">insert_emoticon</i>' +
+                '</div>'
+            );
 
         } else {
+
             modalHeader.append('<h5>' + question.title + '</h5>');
 
             for(var i=0; i < question.options.length; i++){
-                modalBody.append(
-
+                areaQuizQuestion.append(
                     '<div class="answer-options">' +
-                    '<button type="button" class="btn btn-info btn-block button-answer-options" data-value="' + (i+1) + '">'+
-                    question.options[i] +
-                    '</button> ' +
+                        '<button type="button" class="btn btn-info btn-block button-answer-options" data-value="'+ (i+1) + '">'+
+                            question.options[i] +
+                        '</button>' +
                     '</div>'
-
                 );
             }
         }
+
+        var progress = counter/numberOfQuestions * 100;
+
+        modalFooter.append(
+            '<div class="progress progress-line-primary">' +
+                '<div class="progress-bar" role="progressbar" aria-valuenow="' + progress+ '" aria-valuemin="0"' +
+                ' aria-valuemax="100" style="width:'+ progress +'%;">' +
+                   '<span class="sr-only">' + progress + ' Complete</span>' +
+                '</div>' +
+            '</div>'
+        );
     }
 
     function clearModal(){
         modalHeader.html('');
-        modalBody.html('');
+        areaQuizQuestion.html('');
+        modalFooter.html('');
+    }
+
+    function getMessage(){
+        Lang.setLocale(locale);
+        if (correctAnswers === 0) {
+            return Lang.get('custom.Quiz bad result');
+        } else if(correctAnswers < 5) {
+            return Lang.get('custom.Quiz medium result');;
+        } else {
+            return Lang.get('custom.Quiz good result');;
+        }
+    }
+
+    function showCorrectAnswers(){
+
+        modalHeader.append(
+        '<h5>'+ Lang.get('custom.Answers') + '</h5>'
+        );
+
+        for(var i=0; i < numberOfQuestions ; i++){
+
+            var optionIndex = questions[i].answer;
+            var answer = questions[i].options[optionIndex - 1];
+
+            areaQuizCorrectAnswer.append(
+                '<p class="quiz-correct-answers">'+ (i+1) + '. ' + answer +'</p>'
+            );
+        }
     }
 
 });

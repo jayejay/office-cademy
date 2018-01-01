@@ -37,14 +37,20 @@ return [
     'Categories' => 'Kategorien',
     'Chapter number' => 'Nummer des Kapitels',
     'Chapter name' => 'Kapitel Name',
-    'Question Title' => 'Frage',
-    'Questions' => 'Fragen',
-    'Answer' => 'Antwort',
-    'Answer Option' => 'Antwort Option',
-    'New Question' => 'Neue Frage',
-    'Test your Excel skills' => 'Teste deine Excel-Kenntnisse',
-    'Quiz' => 'Quiz',
     'next' => 'weiter',
     'close' => 'schließen',
-    'correct answers' => 'korrekte Antworten'
+
+    /*Quiz*/
+    'Question Title' => 'Frage',
+    'New Question' => 'Neue Frage',
+    'Questions' => 'Fragen',
+    'Answer' => 'Antwort',
+    'Answers' => 'Antworten',
+    'Answer Option' => 'Antwort Option',
+    'Test your Excel skills' => 'Teste deine Excel-Kenntnisse',
+    'Quiz' => 'Quiz',
+    'correct answers' => 'korrekte Antworten',
+    'Quiz good result' => 'Super!',
+    'Quiz medium result' => 'Gar nicht übel!',
+    'Quiz bad result' => 'Keine Sorge, bald wird es besser!',
 ];
