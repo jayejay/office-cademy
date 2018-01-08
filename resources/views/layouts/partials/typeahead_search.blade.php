@@ -1,3 +1,4 @@
+
 <form id="search-form" method="get" role="search" class="typeahead" action="{{route('posts.find')}}">
     <div>
         <div class="input-group">

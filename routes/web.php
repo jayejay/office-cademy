@@ -28,7 +28,7 @@ Route::group(
         /*Post routes*/
         Route::get('/admin/posts/list/{search?}/{q?}', 'PostsController@adminIndex')->name('posts.admin.index');
 
-        Route::get('/{post}/{slug?}', 'PostsController@show')->name('posts.show');
+        Route::get('/posts/{post}/{slug?}', 'PostsController@show')->name('posts.show');
         Route::get('/admin/posts/show/{post}', 'PostsController@adminShow')->name('posts.admin.show');
 
         Route::get('/admin/posts/new/create', 'PostsController@create')->name('posts.create');
@@ -107,7 +107,7 @@ Route::group(
             ->name('categories.delete');
 
         /*Search*/
-        Route::get('find/{q?}', 'SearchController@find')->name('posts.find');
+        Route::get('/find/{q?}', 'SearchController@find')->name('posts.find');
 
         /*Questions*/
         Route::post('admin/questions/store','QuestionsController@store')->name('questions.store');

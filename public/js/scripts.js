@@ -42,7 +42,7 @@ $(document).ready(function () {
             name: 'post-list',
             templates: {
                 empty: [
-                    '<div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+                    '<div class="list-group search-results-dropdown"><div class="list-group-item">'+ Lang.get('custom.Nothing found') + '</div></div>'
                 ],
                 header: [
                     '<div class="list-group search-results-dropdown">'

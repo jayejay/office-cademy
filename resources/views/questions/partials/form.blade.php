@@ -46,6 +46,24 @@
                          </span>
                     </div>
                 </div>
+                <div class="form-group label-floating answer-option">
+                    <label for="" class="control-label">@lang('custom.Answer Option')</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="options[]">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm btn-danger button-delete-option"><i class="material-icons">close</i></button>
+                         </span>
+                    </div>
+                </div>
+                <div class="form-group label-floating answer-option">
+                    <label for="" class="control-label">@lang('custom.Answer Option')</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="options[]">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm btn-danger button-delete-option"><i class="material-icons">close</i></button>
+                         </span>
+                    </div>
+                </div>
             @endif
         </div>
         <button type="button" class="btn btn-info btn-sm" id="button-add-option"><i class="material-icons">plus_one</i></button>

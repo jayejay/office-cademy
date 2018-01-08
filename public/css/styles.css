@@ -75,6 +75,9 @@ span.code {
 #searchbar-button {
   margin: 0;
 }
+.list-group-item {
+  color: #263238;
+}
 .form-group,
 .is-empty {
   margin: 0;

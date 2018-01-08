@@ -5,7 +5,6 @@
     </script>
     <script src=" {{ asset('js/localization/messages.js') }} ">
     </script>
-
     <script src=" {{ asset('js/questions/quiz.js') }} ">
     </script>
 @endpush

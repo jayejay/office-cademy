@@ -25,6 +25,8 @@ return [
     'next' => 'weiter',
     'close' => 'schließen',
     'Home' => 'Home',
+    'Nothing found'=> 'Nichts gefunden',
+    'Are you sure?' => 'Bist du sicher?',
 
     /*Posts*/
     'New Post' => 'Neuer Beitrag',
@@ -65,4 +67,6 @@ return [
     'Quiz good result' => 'Super!',
     'Quiz medium result' => 'Gar nicht übel!',
     'Quiz bad result' => 'Keine Sorge, bald wird es besser!',
+    'You need at least two answers!' => 'Du brauchst mindestens zwei Antworten!',
+
 ];

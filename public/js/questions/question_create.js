@@ -7,11 +7,11 @@ $(document).ready(function () {
 
     $(document).on('click', '.button-delete-option', function () {
         var button = $(this);
-        if (window.confirm("Are you sure?")) {
-            if($('.button-delete-option').length > 1){
+        if (window.confirm(Lang.get('custom.Are you sure?'))) {
+            if($('.button-delete-option').length > 2){
                 button.closest('.answer-option').remove();
             } else {
-                alert('You need at least one answer!');
+                alert(Lang.get('custom.You need at least two answers!'));
             }
         }
     });
