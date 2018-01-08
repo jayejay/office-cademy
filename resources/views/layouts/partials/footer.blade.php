@@ -1,6 +1,7 @@
 <footer class="footer footer-black">
     <div class="container">
         <a class="footer-brand" href="{{route('welcome')}}">OfficeCademy</a>
+        {{--Todo: before going live remove condition--}}
         @if(Auth::check() || App::environment('local'))
             <ul class="pull-center">
                 <li><a href="{{route('about.us')}}">@lang('custom.About us')</a></li>
