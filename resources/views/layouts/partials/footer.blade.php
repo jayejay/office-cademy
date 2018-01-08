@@ -1,11 +1,13 @@
 <footer class="footer footer-black">
     <div class="container">
         <a class="footer-brand" href="{{route('welcome')}}">OfficeCademy</a>
-        <ul class="pull-center">
-            <li><a href="{{route('about.us')}}">@lang('custom.About us')</a></li>
-            <li><a href="#">Kontakt</a></li>
-            <li><a href="#">Impressum</a></li>
-        </ul>
+        @if(Auth::check() || App::environment('local'))
+            <ul class="pull-center">
+                <li><a href="{{route('about.us')}}">@lang('custom.About us')</a></li>
+                <li><a href="#">Kontakt</a></li>
+                <li><a href="#">Impressum</a></li>
+            </ul>
+        @endif
 
         <ul class="social-buttons pull-right">
             <li>
