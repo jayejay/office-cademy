@@ -27,6 +27,8 @@ return [
     'Home' => 'Home',
     'Nothing found'=> 'Nichts gefunden',
     'Are you sure?' => 'Bist du sicher?',
+    'About us' => 'Über uns',
+
 
     /*Posts*/
     'New Post' => 'Neuer Beitrag',
@@ -68,5 +70,8 @@ return [
     'Quiz medium result' => 'Gar nicht übel!',
     'Quiz bad result' => 'Keine Sorge, bald wird es besser!',
     'You need at least two answers!' => 'Du brauchst mindestens zwei Antworten!',
+
+    /*Static pages*/
+    'Static pages' => 'Statische Seiten'
 
 ];

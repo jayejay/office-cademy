@@ -26,7 +26,7 @@ return [
     'Home' => 'Home',
     'Nothing found'=> 'Nothing found',
     'Are you sure?' => 'Are you sure?',
-
+    'About us' => 'About us',
 
     /*Posts*/
     'New Post' => 'New Post',
@@ -69,6 +69,7 @@ return [
     'Quiz bad result' => 'Don\'t worry! Your results will be better soon.',
     'You need at least two answers!' => 'You need at least two answers!',
 
-
+    /*Static pages*/
+    'Static pages' => 'Static pages'
 
 ];

@@ -39,10 +39,9 @@
             </div>
         </div>
     </div>
+    @include('layouts.partials.footer')
 
-    <!-- Scripts -->
-    {{--<script src="{{ asset('js/app.js') }}"></script>--}}
     @include('layouts.partials.scripts.app_variables')
-    @yield('javascript');
+    @yield('javascript')
 </body>
 </html>

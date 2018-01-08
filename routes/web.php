@@ -22,6 +22,7 @@ Route::group(
         {
             return view('welcome');
         })->name('welcome');
+        Route::get('/about', function(){return view('static_pages/about_us');})->name('about.us');
 
         Route::get('/home', 'HomeController@index')->name('home');
 

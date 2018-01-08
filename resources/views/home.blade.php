@@ -25,4 +25,18 @@
     </div>
 </div>
 @include('shared.modals.quiz')
+
+<div class="row">
+   <hr>
+    <p>
+        Die verwendeten Beispiele sollen möglichst realitätsnah sein, sich also an dem was Du im Business benötigst orientieren.
+        Die Beispiel-Business Cases beinhalten daher Themen wie:
+    </p>
+   <p>
+       Wir werden die Themen inhaltlich nicht bis ins letzte Detail behandeln. Es gibt sicherlich genauere,
+       wissenschaftlichere und kompliziertere Techniken und Methoden.
+       Wir wollen Dich gezielt in Excel fit machen, anhand von praxis-relevanten Beispielen! Hab Spaß und lerne Excel!
+   </p>
+</div>
+
 @endsection
