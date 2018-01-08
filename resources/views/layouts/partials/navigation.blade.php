@@ -39,6 +39,7 @@
             <div class="col-md-5">
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{route('home')}}">@lang('custom.Home')</a></li>
                     <li><a href="{{route('posts.admin.index')}}">@lang('custom.Posts')</a></li>
                     <!-- Authentication Links -->
                     @guest

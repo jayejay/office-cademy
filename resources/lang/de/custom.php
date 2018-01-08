@@ -13,12 +13,8 @@ return [
     |
     */
 
+    /*Shared*/
     'Choose language' => 'Sprache wählen',
-    'New Post' => 'Neuer Beitrag',
-    'New Tag' => 'Neuer Tag',
-    'New Chapter' => 'Neues Kapitel',
-    'New Course' => 'Neuer Kurs',
-    'New Category' => 'Neue Kategorie',
     'show' => 'anzeigen',
     'edit' => 'bearbeiten',
     'delete' => 'löschen',
@@ -26,19 +22,35 @@ return [
     'add' => 'hinzufügen',
     'show all' => 'alle anzeigen',
     'Nothing to show' => 'Keine Übersetzung vorhanden',
-    'Tags' => 'Tags',
-    'Courses' => 'Kurse',
-    'Course' => 'Kurs',
-    'Chapters' => 'Kapitel',
-    'Chapter' => 'Kapitel',
-    'Posts' => 'Beiträge',
-    'Post' => 'Beitrag',
-    'Category' => 'Kategorie',
-    'Categories' => 'Kategorien',
-    'Chapter number' => 'Nummer des Kapitels',
-    'Chapter name' => 'Kapitel Name',
     'next' => 'weiter',
     'close' => 'schließen',
+    'Home' => 'Home',
+
+    /*Posts*/
+    'New Post' => 'Neuer Beitrag',
+    'Posts' => 'Beiträge',
+    'Post' => 'Beitrag',
+
+    /*Categories*/
+    'New Category' => 'Neue Kategorie',
+    'Categories' => 'Kategorien',
+    'Category' => 'Kategorie',
+
+    /*Course*/
+    'Courses' => 'Kurse',
+    'Course' => 'Kurs',
+    'New Course' => 'Neuer Kurs',
+
+    /*Chapters*/
+    'Chapters' => 'Kapitel',
+    'Chapter' => 'Kapitel',
+    'New Chapter' => 'Neues Kapitel',
+    'Chapter name' => 'Kapitel Name',
+    'Chapter number' => 'Nummer des Kapitels',
+
+    /*Tags*/
+    'New Tag' => 'Neuer Tag',
+    'Tags' => 'Tags',
 
     /*Quiz*/
     'Question Title' => 'Frage',
@@ -48,8 +60,8 @@ return [
     'Solutions' => 'Lösungen',
     'Answer Option' => 'Antwort Option',
     'Test your Excel skills' => 'Teste deine Excel-Kenntnisse',
-    'Quiz' => 'Quiz',
     'correct answers' => 'korrekte Antworten',
+    'Quiz' => 'Quiz',
     'Quiz good result' => 'Super!',
     'Quiz medium result' => 'Gar nicht übel!',
     'Quiz bad result' => 'Keine Sorge, bald wird es besser!',

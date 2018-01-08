@@ -12,12 +12,8 @@ return [
     |
     */
 
+    /*Shared*/
     'Choose language' => 'Choose language',
-    'New Post' => 'New Post',
-    'New Tag' => 'New Tag',
-    'New Chapter' => 'New Chapter',
-    'New Course' => 'New Course',
-    'New Category' => 'New Category',
     'show' => 'show',
     'edit' => 'edit',
     'delete' => 'delete',
@@ -25,20 +21,35 @@ return [
     'add' => 'add',
     'show all' => 'show all',
     'Nothing to show' => 'No translation available',
-    'Tags' => 'Tags',
-    'Courses' => 'Courses',
-    'Course' => 'Course',
-    'Chapters' => 'Chapters',
-    'Chapter' => 'Chapter',
-    'Posts' => 'Posts',
-    'Post' => 'Post',
-    'Category' => 'Category',
-    'Categories' => 'Categories',
-    'Chapter number' => 'Chapter number',
-    'Chapter name' => 'Chapter name',
     'next' => 'next',
     'close' => 'close',
+    'Home' => 'Home',
 
+    /*Posts*/
+    'New Post' => 'New Post',
+    'Posts' => 'Posts',
+    'Post' => 'Post',
+
+    /*Categories*/
+    'New Category' => 'New Category',
+    'Category' => 'Category',
+    'Categories' => 'Categories',
+
+    /*Course*/
+    'New Course' => 'New Course',
+    'Course' => 'Course',
+    'Courses' => 'Courses',
+
+    /*Chapters*/
+    'New Chapter' => 'New Chapter',
+    'Chapters' => 'Chapters',
+    'Chapter' => 'Chapter',
+    'Chapter number' => 'Chapter number',
+    'Chapter name' => 'Chapter name',
+
+    /*Tags*/
+    'New Tag' => 'New Tag',
+    'Tags' => 'Tags',
 
     /*Quiz*/
     'Question Title' => 'Question',
@@ -53,4 +64,6 @@ return [
     'Quiz good result' => 'Well done!',
     'Quiz medium result' => 'Not bad!',
     'Quiz bad result' => 'Don\'t worry! Your results will be better soon.',
+
+
 ];
