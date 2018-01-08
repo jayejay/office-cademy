@@ -8,7 +8,11 @@ $(document).ready(function () {
     $(document).on('click', '.button-delete-option', function () {
         var button = $(this);
         if (window.confirm("Are you sure?")) {
-            button.closest('.answer-option').remove();
+            if($('.button-delete-option').length > 1){
+                button.closest('.answer-option').remove();
+            } else {
+                alert('You need at least one answer!');
+            }
         }
     });
 });

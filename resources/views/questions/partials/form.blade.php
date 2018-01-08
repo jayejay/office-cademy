@@ -31,7 +31,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" name="options[]" value="{{$option}}">
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-sm button-delete-option"><i class="glyphicon glyphicon-search"></i></button>
+                                <button type="button" class="btn btn-sm button-delete-option"><i class="material-icons">close</i></button>
                              </span>
                         </div>
                     </div>
