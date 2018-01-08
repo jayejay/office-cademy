@@ -148,7 +148,7 @@ $(document).ready(function () {
     function showCorrectAnswers(){
 
         modalHeader.append(
-        '<h5>'+ Lang.get('custom.Answers') + '</h5>'
+        '<h5>'+ Lang.get('custom.Solutions') + '</h5>'
         );
 
         for(var i=0; i < numberOfQuestions ; i++){

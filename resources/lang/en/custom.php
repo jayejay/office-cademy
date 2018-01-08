@@ -44,7 +44,7 @@ return [
     'Question Title' => 'Question',
     'New Question' => 'New Question',
     'Questions' => 'Questions',
-    'Answer' => 'Answer',
+    'Solutions' => 'Solutions',
     'Answers' => 'Answers',
     'Answer Option' => 'Answer Option',
     'Test your Excel skills' => 'Test your Excel skills',
