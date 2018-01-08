@@ -43,7 +43,7 @@ class Post extends Model
 
     public function getSlugAttribute()
     {
-        return str_slug($this->title);
+        return str_slug($this->category->name.'-'.$this->title);
     }
 
     public function getCategorySlugAttribute()
@@ -53,7 +53,7 @@ class Post extends Model
 
     public function getUrlAttribute()
     {
-        return action('PostsController@show', [$this->id, $this->getCategorySlugAttribute(), $this->slug]);
+        return action('PostsController@show', [$this->id, $this->slug]);
     }
 
 }

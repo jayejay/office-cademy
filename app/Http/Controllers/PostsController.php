@@ -73,9 +73,10 @@ class PostsController extends Controller
      * Display the specified resource.
      *
      * @param  Post $post
+     * @param string $slug
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post, $category, $slug = '')
+    public function show(Post $post, $slug = '')
     {
         if($slug !== $post->getSlugAttribute()){
             return redirect()->to($post->url);
