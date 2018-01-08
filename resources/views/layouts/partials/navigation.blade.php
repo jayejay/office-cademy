@@ -19,7 +19,6 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <div class="col-md-2">
-
                 <div class="dropdown">
                     <button class="btn btn-default btn-sm dropdown-toggle nav-button-toggle" id="admin_dropdown" type="button" data-toggle="dropdown">
                         Admin<span class="caret"></span></button>
@@ -30,7 +29,6 @@
                         <li><a href="{{route('categories.admin.index')}}">@lang('custom.Categories')</a></li>
                     </ul>
                 </div>
-
             </div>
             <div class="col-md-3">
                 @include('layouts.partials.typeahead_search')
@@ -38,9 +36,12 @@
 
             <div class="col-md-5">
                 <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
+
+                    @include('layouts.partials.excel_course_dropdown')
+
                     <li><a href="{{route('home')}}">@lang('custom.Home')</a></li>
-                    <li><a href="{{route('posts.admin.index')}}">@lang('custom.Posts')</a></li>
+                    {{--<li><a href="{{route('posts.admin.index')}}">@lang('custom.Posts')</a></li>--}}
                     <!-- Authentication Links -->
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>

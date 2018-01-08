@@ -28,7 +28,9 @@ return [
     'Nothing found'=> 'Nichts gefunden',
     'Are you sure?' => 'Bist du sicher?',
     'About us' => 'Über uns',
-
+    'Excel Courses' => 'Excel Kurse',
+    'Formulas' => 'Formeln',
+    'Our Examples' => 'Unsere Beispiele',
 
     /*Posts*/
     'New Post' => 'Neuer Beitrag',

@@ -27,6 +27,10 @@ return [
     'Nothing found'=> 'Nothing found',
     'Are you sure?' => 'Are you sure?',
     'About us' => 'About us',
+    'Excel Courses' => 'Excel Courses',
+    'Formulas' => 'Formulas',
+    'Our Examples' => 'Our Examples',
+
 
     /*Posts*/
     'New Post' => 'New Post',
