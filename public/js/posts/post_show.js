@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         var panel = $(this);
         var postId = panel.attr("data-id");
-        var url = baseUrl + "/" + locale + "/posts/get-post-body/" + postId
+        var url = baseUrl + "/" + locale + "/posts/ajax/get-post-body/" + postId
 
         getPostBody(panel, postId, url)
     });

@@ -12,5 +12,6 @@
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='@include('posts.partials.html_templates.template_ordered_list')' class="html_tags">Ordered List</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='@include('posts.partials.html_templates.template_unordered_list')' class="html_tags">Unordered List</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-html='@include('posts.partials.html_templates.template_table')' class="html_tags">Table</a></li>
+        <li role="presentation"><a role="menuitem" id="panel-html" tabindex="-1" href="#" data-html='@include('posts.partials.html_templates.template_accordeon')' class="html_tags">Accordeon</a></li>
     </ul>
 </div>
