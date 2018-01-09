@@ -37,6 +37,8 @@ return [
     'New Post' => 'New Post',
     'Posts' => 'Posts',
     'Post' => 'Post',
+    'Post title' => 'Post title',
+
 
     /*Categories*/
     'New Category' => 'New Category',

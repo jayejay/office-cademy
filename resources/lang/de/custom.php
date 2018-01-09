@@ -38,6 +38,7 @@ return [
     'New Post' => 'Neuer Beitrag',
     'Posts' => 'Beiträge',
     'Post' => 'Beitrag',
+    'Post title' => 'Titel des Beitrages',
 
     /*Categories*/
     'New Category' => 'Neue Kategorie',

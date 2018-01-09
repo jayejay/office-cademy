@@ -1,4 +1,4 @@
-<div class="panel panel-default" data-id="x" >
+<div class="panel panel-default normal-panel" data-id="x" >
     <div class="panel-heading">
         <h4 class="title">Panel Title</h4>
     </div>
