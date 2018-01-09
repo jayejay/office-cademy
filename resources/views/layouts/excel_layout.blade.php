@@ -19,22 +19,21 @@
 </head>
 <body id="excel-layout">
     <div id="app">
-        <div class="overlay"></div>
-            <div id="header-pic" class="jumbotron">
-                {{--<img src="{{asset('images/office.jpeg')}}" alt="Office">--}}
-            </div>
+        <div id="header-pic" class="jumbotron">
+            {{--<img src="{{asset('images/office.jpeg')}}" alt="Office">--}}
+        </div>
 
         @include('layouts.partials.navigation', ['class' => 'excel-layout-navigation'])
-        <div class="container">
+        <div class="container-fluid">
             @include('layouts.partials.flash_messages')
             @include('layouts.partials.errors')
-            <div class="col-md-2">
+            <div class="col-md-3">
 
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 @yield('content')
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
 
             </div>
         </div>

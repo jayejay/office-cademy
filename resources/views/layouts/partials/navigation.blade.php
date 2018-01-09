@@ -22,16 +22,16 @@
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check() || App::environment('local'))
                     <li>
-                        <a href="#">
-                            Admin<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <a href="{{route('posts.admin.index')}}">
+                            Admin</a>
+                        {{--<ul class="dropdown-menu">
                             <li><a href="{{route('posts.admin.index')}}">@lang('custom.Posts')</a></li>
                             <li><a href="{{route('chapters.admin.index')}}">@lang('custom.Chapters')</a></li>
                             <li><a href="{{route('courses.admin.index')}}">@lang('custom.Courses')</a></li>
                             <li><a href="{{route('categories.admin.index')}}">@lang('custom.Categories')</a></li>
                             <li><a href="{{route('tags.admin.index')}}">@lang('custom.Tags')</a></li>
                             <li><a href="{{route('questions.index')}}">@lang('custom.Questions')</a></li>
-                        </ul>
+                        </ul>--}}
 
                     </li>
                 @endif
