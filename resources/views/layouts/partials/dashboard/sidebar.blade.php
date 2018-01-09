@@ -29,5 +29,12 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
 
 
         </ul>
-        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
-    <div class="sidebar-background" style="/*background-image: url(../assets/img/sidebar-1.jpg) */"></div></div>
+        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+            <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+        </div>
+        <div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;">
+            <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+        </div>
+    </div>
+    <div class="sidebar-background" style="/*background-image: url(../assets/img/sidebar-1.jpg) */"></div>
+</div>

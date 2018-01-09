@@ -31,6 +31,8 @@ return [
     'Excel Courses' => 'Excel Kurse',
     'Formulas' => 'Formeln',
     'Our Examples' => 'Unsere Beispiele',
+    'Contact' => 'Kontakt',
+    'search' => 'suchen',
 
     /*Posts*/
     'New Post' => 'Neuer Beitrag',

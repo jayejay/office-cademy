@@ -30,7 +30,8 @@ return [
     'Excel Courses' => 'Excel Courses',
     'Formulas' => 'Formulas',
     'Our Examples' => 'Our Examples',
-
+    'Contact' => 'Contact',
+    'search' => 'search',
 
     /*Posts*/
     'New Post' => 'New Post',

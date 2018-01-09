@@ -18,7 +18,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@include('layouts.partials.language_switcher')</li>
+                    <li class="li-language-switcher" style="color:#263238;">@include('layouts.partials.language_switcher')</li>
                     {{--<li>--}}
                     {{--</li>--}}
                     {{--<li class="dropdown">--}}

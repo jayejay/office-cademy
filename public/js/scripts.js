@@ -48,7 +48,7 @@ $(document).ready(function () {
                     '<div class="list-group search-results-dropdown">'
                 ],
                 suggestion: function (data) {
-                    return '<a href="' + baseUrl +  areaName  + '/posts/show/' + data.id + '" class="list-group-item">' + data.title + '<br><span class="typeahead-category-name">' + data.category_name + '</span></a>';
+                    return '<a href="' + baseUrl +  areaName  + '/posts/' + data.id + '" class="list-group-item">' + data.title + '<br><span class="typeahead-category-name">' + data.category_name + '</span></a>';
                 }
             }
         });
