@@ -24,16 +24,14 @@ Route::group(
 
         Route::get('/home', 'HomeController@index')->name('home');
 
-        /*Post routes*/
+        /*Posts*/
         Route::get('/articles/list/{search?}/{q?}', 'PostsController@index')->name('posts.index');
         Route::get('/article/{post?}/{slug?}', 'PostsController@show')->name('posts.show');
+        Route::get('posts/ajax/get-post-body/{post}', 'PostsController@getPostBody')->name('posts.get_post_body');
 
 
-        /*Users routes*/
+        /*Users*/
         Auth::routes();
-
-        /*Posts*/
-        Route::get('ajax/get-post-body/{post}', 'PostsController@getPostBody')->name('posts.get_post_body');
 
         /*Search*/
         Route::get('/find/{q?}', 'SearchController@find')->name('posts.find');
