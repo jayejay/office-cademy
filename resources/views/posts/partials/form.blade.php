@@ -63,7 +63,7 @@
         <hr>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="active" id="active" form="post-form" @if(isset($post) && $post->active)checked @endif>
+                <input type="checkbox" value="1" name="active" id="active" form="post-form" @if(isset($post) && $post->active)checked @endif>
                 <span class="checkbox-material">
                 </span>
                 publish
@@ -106,7 +106,7 @@
         </select>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="searchable" id="searchable" form="post-form"
+                <input type="checkbox" value="1" name="searchable" id="searchable" form="post-form"
                        @if(isset($post) && $post->searchable)checked @endif >
                 <span class="checkbox-material">
                     </span>

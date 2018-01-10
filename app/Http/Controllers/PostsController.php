@@ -147,7 +147,7 @@ class PostsController extends Controller
         $post->course_id = 1;
         //Todo: create a field in form and save from request
         $post->translateOrNew($language)->description = 'Test';
-        $post->searchable = $request->searchable;
+        $post->searchable = ($request->searchable == 1) ? true : false;
 
         if ($post->save()) {
             Session::flash('flash_message', 'Post has been created');
@@ -187,7 +187,7 @@ class PostsController extends Controller
 //            $post->chapter_id = $request->chapter_id;
             //todo: Define default for chapter_id
             $post->chapter_id = 1;
-            $post->searchable = $request->searchable;
+            $post->searchable = ($request->searchable == 1) ? true : false;
 
 
             if ($post->save()) {
