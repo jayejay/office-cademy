@@ -4,8 +4,8 @@
 @excel-layout-navbar-color-buttons: #263238;
 @text-color-white: #F5F5F5;
 @text-color-dark: #263238;
-@code-backgorund-color: #CFD8DC;
-
+@code-background-color: #CFD8DC;
+@hover-navigation-background-color:#78909C;
 body {
   font-family: @font-family;
   background-color: white;
@@ -50,11 +50,11 @@ code {
   padding: 0 2px;
   font-size: 100%;
   color: @text-color-white;
-  background-color: @code-backgorund-color;
+  background-color: @code-background-color;
 }
 
 span.code {
-  background-color: @code-backgorund-color;
+  background-color: @code-background-color;
   color: @text-color-dark;
   display: block;
   margin: 3% 0;
@@ -124,12 +124,27 @@ span.code {
   padding: 10px 20px;
 }
 
+.navbar .navbar-nav > li > a {
+  border-radius: 0;
+}
+
 @media (max-width: 768px){
   .navbar .navbar-collapse .open .dropdown-menu > li > a:hover, .navbar .navbar-collapse .open .dropdown-menu > li > a:focus {
     color: @text-color-dark;
   }
   .navbar .navbar-collapse .caret {
     margin-top: -4px;
+  }
+}
+
+@media (min-width: 769px){
+
+  .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
+    background-color: @hover-navigation-background-color;
+  }
+
+  .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
+    background-color: @hover-navigation-background-color;
   }
 }
 
@@ -190,13 +205,6 @@ span.code {
 }
 
 
-.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
-  background-color: #263238;
-}
-
-.navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
-  background-color: #263238;
-}
 
 // Admin Nav bar
 .navbar .navbar-form .form-group .form-control,
