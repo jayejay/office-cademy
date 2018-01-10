@@ -4,15 +4,21 @@
             <a href="#">{{$course->name}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
                 @foreach($course->chapters as $chapter)
-                    @if(count($chapter->posts)>0)
-                        <li data-sm-reverse="true">
-                            <a href="#">{{$chapter->name}}<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                @foreach($chapter->posts as $post)
-                                    <li><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></li>
-                                @endforeach
-                            </ul>
-                        </li>
+                    @if(count($chapter->posts)>1)
+                    <li data-sm-reverse="true">
+                                <a href="#">{{$chapter->name}}<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    @foreach($chapter->posts->sortBy('position') as $post)
+                                        @if($post->searchable)
+                                            <li><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </li>
+                    @elseif(count($chapter->posts)==1)
+                        @foreach($chapter->posts as $post)
+                            <li><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></li>
+                        @endforeach
                     @endif
                 @endforeach
             </ul>

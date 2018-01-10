@@ -18,13 +18,15 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" href="#collapse{{$post->id}}">
-                                {{$post->course->name}} - {{$post->chapter->name}}
-                                {{$post->id}} -
-                                @if($post->translations()->exists() && isset($post->translateOrDefault($locale)->title))
-                                    {{$post->translateOrDefault($locale)->title}}
-                                @else
-                                    @lang('custom.Nothing to show')
-                                @endif
+                                {{$post->course->name}} - {{$post->chapter->name}}:
+                                <b>
+                                    {{$post->id}} -
+                                    @if($post->translations()->exists() && isset($post->translateOrDefault($locale)->title))
+                                        {{$post->translateOrDefault($locale)->title}}
+                                    @else
+                                        @lang('custom.Nothing to show')
+                                    @endif
+                                </b>
                             </a>
                         </h4>
                     </div>

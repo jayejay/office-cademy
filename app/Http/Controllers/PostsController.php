@@ -150,6 +150,7 @@ class PostsController extends Controller
         $post->chapter_id = $request->chapter_id;
         $post->category_id = $request->category_id;
         $post->course_id = $request->course_id;
+        $post->position = $request->position;
         $post->searchable = ($request->searchable == 1) ? true : false;
 
         if ($post->save()) {
@@ -188,6 +189,7 @@ class PostsController extends Controller
             $post->chapter_id = $request->chapter_id;
             $post->category_id = $request->category_id;
             $post->course_id = $request->course_id;
+            $post->position = $request->position;
             $post->searchable = ($request->searchable == 1) ? true : false;
 
 

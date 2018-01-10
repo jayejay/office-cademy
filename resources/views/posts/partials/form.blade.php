@@ -116,6 +116,12 @@
                 >{{ $user->name . ' ' . $user->lastname }}</option>
             @endforeach
         </select>
+        <hr>
+        <div class="form-group label-floating">
+            <label for="position" class="control-label">Position</label>
+            <input type="text" id="position" name="position" class="form-control"
+                   value="{{old('position', isset($post) ? $post->position : '')}}">
+        </div>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="1" name="searchable" id="searchable" form="post-form"
