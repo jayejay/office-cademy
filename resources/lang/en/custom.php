@@ -33,6 +33,11 @@ return [
     'Contact' => 'Contact',
     'search' => 'search',
 
+    /*Excel course*/
+    'Excel course introduction' => 'Introduction',
+    'Excel course sum' => 'Sum',
+    'Excel course average' => 'Average',
+
     /*Posts*/
     'New Post' => 'New Post',
     'Posts' => 'Posts',

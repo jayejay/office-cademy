@@ -5,9 +5,9 @@
     <li data-sm-reverse="true">
         <a href="#">@lang('custom.Formulas') <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="{{route('posts.show', 2)}}">Intro und Aufbau</a></li>
-            <li><a href="#">Action2</a></li>
-            <li><a href="#">Action3</a></li>
+            <li><a href="{{route('posts.show', 2)}}">@lang('custom.Excel course introduction')</a></li>
+            <li><a href="#">@lang('custom.Excel course sum')</a></li>
+            <li><a href="#">@lang('custom.Excel course average')</a></li>
         </ul>
     </li>
 </ul>

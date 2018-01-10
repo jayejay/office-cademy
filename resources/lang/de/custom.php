@@ -34,6 +34,11 @@ return [
     'Contact' => 'Kontakt',
     'search' => 'suchen',
 
+    /*Excel course*/
+    'Excel course introduction' => 'Intro und Aufbau',
+    'Excel course sum' => 'Summe',
+    'Excel course average' => 'Mittelwert',
+
     /*Posts*/
     'New Post' => 'Neuer Beitrag',
     'Posts' => 'Beiträge',
