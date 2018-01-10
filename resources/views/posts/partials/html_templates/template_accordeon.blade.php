@@ -2,7 +2,7 @@
     <div class="panel-heading">
         <h4 class="panel-title">
             <a class="panel-link" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                @lang('custom.Post title')
+                @lang('custom.Post title') <i class="material-icons">open_in_new</i>
             </a>
         </h4>
     </div>
