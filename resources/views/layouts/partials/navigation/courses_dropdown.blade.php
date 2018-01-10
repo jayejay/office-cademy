@@ -17,7 +17,9 @@
                             </li>
                     @elseif(count($chapter->posts)==1)
                         @foreach($chapter->posts as $post)
-                            <li><a href="{{route('posts.show', $post->id)}}">{{$chapter->name}}</a></li>
+                            @if($post->searchable)
+                                <li><a href="{{route('posts.show', $post->id)}}">{{$chapter->name}}</a></li>
+                            @endif
                         @endforeach
                     @endif
                 @endforeach
