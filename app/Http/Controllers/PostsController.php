@@ -185,6 +185,7 @@ class PostsController extends Controller
 
             $post->user_id = $request->user_id;
 //            $post->chapter_id = $request->chapter_id;
+            $post->course_id = $request->course_id;
             //todo: Define default for chapter_id
             $post->chapter_id = 1;
             $post->searchable = ($request->searchable == 1) ? true : false;

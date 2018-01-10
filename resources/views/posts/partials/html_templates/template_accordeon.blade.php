@@ -7,5 +7,6 @@
         </h4>
     </div>
     <div id="collapse1" class="panel-body panel-collapse collapse">
+        <img class="loading-gif" src="{{asset('images/gif/spin.gif')}}" alt="loading">
     </div>
 </div>

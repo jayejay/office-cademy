@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App;
 use App\Category;
+use App\Course;
 use App\Language;
 use App\Post;
 use App\Tag;
@@ -43,6 +44,7 @@ class ViewComposerServiceProvider extends ServiceProvider
                 'users' => User::all(),
                 'languages' => Language::all(),
                 'storedPosts' => Post::all(),
+                'courses' => Course::all()
             ]);
         });
 

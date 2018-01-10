@@ -57,8 +57,17 @@
         </select>
         <hr>
         <label for="course">Course</label>
-        <select name="course" id="course" class="selectpicker">
-            <option value="0">Nothing selected</option>
+        <select name="course_id" id="course" class="selectpicker">
+            @if(!isset($post->course))
+                <option value="0" selected>Nothing selected</option>
+            @endif
+            @foreach($courses as $course)
+                <option value="{{$course->id}}"
+                        @if (isset($post) && $course->id == old('course_id', $post->course_id))
+                        selected="selected"
+                        @endif
+                >{{ $course->name }}</option>
+            @endforeach
         </select>
         <hr>
         <div class="checkbox">

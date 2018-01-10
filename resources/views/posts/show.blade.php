@@ -16,6 +16,11 @@
             <a href="{{route('posts.show', $post->id)}}" class="btn btn-default btn-sm">@lang('custom.show')</a>
         </div>
     {{--@endauth--}}
+    <div class="row breadcrumbs">
+        <hr>
+        {{$post->category->name}} - {{$post->course->name}}
+        <hr>
+    </div>
     <div class="row">
         <div class="row" id="title">
             <div class="col-md-12">
