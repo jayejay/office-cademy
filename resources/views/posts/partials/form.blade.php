@@ -82,12 +82,15 @@
     </div>{{--end row 2--}}
     <div class="col-md-2">
         <label for="chapter">Chapter</label>
-        <select name="chapter" id="chapter" class="selectpicker" form="post-form">
-            @if(isset($post->chapter))
-                <option value="{{$post->chapter->id}}">{{$post->chapter->number}} - {{$post->chapter->name}}</option>
-            @else
-                <option value="0">Nothing selected</option>
-            @endif
+        <select name="chapter_id" id="chapter" class="selectpicker" form="post-form">
+            @foreach($chapters as $chapter)
+                <option value="{{$chapter->id}}"
+                        @if (isset($post) && $chapter->id == old('chapter_id', $post->chapter_id))
+                        selected="selected"
+                        @endif
+                >{{ $chapter->name }}</option>
+            @endforeach
+
         </select>
         <hr>
         <label for="tags">Tags</label>

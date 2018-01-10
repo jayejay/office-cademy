@@ -18,7 +18,7 @@
     {{--@endauth--}}
     <div class="row breadcrumbs">
         <hr>
-        {{$post->category->name}} - {{$post->course->name}}
+        {{$post->course->name}} - {{$post->chapter->name}} - {{$post->title}}
         <hr>
     </div>
     <div class="row">

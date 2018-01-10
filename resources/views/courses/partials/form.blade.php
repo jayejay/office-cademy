@@ -20,7 +20,7 @@
                             @if(isset($course) && $category->id === old('category_id', $course->category_id))
                                 selected="selected"
                             @endif
-                        >{{$category->category}}</option>
+                        >{{$category->name}}</option>
                     @endforeach
                 @else
                     <option value="">Nothing to show</option>

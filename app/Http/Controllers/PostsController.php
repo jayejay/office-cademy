@@ -131,7 +131,8 @@ class PostsController extends Controller
             'title' => 'required|max:255',
             'body' => 'required',
             'user_id' => 'required',
-//                'chapter_id' => 'required',
+            'category_id' => 'required',
+            'chapter_id' => 'required',
         ]);
 
         $post = new Post();
@@ -140,13 +141,11 @@ class PostsController extends Controller
 
         $post->translateOrNew($language)->title = $request->title;
         $post->translateOrNew($language)->body = $request->body;
-        $post->user_id = $request->user_id;
-        //Todo: make chapter_id, course_id and category_id dynamic (if needed)
-        $post->chapter_id = 1;
-        $post->category_id = 1;
-        $post->course_id = 1;
-        //Todo: create a field in form and save from request
         $post->translateOrNew($language)->description = 'Test';
+        $post->user_id = $request->user_id;
+        $post->chapter_id = $request->chapter_id;
+        $post->category_id = $request->category_id;
+        $post->course_id = $request->course_id;
         $post->searchable = ($request->searchable == 1) ? true : false;
 
         if ($post->save()) {
@@ -172,22 +171,19 @@ class PostsController extends Controller
                 'title' => ['required', 'max:255'],
                 'body' => 'required',
                 'user_id' => 'required',
-//                'category_id' => 'required',
-//                'chapter_id' => 'required',
+                'category_id' => 'required',
+                'chapter_id' => 'required',
             ]);
 
             $language = App::getLocale();
 
             $post->translateOrNew($language)->title = $request->title;
             $post->translateOrNew($language)->body = $request->body;
-            //Todo: create a field in form and save from request
             $post->translateOrNew($language)->description = 'Test';
-
             $post->user_id = $request->user_id;
-//            $post->chapter_id = $request->chapter_id;
+            $post->chapter_id = $request->chapter_id;
+            $post->category_id = $request->category_id;
             $post->course_id = $request->course_id;
-            //todo: Define default for chapter_id
-            $post->chapter_id = 1;
             $post->searchable = ($request->searchable == 1) ? true : false;
 
 

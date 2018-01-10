@@ -24,20 +24,12 @@
                     <li>
                         <a href="{{route('posts.admin.index')}}">
                             Admin</a>
-                        {{--<ul class="dropdown-menu">
-                            <li><a href="{{route('posts.admin.index')}}">@lang('custom.Posts')</a></li>
-                            <li><a href="{{route('chapters.admin.index')}}">@lang('custom.Chapters')</a></li>
-                            <li><a href="{{route('courses.admin.index')}}">@lang('custom.Courses')</a></li>
-                            <li><a href="{{route('categories.admin.index')}}">@lang('custom.Categories')</a></li>
-                            <li><a href="{{route('tags.admin.index')}}">@lang('custom.Tags')</a></li>
-                            <li><a href="{{route('questions.index')}}">@lang('custom.Questions')</a></li>
-                        </ul>--}}
-
                     </li>
                 @endif
-                <li>
-                    @include('layouts.partials.excel_course_dropdown')
-                </li>
+                {{--<li>--}}
+                    {{--@include('layouts.partials.excel_course_dropdown')--}}
+                    @include('layouts.partials.navigation.courses_dropdown')
+                {{--</li>--}}
 
                 <li><a href="{{route('about.us')}}">@lang('custom.About us')</a></li>
                 <li><a href="#">@lang('custom.Contact')</a></li>

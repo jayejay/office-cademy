@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App;
 use App\Category;
+use App\Chapter;
 use App\Course;
 use App\Language;
 use App\Post;
@@ -44,7 +45,8 @@ class ViewComposerServiceProvider extends ServiceProvider
                 'users' => User::all(),
                 'languages' => Language::all(),
                 'storedPosts' => Post::all(),
-                'courses' => Course::all()
+                'courses' => Course::all(),
+                'chapters' => Chapter::all(),
             ]);
         });
 
@@ -68,6 +70,12 @@ class ViewComposerServiceProvider extends ServiceProvider
                 $view->with([
                    'currentPath' => Request::url(),
                    'currentPathName' => Route::currentRouteName(),
+                ]);
+        });
+
+        view()->composer(['layouts.partials.navigation.courses_dropdown'], function ($view){
+                $view->with([
+                   'courses' => Course::all(),
                 ]);
         });
     }
