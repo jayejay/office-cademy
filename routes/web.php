@@ -32,6 +32,8 @@ Route::group(
         /*Users routes*/
         Auth::routes();
 
+        /*Posts*/
+        Route::get('ajax/get-post-body/{post}', 'PostsController@getPostBody')->name('posts.get_post_body');
 
         /*Search*/
         Route::get('/find/{q?}', 'SearchController@find')->name('posts.find');
@@ -47,10 +49,9 @@ Route::group(
                 Route::get('posts/show/{post?}', 'PostsController@adminShow')->name('posts.admin.show');
                 Route::get('posts/new/create', 'PostsController@create')->name('posts.admin.create');
                 Route::get('posts/edit/{post}', 'PostsController@edit')->name('posts.edit');
-                Route::delete('/admin/posts/delete/{post}', 'PostsController@destroy')->name('posts.delete');
-                Route::post('/admin/posts/store', 'PostsController@store')->name('posts.store');
-                Route::patch('/admin/posts/update/{post}', 'PostsController@update')->name('posts.update');
-                Route::get('ajax/get-post-body/{post}', 'PostsController@getPostBody')->name('posts.get_post_body');
+                Route::delete('posts/delete/{post}', 'PostsController@destroy')->name('posts.delete');
+                Route::post('posts/store', 'PostsController@store')->name('posts.store');
+                Route::patch('posts/update/{post}', 'PostsController@update')->name('posts.update');
 
                 /*Tag*/
                 Route::get('tags/index', 'TagsController@adminIndex')->name('tags.admin.index');
