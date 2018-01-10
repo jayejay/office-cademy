@@ -30,6 +30,12 @@
                     <option value="">Nothing to show</option>
                 @endif
             </select>
+            <hr>
+            <div class="form-group label-floating">
+                <label for="position" class="control-label">Position</label>
+                <input type="text" id="position" name="position" class="form-control"
+                       value="{{old('position', isset($chapter) ? $chapter->position : '')}}">
+            </div>
             <button type="submit" class="btn btn-success" id="send" form="chapter-form">Save</button>
         </div>
     </div>

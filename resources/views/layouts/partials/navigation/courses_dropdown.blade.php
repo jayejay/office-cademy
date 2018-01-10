@@ -3,7 +3,7 @@
         <li>
             <a href="#">{{$course->name}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                @foreach($course->chapters as $chapter)
+                @foreach($course->chapters->sortBy('position') as $chapter)
                     @if(count($chapter->posts)>1)
                     <li data-sm-reverse="true">
                                 <a href="#">{{$chapter->name}}<span class="caret"></span></a>
@@ -17,7 +17,7 @@
                             </li>
                     @elseif(count($chapter->posts)==1)
                         @foreach($chapter->posts as $post)
-                            <li><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></li>
+                            <li><a href="{{route('posts.show', $post->id)}}">{{$chapter->name}}</a></li>
                         @endforeach
                     @endif
                 @endforeach

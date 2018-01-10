@@ -17,9 +17,8 @@
         </div>
     {{--@endauth--}}
     <div class="row breadcrumbs">
-        <hr>
-        {{$post->course->name}} - {{$post->chapter->name}} - {{$post->title}}
-        <hr>
+        {{$post->course->name}} <span class="glyphicon glyphicon-chevron-right"></span> {{$post->chapter->name}}
+        <span class="glyphicon glyphicon-chevron-right"></span> {{$post->title}}
     </div>
     <div class="row">
         <div class="row" id="title">

@@ -155,6 +155,15 @@ span.code {
   margin-left: 10px;
   border-radius: 6px 0 6px 6px;
 }
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+  background-color: #263238;
+}
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus {
+  background-color: #263238;
+}
 .navbar .navbar-form .form-group .form-control,
 .navbar .navbar-form .form-control {
   color: black;
@@ -180,6 +189,10 @@ span.code {
 .bootstrap-select > .dropdown-toggle.bs-placeholderfocus,
 .bootstrap-select > .dropdown-toggle.bs-placeholderhover {
   color: #FFFFFF;
+}
+.breadcrumbs {
+  font-size: 0.8em;
+  color: #607D8B;
 }
 .pics {
   padding: 0.7%;
