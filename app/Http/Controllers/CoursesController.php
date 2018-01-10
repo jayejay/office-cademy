@@ -36,6 +36,11 @@ class CoursesController extends Controller
         return view('courses.admin_index',['courses' => $courses]);
     }
 
+    public function show(Course $course)
+    {
+        return view('courses.show', ['course' => $course]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

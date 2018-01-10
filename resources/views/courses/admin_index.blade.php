@@ -33,10 +33,15 @@
                                 <td>{{$courseTranslation->locale}}:</td>
                                 <td>{{$courseTranslation->name}}</td>
                                 <td class="td-actions">
+                                    <a href="{{ LaravelLocalization::getLocalizedURL($courseTranslation->locale, route('courses.show', $course->id), [], true) }}"
+                                       rel="tooltip" class="btn btn-info" data-original-title="" title="">
+                                        <i class="material-icons">visibility</i>
+                                        <div class="ripple-container"></div></a>
                                     <a href="{{ LaravelLocalization::getLocalizedURL($courseTranslation->locale, route('courses.edit', $course->id), [], true) }}"
                                        rel="tooltip" class="btn btn-success" data-original-title="" title="">
                                         <i class="material-icons">edit</i>
                                     </a>
+
                                 </td>
                                 <td class="td-actions">
                                     <form method="post" action="{{ LaravelLocalization::getLocalizedURL($courseTranslation->locale, route('courses.delete',$course->id), [], true) }}">

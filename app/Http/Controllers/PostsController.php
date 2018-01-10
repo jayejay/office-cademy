@@ -41,7 +41,8 @@ class PostsController extends Controller
             $query->where('title', 'ilike', '%' . $q . '%')
 //                    ->orWhere('body', 'ilike', '%' . $q . '%')
                     ->where('locale', App::getLocale())
-                    ->where('searchable', 1);
+                    ->where('searchable', 1)
+                    ;
         })->get();
 
         return view('posts.index',['posts' => $posts]);
@@ -58,10 +59,13 @@ class PostsController extends Controller
             $posts = Post::whereHas('translations', function($query) use ($q){
                 $query->where('title', 'ilike', '%' . $q . '%')
 //                    ->orWhere('body', 'ilike', '%' . $q . '%')
-                        ->where('locale', App::getLocale());
+                        ->where('locale', App::getLocale())
+                        ->orderBy('course_id')
+                        ->orderBy('chapter_id');
             })->get();
         } else {
-            $posts = Post::all()->sortBy('id');
+            $posts = Post::all()
+                ->sortBy('course_id');
         }
 
         return view('posts.admin_index',['posts' => $posts]);

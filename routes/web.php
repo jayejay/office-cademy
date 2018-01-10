@@ -72,6 +72,7 @@ Route::group(
                 Route::get('courses/index', 'CoursesController@adminIndex')->name('courses.admin.index');
                 Route::get('courses/create', 'CoursesController@create')->name('courses.create');
                 Route::get('courses/edit/{course}', 'CoursesController@edit')->name('courses.edit');
+                Route::get('courses/show/{course}', 'CoursesController@show')->name('courses.show');
                 Route::patch('courses/update/{course}', 'CoursesController@update')->name('courses.update');
                 Route::post('courses/store', 'CoursesController@store')->name('courses.store');
                 Route::delete('courses/delete/{course}', 'CoursesController@destroy')->name('courses.delete');
