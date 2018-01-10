@@ -1,10 +1,10 @@
 <li>
-    <a href="#chapters" data-toggle="collapse" aria-expanded="{{ str_is('chapters.*', $currentPath) ? 'true' : 'false' }}">
+    <a href="#chapters" data-toggle="collapse" aria-expanded="{{ str_is('chapters.*', $currentPathName) ? 'true' : 'false' }}">
         <i class="material-icons">list</i>
         <p> @lang('custom.Chapters') <b class="caret"></b></p>
     </a>
     <div id="chapters"
-        @if(str_is('chapters.*', $currentPath))
+        @if(str_is('chapters.*', $currentPathName))
          class="collapsed collapse in"
          aria-expanded="true"
         @else
@@ -13,13 +13,13 @@
         @endif
     >
         <ul class="nav">
-            <li class="{{ $currentPath == 'chapters.admin.index' ? 'active' : '' }}">
+            <li class="{{ $currentPathName == 'chapters.admin.index' ? 'active' : '' }}">
                 <a href="{{route('chapters.admin.index')}}">
                     <span class="sidebar-mini"> CH </span>
                     <span class="sidebar-normal"> @lang('custom.show all') </span>
                 </a>
             </li>
-            <li class="{{ $currentPath == 'chapters.create' ? 'active' : '' }}">
+            <li class="{{ $currentPathName == 'chapters.create' ? 'active' : '' }}">
                 <a href="{{route('chapters.create')}}">
                     <span class="sidebar-mini"> N </span>
                     <span class="sidebar-normal"> @lang('custom.New Chapter') </span>

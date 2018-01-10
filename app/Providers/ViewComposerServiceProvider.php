@@ -10,6 +10,7 @@ use App\Tag;
 use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Request;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -58,11 +59,13 @@ class ViewComposerServiceProvider extends ServiceProvider
                    'locale' => App::getLocale(),
                 ]);
         });
+
         view()->composer([
             'layouts.admin_layout',
             'layouts.excel_layout'], function ($view){
                 $view->with([
-                   'currentPath' => Route::currentRouteName(),
+                   'currentPath' => Request::url(),
+                   'currentPathName' => Route::currentRouteName(),
                 ]);
         });
     }

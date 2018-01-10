@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-    /*Panel*/
+/*
+    /!*Panel*!/
     $('.panel.normal-panel').each(function () {
 
         var panel = $(this);
@@ -10,22 +11,41 @@ $(document).ready(function () {
         getPostBody(panel, postId, url)
     });
 
-    /*Accordeon*/
+    /!*Accordeon*!/
     $('.panel.accordeon').each(function () {
 
         var panel = $(this);
         var postId = panel.attr("data-id");
         var url = baseUrl + "/" + locale + "/posts/ajax/get-post-body/" + postId;
 
-        getPostBody(panel, postId, url)
+        getPostBody(div, postId, url)
+    });
+*/
+
+    /*Plain Text*/
+    $('.plain-html,.panel.accordeon,.panel.normal-panel').each(function () {
+
+        var div = $(this);
+        var postId = div.attr("data-id");
+        var url = baseUrl + "/" + locale + "/posts/ajax/get-post-body/" + postId;
+
+        getPostBody(div, postId, url)
     });
 
-    function getPostBody(panel, postId, url){
+    function getPostBody(div, postId, url){
         $.get(url, function (response) {
             if(response.success){
-                var panelBody = panel.find('.panel-body');
-                panelBody.html(response.postBody);
-            }else{
+
+                var bodyArea;
+
+                if (div.find('.panel-body').length) {
+                    bodyArea = div.find('.panel-body');
+                } else {
+                    bodyArea = div;
+                }
+                bodyArea.html(response.postBody);
+
+            } else {
                 console.log(response.message)
             }
         });

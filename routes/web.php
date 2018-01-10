@@ -18,115 +18,96 @@ Route::group(
     function()
     {
         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-        Route::get('/', function()
-        {
-            return view('welcome');
-        })->name('welcome');
+        Route::get('/', function(){return view('welcome');})->name('welcome');
+
         Route::get('/about', function(){return view('static_pages/about_us');})->name('about.us');
 
         Route::get('/home', 'HomeController@index')->name('home');
 
         /*Post routes*/
-        Route::get('/admin/posts/list/{search?}/{q?}', 'PostsController@adminIndex')->name('posts.admin.index');
-
-        Route::get('/posts/{post}/{slug?}', 'PostsController@show')->name('posts.show');
-        Route::get('/admin/posts/show/{post}', 'PostsController@adminShow')->name('posts.admin.show');
-
-        Route::get('/admin/posts/new/create', 'PostsController@create')->name('posts.create');
-
-        Route::get('/admin/posts/edit/{post}', 'PostsController@edit')->name('posts.edit');
-        Route::get('/posts/ajax/get-post-body/{post}', 'PostsController@getPostBody')
-            ->name('posts.get_post_body');
-
-        Route::delete('/admin/posts/delete/{post}', 'PostsController@destroy')->name('posts.delete');
-
-        Route::post('/admin/posts/store', 'PostsController@store')
-            ->name('posts.store');
-
-        Route::patch('/admin/posts/update/{post}', 'PostsController@update')
-            ->name('posts.update');
+        Route::get('/articles/list/{search?}/{q?}', 'PostsController@index')->name('posts.index');
+        Route::get('/article/{post?}/{slug?}', 'PostsController@show')->name('posts.show');
 
 
         /*Users routes*/
         Auth::routes();
 
-        /*Tag routes*/
-        Route::get('/admin/tags/index', 'TagsController@adminIndex')->name('tags.admin.index');
-        Route::get('/admin/tags/create', 'TagsController@create')->name('tags.create');
-        Route::get('/admin/tags/edit/{tag}', 'TagsController@edit')->name('tags.edit');
-
-        Route::patch('/admin/tags/update/{tag}', 'TagsController@update')
-            ->name('tags.update');
-
-        Route::post('/admin/tags/store', 'TagsController@store')
-            ->name('tags.store');
-
-        Route::delete('/admin/tags/delete/{tag}', 'TagsController@destroy')
-            ->name('tags.delete');
-
-        /*Chapter routes*/
-        Route::get('admin/chapters/index', 'ChaptersController@adminIndex')->name('chapters.admin.index');
-        Route::get('/admin/chapters/create', 'ChaptersController@create')->name('chapters.create');
-        Route::get('/admin/chapters/edit/{chapter}', 'ChaptersController@edit')->name('chapters.edit');
-
-        Route::patch('/admin/chapters/update/{chapter}', 'ChaptersController@update')
-            ->name('chapters.update');
-
-        Route::post('/admin/chapters/store', 'ChaptersController@store')
-            ->name('chapters.store');
-
-        Route::delete('/admin/chapters/delete/{chapter}', 'ChaptersController@destroy')
-            ->name('chapters.delete');
-
-
-        /*Course routes*/
-        Route::get('admin/courses/index', 'CoursesController@adminIndex')->name('courses.admin.index');
-        Route::get('/admin/courses/create', 'CoursesController@create')->name('courses.create');
-        Route::get('/admin/courses/edit/{course}', 'CoursesController@edit')->name('courses.edit');
-
-        Route::patch('/admin/courses/update/{course}', 'CoursesController@update')
-            ->name('courses.update');
-
-        Route::post('/admin/courses/store', 'CoursesController@store')
-            ->name('courses.store');
-
-        Route::delete('/admin/courses/delete/{course}', 'CoursesController@destroy')
-            ->name('courses.delete');
-
-        /*Categories*/
-        Route::get('admin/categories/index', 'CategoriesController@adminIndex')->name('categories.admin.index');
-        Route::get('/admin/categories/create', 'CategoriesController@create')->name('categories.create');
-        Route::get('/admin/categories/edit/{category}', 'CategoriesController@edit')->name('categories.edit');
-
-        Route::patch('/admin/categories/update/{category}', 'CategoriesController@update')
-            ->name('categories.update');
-
-        Route::post('/admin/categories/store', 'CategoriesController@store')
-            ->name('categories.store');
-
-        Route::delete('/admin/categories/delete/{category}', 'CategoriesController@destroy')
-            ->name('categories.delete');
 
         /*Search*/
         Route::get('/find/{q?}', 'SearchController@find')->name('posts.find');
 
-        /*Questions*/
-        Route::post('admin/questions/store','QuestionsController@store')->name('questions.store');
-        Route::patch('admin/questions/update/{question}','QuestionsController@update')->name('questions.update');
-        Route::get('admin/questions/create','QuestionsController@create')->name('questions.create');
-        Route::get('admin/questions/edit/{question}','QuestionsController@edit')->name('questions.edit');
-        Route::get('admin/questions/show/{question}','QuestionsController@show')->name('questions.show');
-        Route::get('admin/questions/index','QuestionsController@index')->name('questions.index');
-        Route::delete('admin/questions/delete/{question}','QuestionsController@destroy')->name('questions.delete');
-        Route::get('admin/questions/get-questions', 'QuestionsController@getQuestions')->name('questions.get_questions');
+        Route::group(
+            [
+                'prefix' => 'admin',
+            ],
+            function(){
+
+                /*Posts*/
+                Route::get('posts/list/{search?}/{q?}', 'PostsController@adminIndex')->name('posts.admin.index');
+                Route::get('posts/show/{post?}', 'PostsController@adminShow')->name('posts.admin.show');
+                Route::get('posts/new/create', 'PostsController@create')->name('posts.admin.create');
+                Route::get('posts/edit/{post}', 'PostsController@edit')->name('posts.edit');
+                Route::delete('/admin/posts/delete/{post}', 'PostsController@destroy')->name('posts.delete');
+                Route::post('/admin/posts/store', 'PostsController@store')->name('posts.store');
+                Route::patch('/admin/posts/update/{post}', 'PostsController@update')->name('posts.update');
+                Route::get('ajax/get-post-body/{post}', 'PostsController@getPostBody')->name('posts.get_post_body');
+
+                /*Tag*/
+                Route::get('tags/index', 'TagsController@adminIndex')->name('tags.admin.index');
+                Route::get('tags/create', 'TagsController@create')->name('tags.create');
+                Route::get('tags/edit/{tag}', 'TagsController@edit')->name('tags.edit');
+                Route::patch('tags/update/{tag}', 'TagsController@update')->name('tags.update');
+                Route::post('tags/store', 'TagsController@store')->name('tags.store');
+                Route::delete('tags/delete/{tag}', 'TagsController@destroy')->name('tags.delete');
+
+                /*Chapter*/
+                Route::get('chapters/index', 'ChaptersController@adminIndex')->name('chapters.admin.index');
+                Route::get('chapters/create', 'ChaptersController@create')->name('chapters.create');
+                Route::get('chapters/edit/{chapter}', 'ChaptersController@edit')->name('chapters.edit');
+                Route::patch('chapters/update/{chapter}', 'ChaptersController@update')->name('chapters.update');
+                Route::post('chapters/store', 'ChaptersController@store')->name('chapters.store');
+                Route::delete('chapters/delete/{chapter}', 'ChaptersController@destroy')->name('chapters.delete');
+
+
+                /*Course*/
+                Route::get('courses/index', 'CoursesController@adminIndex')->name('courses.admin.index');
+                Route::get('courses/create', 'CoursesController@create')->name('courses.create');
+                Route::get('courses/edit/{course}', 'CoursesController@edit')->name('courses.edit');
+                Route::patch('courses/update/{course}', 'CoursesController@update')->name('courses.update');
+                Route::post('courses/store', 'CoursesController@store')->name('courses.store');
+                Route::delete('courses/delete/{course}', 'CoursesController@destroy')->name('courses.delete');
+
+                /*Categories*/
+                Route::get('categories/index', 'CategoriesController@adminIndex')->name('categories.admin.index');
+                Route::get('categories/create', 'CategoriesController@create')->name('categories.create');
+                Route::get('categories/edit/{category}', 'CategoriesController@edit')->name('categories.edit');
+                Route::patch('categories/update/{category}', 'CategoriesController@update')->name('categories.update');
+                Route::post('categories/store', 'CategoriesController@store')->name('categories.store');
+                Route::delete('categories/delete/{category}', 'CategoriesController@destroy')->name('categories.delete');
+
+                /*Questions*/
+                Route::get('questions/index','QuestionsController@index')->name('questions.index');
+                Route::get('questions/create','QuestionsController@create')->name('questions.create');
+                Route::post('questions/store','QuestionsController@store')->name('questions.store');
+                Route::patch('questions/update/{question}','QuestionsController@update')->name('questions.update');
+                Route::get('questions/edit/{question}','QuestionsController@edit')->name('questions.edit');
+                Route::get('questions/show/{question}','QuestionsController@show')->name('questions.show');
+                Route::delete('questions/delete/{question}','QuestionsController@destroy')->name('questions.delete');
+                Route::get('questions/get-questions', 'QuestionsController@getQuestions')->name('questions.get_questions');
+
+                /*search*/
+                Route::get('find/{q?}', 'SearchController@adminFind')->name('posts.admin.find');
+            }
+        );
+
+
+
     }
 );
 
-Route::post('/admin/posts/store_image', 'PostsController@storeImageAjax')
-    ->name('posts.store_image');
+/*Ajax*/
+Route::post('/admin/posts/store_image', 'PostsController@storeImageAjax')->name('posts.store_image');
 //Chapters
-Route::get('/admin/posts/get-chapters/{course}', 'ChaptersController@getChaptersAjax')
-    ->name('posts.get_chapters');
+Route::get('/admin/posts/get-chapters/{course}', 'ChaptersController@getChaptersAjax')->name('posts.get_chapters');
 //Courses
-Route::get('/admin/posts/get-courses/{category}', 'CoursesController@getCoursesAjax')
-    ->name('posts.get_courses');
+Route::get('/admin/posts/get-courses/{category}', 'CoursesController@getCoursesAjax')->name('posts.get_courses');

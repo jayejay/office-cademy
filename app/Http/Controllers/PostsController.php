@@ -31,11 +31,19 @@ class PostsController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::all();
+        $q = str_replace('-', ' ', $request->q);
+        $posts = Post::whereHas('translations', function($query) use ($q){
+            $query->where('title', 'ilike', '%' . $q . '%')
+//                    ->orWhere('body', 'ilike', '%' . $q . '%')
+                    ->where('locale', App::getLocale())
+                    ->where('searchable', 1);
+        })->get();
+
         return view('posts.index',['posts' => $posts]);
     }
 
@@ -50,7 +58,7 @@ class PostsController extends Controller
             $posts = Post::whereHas('translations', function($query) use ($q){
                 $query->where('title', 'ilike', '%' . $q . '%')
 //                    ->orWhere('body', 'ilike', '%' . $q . '%')
-                    ->where('locale', App::getLocale());
+                        ->where('locale', App::getLocale());
             })->get();
         } else {
             $posts = Post::all()->sortBy('id');
@@ -139,6 +147,7 @@ class PostsController extends Controller
         $post->course_id = 1;
         //Todo: create a field in form and save from request
         $post->translateOrNew($language)->description = 'Test';
+        $post->searchable = $request->searchable;
 
         if ($post->save()) {
             Session::flash('flash_message', 'Post has been created');
@@ -178,6 +187,8 @@ class PostsController extends Controller
 //            $post->chapter_id = $request->chapter_id;
             //todo: Define default for chapter_id
             $post->chapter_id = 1;
+            $post->searchable = $request->searchable;
+
 
             if ($post->save()) {
                 Session::flash('flash_message', 'Post has been updated');

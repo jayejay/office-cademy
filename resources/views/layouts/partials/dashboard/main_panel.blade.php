@@ -17,6 +17,11 @@
                 {{--<a class="navbar-brand" href="#"> {{ config('app.name') }} </a>--}}
             </div>
             <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li style="color:black;">
+                        @include('layouts.partials.typeahead_search')
+                    </li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="li-language-switcher" style="color:#263238;">@include('layouts.partials.language_switcher')</li>
                     {{--<li>--}}
@@ -56,16 +61,16 @@
                     {{--</li>--}}
                     {{--<li class="separator hidden-lg hidden-md"></li>--}}
                 </ul>
-                <form action="{{route('posts.find')}}" id="search-form" method="get" class="navbar-form navbar-left typeahead" role="search">
-                    <div class="form-group form-search is-empty">
-                        <input id="navbar-search-input" type="text" name="q" class="form-control" placeholder=" Search ">
-                        <span class="material-input"></span>
-                        <span class="material-input"></span></div>
-                    <button type="submit"  class="btn btn-white btn-round btn-just-icon">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                    </button>
-                </form>
+                {{--<form action="{{route('posts.find')}}" id="search-form" method="get" class="navbar-form navbar-left typeahead" role="search">--}}
+                    {{--<div class="form-group form-search is-empty">--}}
+                        {{--<input id="navbar-search-input" type="text" name="q" class="form-control" placeholder=" Search ">--}}
+                        {{--<span class="material-input"></span>--}}
+                        {{--<span class="material-input"></span></div>--}}
+                    {{--<button type="submit"  class="btn btn-white btn-round btn-just-icon">--}}
+                        {{--<i class="material-icons">search</i>--}}
+                        {{--<div class="ripple-container"></div>--}}
+                    {{--</button>--}}
+                {{--</form>--}}
                 <a class="btn btn-default btn-sm" id="back-button" href="javascript:history.go(-1)">
                     <i class="material-icons">fast_rewind</i>
                     Back
