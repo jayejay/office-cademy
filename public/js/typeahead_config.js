@@ -16,7 +16,7 @@ $(document).ready(function () {
         });
 
         var findUrl;
-        if (areaIsAdmin===1) {
+        if (areaIsAdmin==="1") {
             findUrl = "/admin/find/%QUERY%";
         } else {
             findUrl = "/find/%QUERY%";
