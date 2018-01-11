@@ -45,7 +45,7 @@
         <label for="category">Category</label>
         <select name="category_id" id="category" class="selectpicker" form="post-form">
             @if(!isset($post->category))
-                <option value="0" selected>Nothing selected</option>
+                <option value="0" selected>@lang('custom.Please select')</option>
             @endif
             @foreach($categories as $category)
                 <option value="{{$category->id}}"
@@ -59,7 +59,7 @@
         <label for="course">Course</label>
         <select name="course_id" id="course" class="selectpicker">
             @if(!isset($post->course))
-                <option value="0" selected>Nothing selected</option>
+                <option value="0" selected>@lang('custom.Please select')</option>
             @endif
             @foreach($courses as $course)
                 <option value="{{$course->id}}"
@@ -83,6 +83,7 @@
     <div class="col-md-2">
         <label for="chapter">Chapter</label>
         <select name="chapter_id" id="chapter" class="selectpicker" form="post-form">
+            <option value="">@lang('custom.Without chapter')</option>
             @foreach($chapters as $chapter)
                 <option value="{{$chapter->id}}"
                         @if (isset($post) && $chapter->id == old('chapter_id', $post->chapter_id))
@@ -96,7 +97,7 @@
         <label for="tags">Tags</label>
         <select id="tags" name="tags[]" class="selectpicker" multiple data-actions-box="true" form="post-form">
             @if(!isset($postTagsArray))
-                <option value="" disabled selected="selected">Please select</option>
+                <option value="" disabled selected="selected">@lang('custom.Please select')</option>
             @endif
             @foreach($tags as $tag)
                 <option value="{{ $tag->id }}" @if(in_array($tag->id, isset($postTagsArray) ? $postTagsArray : []))selected @endif >{{ $tag->name }}</option>

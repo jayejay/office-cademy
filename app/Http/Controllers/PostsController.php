@@ -68,7 +68,9 @@ class PostsController extends Controller
                 ->sortBy('course_id');
         }
 
-        return view('posts.admin_index',['posts' => $posts]);
+        $courses = Course::all();
+
+        return view('posts.admin_index',['posts' => $posts, 'courses' => $courses]);
     }
 
     /**
@@ -177,7 +179,6 @@ class PostsController extends Controller
                 'body' => 'required',
                 'user_id' => 'required',
                 'category_id' => 'required',
-                'chapter_id' => 'required',
             ]);
 
             $language = App::getLocale();
@@ -186,7 +187,7 @@ class PostsController extends Controller
             $post->translateOrNew($language)->body = $request->body;
             $post->translateOrNew($language)->description = 'Test';
             $post->user_id = $request->user_id;
-            $post->chapter_id = $request->chapter_id;
+            $post->chapter_id = isset($request->chapter_id) ? $request->chapter_id : null;
             $post->category_id = $request->category_id;
             $post->course_id = $request->course_id;
             $post->position = $request->position;
@@ -231,6 +232,10 @@ class PostsController extends Controller
         return redirect()->route('posts.admin.index');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function storeImageAjax(Request $request)
     {
         $files = $request->file('files');
@@ -256,6 +261,10 @@ class PostsController extends Controller
         return response()->json(["success" => true, "path" => $path, "fileNames" => $fileNames]);
     }
 
+    /**
+     * @param Post $post
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getPostBody(Post $post)
     {
         try {
@@ -268,4 +277,22 @@ class PostsController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function getPostsIndexHtml(Request $request){
+        $courseId = 2; #$request->course;
+        $chapterId = $request->chapter_id;
+
+        if (empty($chapterId)){
+            $posts = Post::whereNull('chapter_id')->get();
+        } else {
+            $posts = Post::where('chapter_id', $chapterId)->get();
+        }
+
+        $view = View::make('posts.partials.post_panel', ['posts' => $posts]);
+
+        return $view->render();
+    }
 }

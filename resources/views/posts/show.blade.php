@@ -17,8 +17,11 @@
         </div>
     {{--@endauth--}}
     <div class="row breadcrumbs">
-        {{$post->course->name}} <span class="glyphicon glyphicon-chevron-right"></span> {{$post->chapter->name}}
-        <span class="glyphicon glyphicon-chevron-right"></span> {{$post->title}}
+        {{$post->course->name}} <span class="glyphicon glyphicon-chevron-right"></span>
+        @if(!empty($post->chapter))
+            {{$post->chapter->name}}
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        @endif {{$post->title}}
     </div>
     <div class="row">
         <div class="row" id="title">

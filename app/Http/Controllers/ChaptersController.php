@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Chapter;
 use App\Course;
@@ -156,13 +157,13 @@ class ChaptersController extends Controller
     }
 
     /**
-     * @param Course $course
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function getChaptersAjax(Course $course)
+    public function getChaptersAjax(Request $request)
     {
         try {
-        $chapters = $course->chapters;
+        $chapters = Chapter::where('course_id', $request->course_id)->get();
             return response()->json(['success' => true, "chapters" => $chapters]);
         } catch (\Exception $e){
             return response()->json(['success' => false, "message" => $e->getMessage()]);

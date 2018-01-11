@@ -32,6 +32,8 @@ return [
     'Our Examples' => 'Our Examples',
     'Contact' => 'Contact',
     'search' => 'search',
+    'Please select' => 'Please select',
+    'Without chapter' => 'Without chapter',
 
     /*Excel course*/
     'Excel course introduction' => 'Introduction',

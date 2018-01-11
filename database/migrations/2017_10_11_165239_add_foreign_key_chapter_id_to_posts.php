@@ -14,7 +14,7 @@ class AddForeignKeyChapterIdToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('chapter_id')->unsigned();
+            $table->integer('chapter_id')->unsigned()->nullable();;
             $table->foreign('chapter_id')->references('id')->on('chapters');
         });
     }

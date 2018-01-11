@@ -33,6 +33,7 @@ return [
     'Our Examples' => 'Unsere Beispiele',
     'Contact' => 'Kontakt',
     'search' => 'suchen',
+    'Please select' => 'Bitte auswählen',
 
     /*Excel course*/
     'Excel course introduction' => 'Intro und Aufbau',
@@ -61,6 +62,7 @@ return [
     'New Chapter' => 'Neues Kapitel',
     'Chapter name' => 'Kapitel Name',
     'Chapter number' => 'Nummer des Kapitels',
+    'Without chapter' => 'Ohne Kapitel',
 
     /*Tags*/
     'New Tag' => 'Neuer Tag',
