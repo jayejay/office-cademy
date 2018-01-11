@@ -23,7 +23,7 @@
     <div class="row">
         <div class="row" id="title">
             <div class="col-md-12">
-                <h2 class="title">{{!empty($post->translateOrDefault($locale)->title) ?  $post->translateOrDefault($locale)->title : "Nothing to show"}}</h2>
+                <h1 class="title">{{!empty($post->translateOrDefault($locale)->title) ?  $post->translateOrDefault($locale)->title : "Nothing to show"}}</h1>
             </div>
         </div>
         <div class="row" id="body">
