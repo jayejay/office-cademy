@@ -21,7 +21,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        if (App::environment('local')){
+        if (App::environment('local')) {
 //            $this->middleware('guest');
         } else {
             $this->middleware('auth');
@@ -37,15 +37,14 @@ class PostsController extends Controller
     public function index(Request $request)
     {
         $q = str_replace('-', ' ', $request->q);
-        $posts = Post::whereHas('translations', function($query) use ($q){
+        $posts = Post::whereHas('translations', function ($query) use ($q) {
             $query->where('title', 'ilike', '%' . $q . '%')
 //                    ->orWhere('body', 'ilike', '%' . $q . '%')
-                    ->where('locale', App::getLocale())
-                    ->where('searchable', 1)
-                    ;
+                ->where('locale', App::getLocale())
+                ->where('searchable', 1);
         })->get();
 
-        return view('posts.index',['posts' => $posts]);
+        return view('posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -56,12 +55,12 @@ class PostsController extends Controller
     {
         if (isset($request->q)) {
             $q = str_replace('-', ' ', $request->q);
-            $posts = Post::whereHas('translations', function($query) use ($q){
+            $posts = Post::whereHas('translations', function ($query) use ($q) {
                 $query->where('title', 'ilike', '%' . $q . '%')
 //                    ->orWhere('body', 'ilike', '%' . $q . '%')
-                        ->where('locale', App::getLocale())
-                        ->orderBy('course_id')
-                        ->orderBy('chapter_id');
+                    ->where('locale', App::getLocale())
+                    ->orderBy('course_id')
+                    ->orderBy('chapter_id');
             })->get();
         } else {
             $posts = Post::all()
@@ -69,8 +68,13 @@ class PostsController extends Controller
         }
 
         $courses = Course::all();
+        $categories = Category::all();
 
-        return view('posts.admin_index',['posts' => $posts, 'courses' => $courses]);
+        return view('posts.admin_index', [
+            'posts' => $posts,
+            'courses' => $courses,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -92,7 +96,7 @@ class PostsController extends Controller
      */
     public function show(Post $post, $slug = '')
     {
-        if($slug !== $post->getSlugAttribute()){
+        if ($slug !== $post->getSlugAttribute()) {
             return redirect()->to($post->url);
         }
         return view('posts.show', ['post' => $post, 'layout' => 'excel_layout']);
@@ -106,7 +110,7 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Post  $post
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
@@ -116,7 +120,7 @@ class PostsController extends Controller
         $postTagsArray = [];
 
         //getting the related tag_ids of a certain post
-        foreach($postTags as $tag){
+        foreach ($postTags as $tag) {
             $postTagsArray[] = $tag->pivot->tag_id;
         }
         return view('posts.edit', [
@@ -128,7 +132,7 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -167,8 +171,8 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Post  $post
+     * @param  \Illuminate\Http\Request $request
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
@@ -202,12 +206,12 @@ class PostsController extends Controller
 
             return redirect()->route('posts.admin.show', ['post' => $post->id]);
 
-        }catch (\Exception $e) {
-            Session::flash('error', 'Oops: '.$e->getMessage());
+        } catch (\Exception $e) {
+            Session::flash('error', 'Oops: ' . $e->getMessage());
             return redirect()->route('posts.edit', ['post' => $post->id]);
         }
 
-}
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -220,11 +224,11 @@ class PostsController extends Controller
         $language = App::getLocale();
         $post->deleteTranslations($language);
 
-        if (!$post->hasTranslation($language)){
-            Session::flash('flash_message', "Translation (".$language.") of post ". $post->id ." has been deleted");
+        if (!$post->hasTranslation($language)) {
+            Session::flash('flash_message', "Translation (" . $language . ") of post " . $post->id . " has been deleted");
         }
 
-        if (!$post->translations()->exists()){
+        if (!$post->translations()->exists()) {
             if ($post->delete()) {
                 Session::flash('flash_message', 'Post deleted');
             }
@@ -242,7 +246,7 @@ class PostsController extends Controller
         $path = [];
         $fileNames = [];
 
-        foreach ($files as $file){
+        foreach ($files as $file) {
             if (App::environment('local')) {
                 $path[] = asset($file->store('images/uploads'));
 
@@ -255,7 +259,7 @@ class PostsController extends Controller
                 $s3 = Storage::disk('s3');
                 $filePath = '/images/' . $imageFileName;
                 $s3->put($filePath, file_get_contents($file), 'public');
-                $path[] = $s3->url('images/'.$imageFileName);
+                $path[] = $s3->url('images/' . $imageFileName);
             }
         }
         return response()->json(["success" => true, "path" => $path, "fileNames" => $fileNames]);
@@ -281,14 +285,26 @@ class PostsController extends Controller
      * @param Request $request
      * @return string
      */
-    public function getPostsIndexHtml(Request $request){
-        $courseId = 2; #$request->course;
+    public function getPostsIndexHtml(Request $request)
+    {
+        $categoryId = $request->category_id;
+        $courseId = $request->course_id;
         $chapterId = $request->chapter_id;
 
-        if (empty($chapterId)){
-            $posts = Post::whereNull('chapter_id')->get();
+        if (isset($chapterId)) {
+
+            if ($chapterId === "without-chapter") {
+                $posts = Post::whereNull('chapter_id')->get();
+            } else {
+                $posts = Post::where('chapter_id', $chapterId)->get();
+            }
+
+        } elseif (isset($courseId)) {
+            $posts = Post::where('course_id', $courseId)->get();
+        } elseif (isset($categoryId)) {
+            $posts = Post::where('category_id', $categoryId)->get();
         } else {
-            $posts = Post::where('chapter_id', $chapterId)->get();
+            $posts = Post::all();
         }
 
         $view = View::make('posts.partials.post_panel', ['posts' => $posts]);

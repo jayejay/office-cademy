@@ -99,6 +99,12 @@ Route::group(
 
                 /*search*/
                 Route::get('find/{q?}', 'SearchController@adminFind')->name('posts.admin.find');
+
+                /*Ajax*/
+                //Chapters
+                Route::get('chapters/get-chapters', 'ChaptersController@getChaptersAjax')->name('chapters.get_chapters');
+                //Courses
+                Route::get('courses/get-courses', 'CoursesController@getCoursesAjax')->name('courses.get_courses');
             }
         );
 
@@ -109,7 +115,3 @@ Route::group(
 
 /*Ajax*/
 Route::post('/admin/posts/store_image', 'PostsController@storeImageAjax')->name('posts.store_image');
-//Chapters
-Route::get('/admin/chapters/get-chapters', 'ChaptersController@getChaptersAjax')->name('chapters.get_chapters');
-//Courses
-Route::get('/admin/posts/get-courses/{category}', 'CoursesController@getCoursesAjax')->name('posts.get_courses');
