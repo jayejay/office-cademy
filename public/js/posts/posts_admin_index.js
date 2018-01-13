@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-    Lang.setLocale(locale);
-
     var chapterSelectElement = $('#chapter');
     var courseSelectElement = $('#course');
     var categorySelectElement = $('#category');
