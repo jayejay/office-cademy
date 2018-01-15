@@ -135,7 +135,6 @@ $(document).ready(function () {
     }
 
     function getMessage(){
-        Lang.setLocale(locale);
         if (correctAnswers === 0) {
             return Lang.get('custom.Quiz bad result');
         } else if(correctAnswers < 5) {

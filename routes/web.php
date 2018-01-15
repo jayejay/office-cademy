@@ -51,6 +51,8 @@ Route::group(
                 Route::post('posts/store', 'PostsController@store')->name('posts.store');
                 Route::patch('posts/update/{post}', 'PostsController@update')->name('posts.update');
 
+                Route::get('posts/get-posts-index-html', 'PostsController@getPostsIndexHtml')->name('posts.get.posts.index.html');
+
                 /*Tag*/
                 Route::get('tags/index', 'TagsController@adminIndex')->name('tags.admin.index');
                 Route::get('tags/create', 'TagsController@create')->name('tags.create');
@@ -97,6 +99,12 @@ Route::group(
 
                 /*search*/
                 Route::get('find/{q?}', 'SearchController@adminFind')->name('posts.admin.find');
+
+                /*Ajax*/
+                //Chapters
+                Route::get('chapters/get-chapters', 'ChaptersController@getChaptersAjax')->name('chapters.get_chapters');
+                //Courses
+                Route::get('courses/get-courses', 'CoursesController@getCoursesAjax')->name('courses.get_courses');
             }
         );
 
@@ -107,7 +115,3 @@ Route::group(
 
 /*Ajax*/
 Route::post('/admin/posts/store_image', 'PostsController@storeImageAjax')->name('posts.store_image');
-//Chapters
-Route::get('/admin/posts/get-chapters/{course}', 'ChaptersController@getChaptersAjax')->name('posts.get_chapters');
-//Courses
-Route::get('/admin/posts/get-courses/{category}', 'CoursesController@getCoursesAjax')->name('posts.get_courses');

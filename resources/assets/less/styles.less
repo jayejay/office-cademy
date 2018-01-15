@@ -5,7 +5,9 @@
 @text-color-white: #F5F5F5;
 @text-color-dark: #263238;
 @code-background-color: #CFD8DC;
-@hover-navigation-background-color:#78909C;
+@hover-navigation-background-color: #78909C;
+@background-dropdown-buttons: #ECEFF1;
+
 body {
   font-family: @font-family;
   background-color: white;
@@ -28,12 +30,23 @@ hr.gradient {
 }
 
 h1.title {
-  font-size: 2.8em;
-  margin-bottom: 30px;
+  font-size: 2.4em;
+  margin-bottom: 4%;
 }
 
 h2.title {
   font-size: 1.6em;
+  margin-top: 4%;
+}
+
+h3.title {
+  margin-top: 4%;
+  font-size: 1.4em;
+}
+
+h4.title {
+  margin-top: 4%;
+  font-size: 1.2em;
 }
 
 h5.title {
@@ -112,10 +125,12 @@ span.code {
 
 #searchbar-button {
   margin-top: 6px;
+  color: @text-color-white;
+  background-color: @text-color-dark;
 }
 
-#navbar-search-input::placeholder{
-  color:@text-color-white;
+#navbar-search-input::placeholder {
+  color: @text-color-white;
   font-size: 0.9em;
 }
 
@@ -128,16 +143,17 @@ span.code {
   border-radius: 0;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
   .navbar .navbar-collapse .open .dropdown-menu > li > a:hover, .navbar .navbar-collapse .open .dropdown-menu > li > a:focus {
     color: @text-color-dark;
   }
+
   .navbar .navbar-collapse .caret {
     margin-top: -4px;
   }
 }
 
-@media (min-width: 769px){
+@media (min-width: 769px) {
 
   .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
     background-color: @hover-navigation-background-color;
@@ -161,7 +177,7 @@ span.code {
   position: relative;
 }
 
-.dropdown-submenu>.dropdown-menu {
+.dropdown-submenu > .dropdown-menu {
   top: 0;
   left: 100%;
   margin-top: -6px;
@@ -171,11 +187,11 @@ span.code {
   border-radius: 0 6px 6px 6px;
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
+.dropdown-submenu:hover > .dropdown-menu {
   display: block;
 }
 
-.dropdown-submenu>a:after {
+.dropdown-submenu > a:after {
   display: block;
   content: " ";
   float: right;
@@ -188,7 +204,7 @@ span.code {
   margin-right: -10px;
 }
 
-.dropdown-submenu:hover>a:after {
+.dropdown-submenu:hover > a:after {
   border-left-color: #fff;
 }
 
@@ -196,7 +212,7 @@ span.code {
   float: none;
 }
 
-.dropdown-submenu.pull-left>.dropdown-menu {
+.dropdown-submenu.pull-left > .dropdown-menu {
   left: -100%;
   margin-left: 10px;
   -webkit-border-radius: 6px 0 6px 6px;
@@ -204,7 +220,11 @@ span.code {
   border-radius: 6px 0 6px 6px;
 }
 
-
+// Select
+.btn, .btn:hover, .btn:focus, .btn:active, .btn.active, .btn:active:focus, .btn:active:hover, .btn.active:focus, .btn.active:hover, .open > .btn.dropdown-toggle, .open > .btn.dropdown-toggle:focus, .open > .btn.dropdown-toggle:hover, .btn.btn-default, .btn.btn-default:hover, .btn.btn-default:focus, .btn.btn-default:active, .btn.btn-default.active, .btn.btn-default:active:focus, .btn.btn-default:active:hover, .btn.btn-default.active:focus, .btn.btn-default.active:hover, .open > .btn.btn-default.dropdown-toggle, .open > .btn.btn-default.dropdown-toggle:focus, .open > .btn.btn-default.dropdown-toggle:hover, .navbar .navbar-nav > li > a.btn, .navbar .navbar-nav > li > a.btn:hover, .navbar .navbar-nav > li > a.btn:focus, .navbar .navbar-nav > li > a.btn:active, .navbar .navbar-nav > li > a.btn.active, .navbar .navbar-nav > li > a.btn:active:focus, .navbar .navbar-nav > li > a.btn:active:hover, .navbar .navbar-nav > li > a.btn.active:focus, .navbar .navbar-nav > li > a.btn.active:hover, .open > .navbar .navbar-nav > li > a.btn.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.dropdown-toggle:hover, .navbar .navbar-nav > li > a.btn.btn-default, .navbar .navbar-nav > li > a.btn.btn-default:hover, .navbar .navbar-nav > li > a.btn.btn-default:focus, .navbar .navbar-nav > li > a.btn.btn-default:active, .navbar .navbar-nav > li > a.btn.btn-default.active, .navbar .navbar-nav > li > a.btn.btn-default:active:focus, .navbar .navbar-nav > li > a.btn.btn-default:active:hover, .navbar .navbar-nav > li > a.btn.btn-default.active:focus, .navbar .navbar-nav > li > a.btn.btn-default.active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-default.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-default.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-default.dropdown-toggle:hover {
+  background-color: @background-dropdown-buttons;
+  color: @text-color-dark;
+}
 
 // Admin Nav bar
 .navbar .navbar-form .form-group .form-control,
@@ -225,7 +245,7 @@ span.code {
   margin-top: 10px;
 }
 
-.li-language-switcher{
+.li-language-switcher {
   color: @text-color-dark;
 }
 
@@ -242,7 +262,7 @@ span.code {
   }
 }
 
-.breadcrumbs{
+.breadcrumbs {
   font-size: 0.8em;
   color: @excel-layout-navbar-color;
 }

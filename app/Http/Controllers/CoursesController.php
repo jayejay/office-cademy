@@ -159,13 +159,13 @@ class CoursesController extends Controller
     }
 
     /**
-     * @param Category $category
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getCoursesAjax(Category $category)
+    public function getCoursesAjax(Request $request)
     {
         try {
-        $courses = $category->courses;
+        $courses = Course::where('category_id', $request->category_id)->get();
             return response()->json(['success' => true, "courses" => $courses]);
         } catch (\Exception $e){
             return response()->json(['success' => false, "message" => $e->getMessage()]);
