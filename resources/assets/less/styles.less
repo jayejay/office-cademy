@@ -7,7 +7,7 @@
 @code-background-color: #CFD8DC;
 @hover-navigation-background-color: #78909C;
 @background-dropdown-buttons: #ECEFF1;
-
+@link-color: #1E88E5;
 body {
   font-family: @font-family;
   background-color: white;
@@ -78,7 +78,23 @@ span.code {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
-//***Layout***
+.panel{
+  .panel-heading{
+
+    i{
+      float: none;
+      font-size: medium;
+    }
+
+    a{
+      color: @link-color;
+      font-weight: 600;
+    }
+
+  }
+}
+
+/***Layout***/
 
 //*Header*
 .overlay {
@@ -236,6 +252,11 @@ span.code {
   background-color: #263238;
 }
 
+.sidebar[data-active-color="purple"] li.active>a {
+  background-color: @excel-layout-navbar-color;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+}
+
 .navbar .navbar-brand {
   color: black;
 }
@@ -294,8 +315,9 @@ span.code {
 }
 
 // Quiz
-.ol-answer-options {
-  padding-left: 15px;
+.ul-answer-options {
+  padding-left: 0;
+  list-style-type: none;
 }
 
 .quiz-finished {

@@ -12,9 +12,13 @@
 
 @section('content')
 
-<div class="row">
 
-    <div class="col-md-3 clearfix">
+<div class="row">
+    <div class="col-md-1">
+        <label for="reload-posts-index">Filter:</label>
+        <button id="reload-posts-index" class="btn btn-success btn-sm"><i class="material-icons">autorenew</i></button>
+    </div>
+    <div class="col-md-3">
         <label for="course">@lang('custom.Categories')</label>
         <select name="category_id" id="category" class="selectpicker">
             <option value="0" disabled selected>@lang('custom.Please select')</option>
@@ -22,10 +26,9 @@
                 <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
-        <button id="reload-posts-index" class="btn btn-success btn-sm"><i class="material-icons">autorenew</i></button>
     </div>
 
-    <div class="col-md-3 clearfix">
+    <div class="col-md-3">
         <label for="course">@lang('custom.Courses')</label>
         <select name="course_id" id="course" class="selectpicker">
             <option value="0" disabled selected>@lang('custom.Please select')</option>
