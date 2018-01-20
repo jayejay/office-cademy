@@ -22,7 +22,7 @@
             @endif
             <span class="glyphicon glyphicon-chevron-right"></span> ID: {{$post->id}}
         </div>
-        <div id="collapse{{$post->id}}" class="panel-collapse collapse">
+        <div id="collapse{{$post->id}}" class="collapse collapse-post-index">
             <table class="table">
                 @foreach($post->translations as $postTranslation)
                     <tr class="">

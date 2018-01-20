@@ -71,10 +71,10 @@ span.code {
 .overlay {
   position: relative;
   bottom: 192px;
-  background: rgba(0, 0, 0, 0.6);
+  background: #263238;
 }
 #header-pic {
-  background-image: url(/images/office.jpg?9e9633cf499050cbb29f14ab04c312de);
+  background-image: url('../../../public/images/office.jpg');
   /*background-position: center;*/
   padding-bottom: 60px;
   padding-top: 60px;
@@ -112,10 +112,6 @@ span.code {
   font-size: 0.9em;
 }
 #navbar-search-input:-ms-input-placeholder {
-  color: #F5F5F5;
-  font-size: 0.9em;
-}
-#navbar-search-input::-ms-input-placeholder {
   color: #F5F5F5;
   font-size: 0.9em;
 }
@@ -246,7 +242,7 @@ span.code {
 }
 .navbar .navbar-form .form-group .form-control,
 .navbar .navbar-form .form-control {
-  color: black;
+  color: #263238;
 }
 .sidebar {
   background-color: #263238;
@@ -257,7 +253,7 @@ span.code {
           box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
 }
 .navbar .navbar-brand {
-  color: black;
+  color: #263238;
 }
 #back-button {
   margin-top: 10px;
@@ -265,9 +261,14 @@ span.code {
 .li-language-switcher {
   color: #263238;
 }
+@media (max-width: 768px) {
+  .navbar.navbar-transparent .navbar-toggle .icon-bar {
+    color: #263238;
+  }
+}
 #textarea-post-body {
   background-color: white;
-  color: black;
+  color: #263238;
   font-family: monospace;
 }
 .bootstrap-select > .dropdown-toggle.bs-placeholder:active,

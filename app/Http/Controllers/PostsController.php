@@ -17,6 +17,7 @@ use Session;
 use Illuminate\Validation\Rule;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -144,7 +145,6 @@ class PostsController extends Controller
             'body' => 'required',
             'user_id' => 'required',
             'category_id' => 'required',
-            'chapter_id' => 'required',
         ]);
 
         $post = new Post();
@@ -155,7 +155,7 @@ class PostsController extends Controller
         $post->translateOrNew($language)->body = $request->body;
         $post->translateOrNew($language)->description = 'Test';
         $post->user_id = $request->user_id;
-        $post->chapter_id = $request->chapter_id;
+        $post->chapter_id = isset($request->chapter_id) ? $request->chapter_id : null;
         $post->category_id = $request->category_id;
         $post->course_id = $request->course_id;
         $post->position = $request->position;

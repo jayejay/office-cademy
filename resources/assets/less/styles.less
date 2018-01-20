@@ -101,7 +101,7 @@ span.code {
 .overlay {
   position: relative;
   bottom: 192px;
-  background: rgba(0, 0, 0, .6);
+  background: @text-color-dark;
 }
 
 #header-pic {
@@ -246,11 +246,11 @@ span.code {
 // Admin Nav bar
 .navbar .navbar-form .form-group .form-control,
 .navbar .navbar-form .form-control {
-  color: black;
+  color: @text-color-dark;
 }
 
 .sidebar {
-  background-color: #263238;
+  background-color: @text-color-dark;
 }
 
 .sidebar[data-active-color="purple"] li.active>a {
@@ -259,7 +259,7 @@ span.code {
 }
 
 .navbar .navbar-brand {
-  color: black;
+  color: @text-color-dark;
 }
 
 // Main Panel Admin
@@ -270,11 +270,16 @@ span.code {
 .li-language-switcher {
   color: @text-color-dark;
 }
+@media (max-width: 768px){
+  .navbar.navbar-transparent .navbar-toggle .icon-bar {
+    color: @text-color-dark;
+  }
+}
 
 // Posts
 #textarea-post-body {
   background-color: white;
-  color: black;
+  color: @text-color-dark;
   font-family: monospace;
 }
 

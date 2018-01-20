@@ -13,7 +13,13 @@
         @include('layouts/partials/head/css')
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
         @stack('styles')
+        <!--   Core JS Files from Creative Tim -->
 
+        <script src="{{asset('js/vendor/creativetim/material-kit.js')}}"></script>
+        <!-- SmartMenus jQuery plugin -->
+        <script type="text/javascript" src="{{asset('js/vendor/smartmenus/jquery.smartmenus.min.js')}}"></script>
+        <!-- SmartMenus jQuery Bootstrap Addon -->
+        <script type="text/javascript" src="{{asset('js/vendor/smartmenus/jquery.smartmenus.bootstrap.min.js')}}"></script>
         @include('layouts/partials/head/js')
         @stack('scripts')
 </head>

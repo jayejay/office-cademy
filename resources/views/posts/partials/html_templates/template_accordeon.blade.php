@@ -1,4 +1,4 @@
-<div class="panel accordeon panel-default" data-id="x">
+<div class="panel accordeon panel-default ajax-loaded" data-id="x">
     <div class="panel-heading">
         <h4 class="panel-title">
             <a class="panel-link" data-toggle="collapse" data-parent="#accordion" href="#collapse1">

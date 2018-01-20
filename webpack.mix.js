@@ -25,4 +25,7 @@ mix.webpackConfig({
 });
 
 mix.less('resources/assets/less/styles.less', 'public/css/styles.css')
-    .less('resources/assets/less/pdf_styles.less', 'public/css/pdf_styles.css');
+    .less('resources/assets/less/pdf_styles.less', 'public/css/pdf_styles.css').
+    options({
+    processCssUrls: false
+});
