@@ -37,6 +37,10 @@
                                rel="tooltip" class="btn btn-success" data-original-title="" title="">
                                 <i class="material-icons">edit</i>
                             </a>
+                            <a href="{{ LaravelLocalization::getLocalizedURL($postTranslation->locale, route('get.post.as.pdf', $post->id), [], true) }}"
+                               rel="tooltip" class="btn btn-success" data-original-title="" title="" target="_blank">
+                                PDF
+                            </a>
                         </td>
                         <td class="td-actions">
                             <form method="post" action="{{ LaravelLocalization::getLocalizedURL($postTranslation->locale, route('posts.delete',$post->id), [], true) }}">

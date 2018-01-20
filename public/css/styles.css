@@ -115,6 +115,10 @@ span.code {
   color: #F5F5F5;
   font-size: 0.9em;
 }
+#navbar-search-input::-ms-input-placeholder {
+  color: #F5F5F5;
+  font-size: 0.9em;
+}
 #navbar-search-input::placeholder {
   color: #F5F5F5;
   font-size: 0.9em;

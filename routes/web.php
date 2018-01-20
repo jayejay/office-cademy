@@ -52,7 +52,7 @@ Route::group(
                 Route::patch('posts/update/{post}', 'PostsController@update')->name('posts.update');
 
                 Route::get('posts/get-posts-index-html', 'PostsController@getPostsIndexHtml')->name('posts.get.posts.index.html');
-
+                Route::get('posts/get-post-as-pdf/{post}', 'PostsController@getPostAsPdf')->name('get.post.as.pdf');
                 /*Tag*/
                 Route::get('tags/index', 'TagsController@adminIndex')->name('tags.admin.index');
                 Route::get('tags/create', 'TagsController@create')->name('tags.create');

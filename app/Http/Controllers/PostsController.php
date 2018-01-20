@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
+use PDF;
 use Session;
 use Illuminate\Validation\Rule;
 use Illuminate\Contracts\Filesystem\Filesystem;
@@ -311,5 +312,23 @@ class PostsController extends Controller
         $view = View::make('posts.partials.post_panel', ['posts' => $posts]);
 
         return $view->render();
+    }
+
+    /**
+     * @param Post $post
+     * @return \PDF;
+     */
+    public function getPostAsPdf(Post $post)
+    {
+//        $pdf = App::make('dompdf.wrapper');
+//        $postHtml = "<h1>$post->title</h1>" . $post->body;
+//        $pdf->loadHTML($postHtml);
+//
+//        return $pdf->stream();
+
+        $pdf = PDF::loadView('pdf.posts.pdf_show', ['post' => $post]);
+        $fileName = $post->title.".pdf";
+
+        return $pdf->stream($fileName);
     }
 }
