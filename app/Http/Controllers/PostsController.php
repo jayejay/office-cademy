@@ -63,8 +63,9 @@ class PostsController extends Controller
                     ->orderBy('chapter_id');
             })->get();
         } else {
-            $posts = Post::all()
-                ->sortBy('course_id');
+            $posts = Post::orderBy('chapter_id')
+                ->orderBy('position')
+                ->get();
         }
 
         $courses = Course::all();

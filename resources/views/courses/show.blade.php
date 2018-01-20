@@ -24,11 +24,11 @@
             <div class="col-md-12">
                 <h4 class="title">@lang('custom.Chapters')</h4>
             @if(!empty($course->chapters))
-                <ol class="ol-answer-options">
+                <ul class="ul-answer-options">
                 @foreach($course->chapters as $chapter)
-                    <li>{{$chapter->name}}</li>
+                    <li>{{$chapter->position}}: <b>{{$chapter->name}}</b></li>
                 @endforeach
-                </ol>
+                </ul>
             @endif
             </div>
         </div>
