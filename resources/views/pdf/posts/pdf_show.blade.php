@@ -9,8 +9,8 @@
 
 <body>
     <div class="container">
-        <div class="header">
-            <h2>{{config('app.name', 'Officecademy')}}</h2>
+        <div class="">
+            <img src="{{asset('images/logo.svg')}}" alt="Logo" width="150">
         </div>
         <h1>{!! $post->title !!}</h1>
         <div class="post-body">

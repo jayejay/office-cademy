@@ -13,7 +13,7 @@
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{--{{ config('app.name', 'Officecademy') }}--}}
-                <img src="{{asset('images/logo.svg')}}"  width="75">
+                <img src="{{asset('images/just_oc.svg')}}"  width="60">
             </a>
         </div>{{--end navbar-header--}}
 

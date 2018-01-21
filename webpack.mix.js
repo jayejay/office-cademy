@@ -28,6 +28,7 @@ mix.less('resources/assets/less/styles.less', 'public/css/styles.css')
     .less('resources/assets/less/pdf_styles.less', 'public/css/pdf_styles.css')
     .copy('resources/assets/images/office.jpg', 'public/images/office.jpg')
     .copy('resources/assets/images/logo.svg', 'public/images/logo.svg')
+    .copy('resources/assets/images/just_oc.svg', 'public/images/just_oc.svg')
     .options({
     processCssUrls: true
 });
