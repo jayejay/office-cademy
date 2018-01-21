@@ -29,7 +29,9 @@
 @include('layouts.partials.scripts.app_variables')
 @yield('javascript');
 <script>
-    $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+    $(document).ready(function () {
+        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+    });
 </script>
 </body>
 </html>
