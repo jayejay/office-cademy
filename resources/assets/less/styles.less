@@ -105,8 +105,9 @@ span.code {
 }
 
 #header-pic {
-  background-image: url('../images/office.jpg');
-  /*background-position: center;*/
+  background-image: url('../images/logo.svg');
+  background-position: center;
+  background-repeat: no-repeat;
   padding-bottom: 60px;
   padding-top: 60px;
   margin-bottom: 0;
@@ -114,8 +115,8 @@ span.code {
 
 // Navbar
 .navbar.navbar-default.navbar-static-top.excel-layout-navigation {
-  background-color: @excel-layout-navbar-color;
-  color: @text-color-white;
+  background-color: @excel-layout-navbar-color@text-color-white;
+  color: @excel-layout-navbar-color;
 }
 
 .navbar .dropdown-menu li > a:hover,

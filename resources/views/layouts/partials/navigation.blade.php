@@ -1,7 +1,6 @@
 <nav class="navbar navbar-default navbar-static-top {{$class}}" role="navigation">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-header">
-
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#app-navbar-collapse">
@@ -13,7 +12,8 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Officecademy') }}
+                {{--{{ config('app.name', 'Officecademy') }}--}}
+                <img src="{{asset('images/logo.svg')}}"  width="75">
             </a>
         </div>{{--end navbar-header--}}
 

@@ -22,7 +22,7 @@
 <body id="excel-layout">
     <div id="app">
         <div id="header-pic" class="jumbotron">
-            {{--<img src="{{asset('images/office.jpeg')}}" alt="Office">--}}
+            {{--<img src="{{asset('images/office-cademy-logo-vector.svg')}}" alt="Office" width="250" class="oc-logo pull-middle">--}}
         </div>
 
         @include('layouts.partials.navigation', ['class' => 'excel-layout-navigation'])

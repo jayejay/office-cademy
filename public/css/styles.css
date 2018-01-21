@@ -74,15 +74,16 @@ span.code {
   background: #263238;
 }
 #header-pic {
-  background-image: url(/images/office.jpg?9e9633cf499050cbb29f14ab04c312de);
-  /*background-position: center;*/
+  background-image: url(/fonts/logo.svg?49b23ad729c8f3165600515436ceaf71);
+  background-position: center;
+  background-repeat: no-repeat;
   padding-bottom: 60px;
   padding-top: 60px;
   margin-bottom: 0;
 }
 .navbar.navbar-default.navbar-static-top.excel-layout-navigation {
-  background-color: #607D8B;
-  color: #F5F5F5;
+  background-color: #607D8B #F5F5F5;
+  color: #607D8B;
 }
 .navbar .dropdown-menu li > a:hover,
 .navbar .dropdown-menu li > a:focus,
