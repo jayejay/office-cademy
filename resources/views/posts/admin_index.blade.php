@@ -44,17 +44,15 @@
     </div>
 
     <div class="row">
-        <h3 class="title">@lang('custom.Posts')</h3>
-    </div>
-
-
-    <div class="row">
-        <div class="panel-group posts-index-panel">
-            @if(!empty($posts))
-                @include('posts.partials.post_panel')
-            @else
-                <h3 class="title">@lang('custom.Nothing to show')</h3>
-            @endif
+        <div class="col-md-12">
+            <h3 class="title">@lang('custom.Posts')</h3>
+            <div class="panel-group posts-index-panel">
+                @if(!empty($posts))
+                    @include('posts.partials.post_panel')
+                @else
+                    <h3 class="title">@lang('custom.Nothing to show')</h3>
+                @endif
+            </div>
         </div>
     </div>
 @endsection
