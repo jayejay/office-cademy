@@ -8,12 +8,14 @@
 </head>
 
 <body>
-    <div class="header">
-        <h2>{{config('app.name', 'Officecademy')}}</h2>
-    </div>
-    <h1>{!! $post->title !!}</h1>
-    <div class="post-body">
-        {!! $post->body !!}
+    <div class="container">
+        <div class="header">
+            <h2>{{config('app.name', 'Officecademy')}}</h2>
+        </div>
+        <h1>{!! $post->title !!}</h1>
+        <div class="post-body">
+            {!! $post->body !!}
+        </div>
     </div>
 </body>
 </html>

@@ -14,6 +14,10 @@
         <div class="row">
             <a href="{{route('posts.edit', $post->id)}}" class="btn btn-default btn-sm">@lang('custom.edit')</a>
             <a href="{{route('posts.show', $post->id)}}" class="btn btn-default btn-sm">@lang('custom.show')</a>
+            <a href="{{route('get.post.as.pdf', $post->id)}}"
+               rel="tooltip" class="btn btn-default btn-sm" target="_blank">
+                PDF
+            </a>
         </div>
     {{--@endauth--}}
     <div class="row breadcrumbs">

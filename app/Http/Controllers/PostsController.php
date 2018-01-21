@@ -320,12 +320,6 @@ class PostsController extends Controller
      */
     public function getPostAsPdf(Post $post)
     {
-//        $pdf = App::make('dompdf.wrapper');
-//        $postHtml = "<h1>$post->title</h1>" . $post->body;
-//        $pdf->loadHTML($postHtml);
-//
-//        return $pdf->stream();
-
         $pdf = PDF::loadView('pdf.posts.pdf_show', ['post' => $post]);
         $fileName = $post->title.".pdf";
 

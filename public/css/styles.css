@@ -74,7 +74,7 @@ span.code {
   background: #263238;
 }
 #header-pic {
-  background-image: url('../../../public/images/office.jpg');
+  background-image: url(/images/office.jpg?9e9633cf499050cbb29f14ab04c312de);
   /*background-position: center;*/
   padding-bottom: 60px;
   padding-top: 60px;

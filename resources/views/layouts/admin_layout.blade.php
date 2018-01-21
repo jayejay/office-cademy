@@ -16,10 +16,8 @@
     <link href="{{ asset('css/vendor/creativetim/material-dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     @stack('styles')
+    @include('layouts.partials.head.dashboard_kit_js')
     @include('layouts/partials/head/js')
-    <script src="{{ asset('js/vendor/creativetim/perfect-scrollbar.jquery.min.js') }}"></script>
-    <script src="{{ asset('js/vendor/creativetim/jquery.select-bootstrap.js') }}"></script>
-    <script src="{{ asset('js/vendor/creativetim/material-dashboard.js') }}"></script>
     @stack('scripts')
 </head>
 <body>
