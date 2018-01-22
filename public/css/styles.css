@@ -251,6 +251,8 @@ span.code {
 .sidebar {
   background-color: #263238;
 }
+.perfect-scrollbar-on .sidebar .sidebar-wrapper,
+.sidebar .sidebar-wrapper,
 .perfect-scrollbar-on .main-panel,
 .main-panel {
   overflow: auto;
