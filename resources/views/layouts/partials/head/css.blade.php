@@ -6,5 +6,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
 <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-<link href="{{asset('css/vendor/smartmenus/jquery.smartmenus.bootstrap.css')}}" rel="stylesheet">
+{{--<link href="{{asset('css/vendor/smartmenus/jquery.smartmenus.bootstrap.css')}}" rel="stylesheet">--}}
 <link href="{{asset('css/vendor/lightbox/lightbox.css')}}" rel="stylesheet"/>

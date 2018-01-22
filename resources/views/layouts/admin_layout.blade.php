@@ -30,7 +30,8 @@
 @yield('javascript');
 <script>
     $(document).ready(function () {
-        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+        // $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+        $('.sidebar .sidebar-wrapper').perfectScrollbar();
     });
 </script>
 </body>
