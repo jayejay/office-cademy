@@ -99,6 +99,9 @@ span.code {
   margin-top: 10px;
   background-color: #263238;
 }
+#button-modal-quiz {
+  background-color: #4CAF50;
+}
 .typeahead-category-name {
   font-size: 0.7em;
 }
@@ -109,7 +112,7 @@ span.code {
 #searchbar-button {
   margin-top: 6px;
   color: #F5F5F5;
-  background-color: #263238;
+  background-color: #4CAF50;
 }
 #navbar-search-input::-webkit-input-placeholder {
   color: #F5F5F5;
