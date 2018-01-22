@@ -143,11 +143,13 @@ span.code {
   .navbar .navbar-nav > li > a:hover,
   .navbar .navbar-nav > li > a:focus {
     background-color: #78909C;
+    color: #F5F5F5;
   }
   .navbar .navbar-nav > .open > a,
   .navbar .navbar-nav > .open > a:hover,
   .navbar .navbar-nav > .open > a:focus {
     background-color: #78909C;
+    color: #F5F5F5;
   }
 }
 .list-group-item {
