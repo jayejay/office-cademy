@@ -251,6 +251,12 @@ span.code {
 .sidebar {
   background-color: #263238;
 }
+.sidebar .logo-normal {
+  margin-left: 15px;
+}
+.sidebar .logo .logo-mini {
+  display: none;
+}
 .perfect-scrollbar-on .sidebar .sidebar-wrapper,
 .sidebar .sidebar-wrapper,
 .perfect-scrollbar-on .main-panel,

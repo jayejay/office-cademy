@@ -14,15 +14,17 @@
     @foreach($categories as $category)
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-name">
-                        <a data-toggle="collapse" href="#collapse{{$category->id}}">
-                            {{$category->id}}-
-                            @if($category->translations()->exists() && isset($category->translateOrDefault($locale)->name))
-                                {{$category->translateOrDefault($locale)->name}}
-                            @else
-                                @lang('custom.Nothing to show')
-                            @endif
-                        </a>
+                    <h4 class="panel-title">
+                        <b>
+                            <a data-toggle="collapse" href="#collapse{{$category->id}}">
+                                {{$category->id}}-
+                                @if($category->translations()->exists() && isset($category->translateOrDefault($locale)->name))
+                                    {{$category->translateOrDefault($locale)->name}}
+                                @else
+                                    @lang('custom.Nothing to show')
+                                @endif
+                            </a>
+                        </b>
                     </h4>
                 </div>
                 <div id="collapse{{$category->id}}" class="panel-collapse collapse">

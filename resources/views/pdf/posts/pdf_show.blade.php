@@ -11,6 +11,7 @@
     <div class="container">
         <div class="">
             <img src="{{asset('images/logo.svg')}}" alt="Logo" width="150">
+            <hr>
         </div>
         <h1>{!! $post->title !!}</h1>
         <div class="post-body">

@@ -26,13 +26,11 @@
     @include('layouts.partials.dashboard.main_panel')
 </div>
 
-@include('layouts.partials.scripts.app_variables')
-@yield('javascript');
+</body>@include('layouts.partials.scripts.app_variables')
 <script>
-    $(document).ready(function () {
-        // $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-        // $('.sidebar .sidebar-wrapper').perfectScrollbar();
+    $('#minimizeSidebar').click(function () {
+       $('.sidebar .logo .logo-mini').toggle();
     });
 </script>
-</body>
+@yield('javascript');
 </html>

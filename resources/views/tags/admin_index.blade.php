@@ -15,14 +15,16 @@
     @foreach($tags as $tag)
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-name">
+                    <h4 class="panel-title">
                         <a data-toggle="collapse" href="#collapse{{$tag->id}}">
-                            {{$tag->id}}-
-                            @if($tag->translations()->exists() && isset($tag->translateOrDefault($locale)->name))
-                                {{$tag->translateOrDefault($locale)->name}}
-                            @else
-                                @lang('custom.Nothing to show')
-                            @endif
+                            <b>
+                                {{$tag->id}}-
+                                @if($tag->translations()->exists() && isset($tag->translateOrDefault($locale)->name))
+                                    {{$tag->translateOrDefault($locale)->name}}
+                                @else
+                                    @lang('custom.Nothing to show')
+                                @endif
+                            </b>
                         </a>
                     </h4>
                 </div>

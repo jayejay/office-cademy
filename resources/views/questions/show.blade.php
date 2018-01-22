@@ -22,7 +22,7 @@
         </div>
         <div class="row" id="options">
             <div class="col-md-12">
-                <h4 class="title">@lang('custom.Answer Option')</h4>
+                <h3 class="title">@lang('custom.Answer Option')</h3>
             @if(!empty($question->translateOrDefault($locale)->options))
                 <ol class="ol-answer-options">
                 @foreach($question->translateOrDefault($locale)->options as $option)
@@ -34,13 +34,13 @@
         </div>
         <div class="row" id="answer">
             <div class="col-md-12">
-                <h4 class="title">@lang('custom.Answer')</h4>
+                <h3 class="title">@lang('custom.Answer')</h3>
                 {{!empty($question->translateOrDefault($locale)->answer) ? $question->translateOrDefault($locale)->answer : ""}}
             </div>
         </div>
         <div class="row" id="category">
             <div class="col-md-12">
-                <h4 class="title">@lang('custom.Category')</h4>
+                <h3 class="title">@lang('custom.Category')</h3>
                {{!empty($question->category->name) ? $question->category->name : ""}}
             </div>
         </div>

@@ -1,5 +1,5 @@
 <div class="sidebar" data-active-color="purple"
-     data-background-color="grey"
+     data-background-color="white"
         {{--data-image="../assets/img/sidebar-1.jpg"--}}
 >
     <!--
@@ -11,8 +11,8 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
         <a href="{{route('home')}}" class="simple-text logo-mini">
             OC
         </a>
-        <a href="{{route('home')}}" class="simple-text logo-normal">
-            {{ config('app.name') }}
+        <a href="{{route('home')}}" class="logo-normal">
+            <img src="{{asset('images/logo.svg')}}" alt="logo" width="60">
         </a>
     </div>
     <div class="sidebar-wrapper">

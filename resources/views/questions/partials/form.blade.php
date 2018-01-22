@@ -18,10 +18,12 @@
             <input type="text" id="title" name="title" class="form-control" placeholder=""
                    value="{{old('name', isset($question) ? $question->title : '')}}">
         </div>
+        <br>
         <div class="form-group label-floating answer">
             <label for="right-answer" class="control-label">@lang('custom.Answer')</label>
             <input class="form-control" name="answer" type="text" value="{{old('answer', isset($question) ? $question->answer : '')}}">
         </div>
+        <br>
         <br>
         <div class="options">
             @if(!empty($question->options))
@@ -35,6 +37,7 @@
                              </span>
                         </div>
                     </div>
+                    <br>
                 @endforeach
             @else
                 <div class="form-group label-floating answer-option">
@@ -46,6 +49,7 @@
                          </span>
                     </div>
                 </div>
+                <br>
                 <div class="form-group label-floating answer-option">
                     <label for="" class="control-label">@lang('custom.Answer Option')</label>
                     <div class="input-group">
@@ -55,6 +59,7 @@
                          </span>
                     </div>
                 </div>
+                <br>
                 <div class="form-group label-floating answer-option">
                     <label for="" class="control-label">@lang('custom.Answer Option')</label>
                     <div class="input-group">
