@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App;
 use App\Category;
 use App\Question;
+use DB;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use Session;
@@ -20,7 +21,7 @@ class QuestionsController extends Controller
     {
         $questions = Question::all();
 
-        return view('questions.index',['questions' => $questions]);
+        return view('questions.index', ['questions' => $questions]);
     }
 
     /**
@@ -61,7 +62,7 @@ class QuestionsController extends Controller
 
         $question->save();
 
-        return redirect()->route('questions.show',['question' => $question->id]);
+        return redirect()->route('questions.show', ['question' => $question->id]);
 
     }
 
@@ -113,7 +114,7 @@ class QuestionsController extends Controller
 
         $question->save();
 
-        return redirect()->route('questions.show',['question' => $question->id]);
+        return redirect()->route('questions.show', ['question' => $question->id]);
     }
 
     /**
@@ -128,11 +129,11 @@ class QuestionsController extends Controller
         $language = App::getLocale();
         $question->deleteTranslations($language);
 
-        if (!$question->hasTranslation($language)){
-            Session::flash('flash_message', "Translation (".$language.") of question ". $question->id ." has been deleted");
+        if (!$question->hasTranslation($language)) {
+            Session::flash('flash_message', "Translation (" . $language . ") of question " . $question->id . " has been deleted");
         }
 
-        if (!$question->translations()->exists()){
+        if (!$question->translations()->exists()) {
             if ($question->delete()) {
                 Session::flash('flash_message', 'Question deleted');
             }
@@ -140,15 +141,26 @@ class QuestionsController extends Controller
         return redirect()->route('questions.index');
     }
 
-    public function getQuestions(){
-
+    public function getQuestions()
+    {
         $questions = Question::inRandomOrder()->take(5)->get();
+        $maxQuizNumber = DB::table('quiz_answer_statistics')
+            ->max('quiz_number');
 
-        return response()->json(["questions" => $questions]);
+        return response()->json(
+            [
+                "questions" => $questions,
+                "max_quiz_number" => $maxQuizNumber
+            ]
+        );
     }
 
-    public function getQuestionIds(){
+    public function setQuizResult(Request $request){
+        dd($request->user_answers);
 
+        //todo: save the results
+
+        return response()->json(["success" => true]);
     }
 
 }

@@ -1,6 +1,7 @@
 @push('scripts')
     <script>
         var ajaxUrl = "{{route('questions.get_questions')}}";
+        var setQuizResultUrl = "{{route('questions.set_quiz_result')}}";
         var locale = "{{ $locale }}";
     </script>
     <script src=" {{ asset('js/localization/messages.js') }} ">
@@ -8,6 +9,7 @@
     <script src=" {{ asset('js/questions/quiz.js') }} ">
     </script>
 @endpush
+{{ csrf_field() }}
 <!-- Modal -->
 <div id="modal-quiz" class="modal fade" role="dialog">
     <div class="modal-dialog modal-sm">

@@ -13,14 +13,17 @@
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ],
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ],
-    function()
-    {
+    function () {
         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-        Route::get('/', function(){return view('welcome');})->name('welcome');
+        Route::get('/', function () {
+            return view('welcome');
+        })->name('welcome');
 
-        Route::get('/about', function(){return view('static_pages/about_us');})->name('about.us');
+        Route::get('/about', function () {
+            return view('static_pages/about_us');
+        })->name('about.us');
 
         Route::get('/home', 'HomeController@index')->name('home');
 
@@ -40,7 +43,7 @@ Route::group(
             [
                 'prefix' => 'admin',
             ],
-            function(){
+            function () {
 
                 /*Posts*/
                 Route::get('posts/list/{search?}/{q?}', 'PostsController@adminIndex')->name('posts.admin.index');
@@ -88,14 +91,15 @@ Route::group(
                 Route::delete('categories/delete/{category}', 'CategoriesController@destroy')->name('categories.delete');
 
                 /*Questions*/
-                Route::get('questions/index','QuestionsController@index')->name('questions.index');
-                Route::get('questions/create','QuestionsController@create')->name('questions.create');
-                Route::post('questions/store','QuestionsController@store')->name('questions.store');
-                Route::patch('questions/update/{question}','QuestionsController@update')->name('questions.update');
-                Route::get('questions/edit/{question}','QuestionsController@edit')->name('questions.edit');
-                Route::get('questions/show/{question}','QuestionsController@show')->name('questions.show');
-                Route::delete('questions/delete/{question}','QuestionsController@destroy')->name('questions.delete');
+                Route::get('questions/index', 'QuestionsController@index')->name('questions.index');
+                Route::get('questions/create', 'QuestionsController@create')->name('questions.create');
+                Route::post('questions/store', 'QuestionsController@store')->name('questions.store');
+                Route::patch('questions/update/{question}', 'QuestionsController@update')->name('questions.update');
+                Route::get('questions/edit/{question}', 'QuestionsController@edit')->name('questions.edit');
+                Route::get('questions/show/{question}', 'QuestionsController@show')->name('questions.show');
+                Route::delete('questions/delete/{question}', 'QuestionsController@destroy')->name('questions.delete');
                 Route::get('questions/get-questions', 'QuestionsController@getQuestions')->name('questions.get_questions');
+                Route::post('questions/set-quiz-result', 'QuestionsController@setQuizResult')->name('questions.set_quiz_result');
 
                 /*search*/
                 Route::get('find/{q?}', 'SearchController@adminFind')->name('posts.admin.find');
@@ -107,7 +111,6 @@ Route::group(
                 Route::get('courses/get-courses', 'CoursesController@getCoursesAjax')->name('courses.get_courses');
             }
         );
-
 
 
     }

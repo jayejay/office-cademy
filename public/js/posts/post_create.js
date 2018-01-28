@@ -70,9 +70,10 @@ $(document).ready(function () {
         textarea.val(textareaText.substring(0, caretPos) + ' ' + newContent + ' ' + textareaText.substring(caretPos));
     }
 
-    enableTab('body');
+    // enableTab('body');
 });
 
+/*
 function enableTab(id) {
     var el = document.getElementById(id);
     el.onkeydown = function (e) {
@@ -93,4 +94,4 @@ function enableTab(id) {
             return false;
         }
     }
-}
+}*/
