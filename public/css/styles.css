@@ -74,7 +74,7 @@ span.code {
   background: #263238;
 }
 #header-pic {
-  background-image: url(/fonts/logo.svg?b706a132e2f730720c34ac68972da8a6);
+  background-image: url(/fonts/logo.svg?9c0ae2d3a0f9d242252e2aaee0b3b301);
   background-position: center;
   background-repeat: no-repeat;
   padding-bottom: 60px;
@@ -92,7 +92,7 @@ span.code {
   background-color: #607D8B;
 }
 .navbar .navbar-brand {
-  padding: 0px 15px;
+  padding: 5px 15px;
 }
 .btn.btn-default.btn-sm.dropdown-toggle.nav-button-toggle,
 .btn.btn-default.btn-sm.nav-button-toggle {
