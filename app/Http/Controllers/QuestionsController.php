@@ -158,7 +158,6 @@ class QuestionsController extends Controller
     public function setQuizResult(Request $request)
     {
 
-        $answers = $request->user_answers;
         $quizNumber = $request->quiz_number;
 
         $currentMaxQuizNumber = DB::table('quiz_answer_statistics')
@@ -168,13 +167,16 @@ class QuestionsController extends Controller
             return response()->json(["success" => false]);
         }
 
+        $answers = $request->user_answers;
+        $currentDate = now();
+
         foreach ($answers as $questionId => $answer) {
             DB::table('quiz_answer_statistics')->insert(
                 [
                     'quiz_number' => $quizNumber,
                     'question_id' => $questionId,
                     'right_answer' => $answer,
-                    'created_at' => now()
+                    'created_at' => $currentDate
                 ]
             );
         }
