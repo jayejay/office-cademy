@@ -50,9 +50,9 @@ $(document).ready(function () {
 
         if (isAnswerCorrect) {
             correctAnswers++;
-            userAnswers[counter] = 1;
+            userAnswers[questions[counter - 1].id] = 1;
         } else {
-            userAnswers[counter] = 0;
+            userAnswers[questions[counter - 1].id] = 0;
         }
 
         if (counter < numberOfQuestions) {
@@ -163,20 +163,17 @@ $(document).ready(function () {
         }
     }
 
-    function setQuizResult(){
+    function setQuizResult() {
+        var data = {user_answers: userAnswers, quiz_number: currentQuizNumber};
+
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "POST",
-            enctype: 'multipart/form-data',
             url: setQuizResultUrl,
-            data: {"user_answers": userAnswers, "quiz_number": currentQuizNumber},
+            data: data,
             datatype: "text",
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 600000,
             success: function (data) {
             }
         });

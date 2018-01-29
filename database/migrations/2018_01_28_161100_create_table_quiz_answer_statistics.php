@@ -18,7 +18,7 @@ class CreateTableQuizAnswerStatistics extends Migration
                 $table->increments('id');
                 $table->integer('quiz_number');
                 $table->integer('question_id');
-                $table->boolean('answer');
+                $table->boolean('right_answer');
                 $table->timestamps();
 
                 $table->foreign('question_id')->references('id')->on('questions');

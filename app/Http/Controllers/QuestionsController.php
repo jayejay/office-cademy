@@ -155,10 +155,29 @@ class QuestionsController extends Controller
         );
     }
 
-    public function setQuizResult(Request $request){
-        dd($request->user_answers);
+    public function setQuizResult(Request $request)
+    {
 
-        //todo: save the results
+        $answers = $request->user_answers;
+        $quizNumber = $request->quiz_number;
+
+        $currentMaxQuizNumber = DB::table('quiz_answer_statistics')
+            ->max('quiz_number');
+
+        if ($quizNumber <= $currentMaxQuizNumber) {
+            return response()->json(["success" => false]);
+        }
+
+        foreach ($answers as $questionId => $answer) {
+            DB::table('quiz_answer_statistics')->insert(
+                [
+                    'quiz_number' => $quizNumber,
+                    'question_id' => $questionId,
+                    'right_answer' => $answer,
+                    'created_at' => now()
+                ]
+            );
+        }
 
         return response()->json(["success" => true]);
     }
