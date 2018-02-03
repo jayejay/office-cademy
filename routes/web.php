@@ -103,6 +103,7 @@ Route::group(
                 /*Quiz*/
                 Route::post('questions/set-quiz-result', 'QuestionsController@setQuizResult')->name('questions.set_quiz_result');
                 Route::get('statistics/quiz', 'StatisticsController@showQuizStatistics')->name('show.quiz.statistics');
+
                 /*search*/
                 Route::get('find/{q?}', 'SearchController@adminFind')->name('posts.admin.find');
 

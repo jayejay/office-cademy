@@ -69,48 +69,35 @@
                                       {{--opacity="1"></line>--}}
                             {{--</g>--}}
                          <g class="ct-series ct-series-a">
-                                <?php
-                                    $deltaX1 = 551/$questionsCount;
-                                    $startX1 = 67;
 
-                                    foreach($questionsAnswerArray as $questionAnswers){
-                                        if (!array_key_exists(1, $questionAnswers)){
-                                            echo "<line x1='$startX1' x2='$startX1' y1='265' y2='265' class='ct-bar'
-                                                ct:value='0'></line>";
-                                        } else {
-                                           $y2 = 1 / $questionAnswers[1] * 265;
-                                           echo "<line x1='$startX1' x2='$startX1' y1='265' y2='".$y2."' class='ct-bar'
-                                                ct:value='0'></line>";
-                                        }
-
-                                        $startX1 += $deltaX1;
-                                    }
-
-                                ?>
+                            @foreach($rightAnswersArray as $rightAnswer)
+                                 <line x1="{{$rightAnswer['position_x']}}" x2="{{$rightAnswer['position_x']}}"
+                                       y1="265" y2="{{$rightAnswer['position_y']}}" class="ct-bar"
+                                       ct:value="{{$rightAnswer['count']}}"></line>
+                            @endforeach
 
 
-
-                            </g>
+                        </g>
 
                         <g class="ct-series ct-series-b">
-                            <?php
-
-                            $deltaX1 = 551/$questionsCount;
-                            $startX1 = 77;
-                            foreach($questionsAnswerArray as $questionAnswers){
-                                if (!array_key_exists(0, $questionAnswers)){
-                                    echo "<line x1='$startX1' x2='$startX1' y1='265' y2='265' class='ct-bar'
-                                                ct:value='0'></line>";
-                                } else {
-                                    $y2 = 1 / $questionAnswers[0] * 265;
-                                    echo "<line x1='$startX1' x2='$startX1' y1='265' y2='".$y2."' class='ct-bar'
-                                                ct:value='0'></line>";
-                                }
-
-                                $startX1 += $deltaX1;
-                            }
-
-                            ?>
+<!--                            --><?php
+//
+//                            $deltaX1 = 551/$questionsCount;
+//                            $startX1 = 77;
+//                            foreach($questionsAnswerArray as $questionAnswers){
+//                                if (!array_key_exists(0, $questionAnswers)){
+//                                    echo "<line x1='$startX1' x2='$startX1' y1='265' y2='265' class='ct-bar'
+//                                                ct:value='0'></line>";
+//                                } else {
+//                                    $y2 = 1 / $questionAnswers[0] * 265;
+//                                    echo "<line x1='$startX1' x2='$startX1' y1='265' y2='".$y2."' class='ct-bar'
+//                                                ct:value='0'></line>";
+//                                }
+//
+//                                $startX1 += $deltaX1;
+//                            }
+//
+//                            ?>
 
                         </g>
                             {{--red lines--}}
