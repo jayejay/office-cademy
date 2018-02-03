@@ -82,6 +82,7 @@ return [
     'Quiz medium result' => 'Not bad!',
     'Quiz bad result' => 'Don\'t worry! Your results will be better soon.',
     'You need at least two answers!' => 'You need at least two answers!',
+    'Quiz Statistics' => 'Quiz Statistics',
 
     /*Static pages*/
     'Static pages' => 'Static pages'

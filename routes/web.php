@@ -99,8 +99,10 @@ Route::group(
                 Route::get('questions/show/{question}', 'QuestionsController@show')->name('questions.show');
                 Route::delete('questions/delete/{question}', 'QuestionsController@destroy')->name('questions.delete');
                 Route::get('questions/get-questions', 'QuestionsController@getQuestions')->name('questions.get_questions');
-                Route::post('questions/set-quiz-result', 'QuestionsController@setQuizResult')->name('questions.set_quiz_result');
 
+                /*Quiz*/
+                Route::post('questions/set-quiz-result', 'QuestionsController@setQuizResult')->name('questions.set_quiz_result');
+                Route::get('statistics/quiz', 'StatisticsController@showQuizStatistics')->name('show.quiz.statistics');
                 /*search*/
                 Route::get('find/{q?}', 'SearchController@adminFind')->name('posts.admin.find');
 
