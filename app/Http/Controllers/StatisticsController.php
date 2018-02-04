@@ -30,21 +30,21 @@ class StatisticsController extends Controller
             if ($quizAnswerStatistic->right_answer){
                 $rightAnswersArray[$quizAnswerStatistic->question_id]['count'] = $quizAnswerStatistic->count;
                 $rightAnswersArray[$quizAnswerStatistic->question_id]['position_x'] = $positionXrightAnswer;
-                $rightAnswersArray[$quizAnswerStatistic->question_id]['position_y'] = $y1 * 1 / ($quizAnswerStatistic->count * 2);
+                $rightAnswersArray[$quizAnswerStatistic->question_id]['position_y'] = $y1 - ($y1 / $questionsCount * $quizAnswerStatistic->count);
 
-                $wrongAnswersArray[$quizAnswerStatistic->question_id]['count'] = 0;
-                $wrongAnswersArray[$quizAnswerStatistic->question_id]['position_x'] = $positionXwrongAnswer;
-                $wrongAnswersArray[$quizAnswerStatistic->question_id]['position_y'] = $y1;
+//                $wrongAnswersArray[$quizAnswerStatistic->question_id]['count'] = 0;
+//                $wrongAnswersArray[$quizAnswerStatistic->question_id]['position_x'] = $positionXwrongAnswer;
+//                $wrongAnswersArray[$quizAnswerStatistic->question_id]['position_y'] = $y1;
 
             } else {
 
                 $wrongAnswersArray[$quizAnswerStatistic->question_id]['count'] = $quizAnswerStatistic->count;
                 $wrongAnswersArray[$quizAnswerStatistic->question_id]['position_x'] = $positionXwrongAnswer;
-                $wrongAnswersArray[$quizAnswerStatistic->question_id]['position_y'] = $y1 * 1 / ($quizAnswerStatistic->count * 2);
+                $wrongAnswersArray[$quizAnswerStatistic->question_id]['position_y'] = $y1 - ($y1 / $questionsCount * $quizAnswerStatistic->count);
 
-                $rightAnswersArray[$quizAnswerStatistic->question_id]['count'] = 0;
-                $rightAnswersArray[$quizAnswerStatistic->question_id]['position_x'] = $positionXrightAnswer;
-                $rightAnswersArray[$quizAnswerStatistic->question_id]['position_y'] = $y1;
+//                $rightAnswersArray[$quizAnswerStatistic->question_id]['count'] = 0;
+//                $rightAnswersArray[$quizAnswerStatistic->question_id]['position_x'] = $positionXrightAnswer;
+//                $rightAnswersArray[$quizAnswerStatistic->question_id]['position_y'] = $y1;
             }
             $positionXrightAnswer += $xDelta;
             $positionXwrongAnswer += $xDelta;

@@ -80,25 +80,11 @@
                         </g>
 
                         <g class="ct-series ct-series-b">
-<!--                            --><?php
-//
-//                            $deltaX1 = 551/$questionsCount;
-//                            $startX1 = 77;
-//                            foreach($questionsAnswerArray as $questionAnswers){
-//                                if (!array_key_exists(0, $questionAnswers)){
-//                                    echo "<line x1='$startX1' x2='$startX1' y1='265' y2='265' class='ct-bar'
-//                                                ct:value='0'></line>";
-//                                } else {
-//                                    $y2 = 1 / $questionAnswers[0] * 265;
-//                                    echo "<line x1='$startX1' x2='$startX1' y1='265' y2='".$y2."' class='ct-bar'
-//                                                ct:value='0'></line>";
-//                                }
-//
-//                                $startX1 += $deltaX1;
-//                            }
-//
-//                            ?>
-
+                            @foreach($wrongAnswersArray as $wrongAnswer)
+                                <line x1="{{$wrongAnswer['position_x']}}" x2="{{$wrongAnswer['position_x']}}"
+                                      y1="265" y2="{{$wrongAnswer['position_y']}}" class="ct-bar"
+                                      ct:value="{{$wrongAnswer['count']}}"></line>
+                            @endforeach
                         </g>
                             {{--red lines--}}
                             {{--<g class="ct-series ct-series-b">--}}
