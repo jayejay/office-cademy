@@ -46,13 +46,13 @@
 
                         <g class="ct-labels">
                             {{--Horizontal labels--}}
-                            @for($i = 1; $i < $questionsTotalCount +1; $i++)
+                            @for($i = 1; $i < $questionsTotalCount + 1; $i++)
                                 <foreignObject style="overflow: visible;"
-                                               x="{{$wrongAnswersArray[$i]['position_x'] - 30}}"
+                                               x="{{$i == 1 ? 50 : 50 + ($i - 1) * $xDelta}}"
                                                y="270" width="44" height="20">
                                     <span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/"
                                           style="width: 44px; height: 20px;">
-                                        Q{{$i}}
+                                        Q{{$questionIdArray[$i-1]}}
                                     </span>
                                 </foreignObject>
                             @endfor
